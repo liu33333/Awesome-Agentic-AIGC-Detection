@@ -11,20 +11,21 @@ Contributions can add papers or correct publication details, links, and method d
 Open an issue or pull request with:
 
 1. **Paper:** full title, stable primary-source link, and the version you read. Include publication status, venue, year, and a supporting proceedings, publisher, conference, or author announcement link; identify Findings and workshop tracks explicitly.
-2. **Task scope:** generated image/video detection, or a clearly identified related task such as local editing, face manipulation, audio manipulation, or factual verification.
+2. **Input modality and task scope:** image, video, image/video, or audio-video input; then generated image/video detection, or a clearly identified related task such as local editing, face manipulation, audio manipulation, or factual verification.
 3. **Inference mechanism:** what is observed, which decision follows, and what action can change. Note fixed tool calls and stopping conditions when relevant.
 4. **Evidence:** the supporting section, figure, algorithm, or short source passage. Paraphrase in the README; do not copy abstracts.
-5. **Suggested placement:** published/accepted papers or preprints, followed by an optional method-index tag. Keep papers under preprints when formal publication or acceptance has not been verified.
+5. **Table placement and date:** choose the input-modality section and insert the paper in descending date order. Published papers use the conference opening date; preprints and accepted papers without verified proceedings publication use the first arXiv submission date. Link the date source and keep status explicit. Use concise task and method tags.
 
 Example submission:
 
 - Paper and version: …
 - Venue, year, status, and source: …
-- Scope: …
+- Input modality, task scope, and method tags: …
+- Sorting date and source: …
 - Observed evidence → next decision → possible action: …
 - Evidence location: §… / Fig. … / Algorithm …
 - What remains fixed or unclear: …
-- Proposed one-sentence entry: …
+- Proposed table row (full linked title first): …
 
 ## Editorial principles
 
@@ -42,7 +43,7 @@ Example submission:
 - [ ] The paper is not already listed under another title or framework name.
 - [ ] The primary link opens and the title/version match.
 - [ ] Publication status and venue have a source; an arXiv posting alone is not evidence of acceptance.
-- [ ] Scope and inference behavior are supported by a specific source location.
+- [ ] Input modality, date source, descending order, task scope, and inference behavior are checked.
 - [ ] Training behavior is not presented as inference behavior.
 - [ ] The change contains no unsupported performance claim.
 - [ ] Both language versions are updated, or the missing translation is noted.
@@ -58,20 +59,21 @@ Please submit links and original summaries rather than uploading third-party pap
 请通过 issue 或 pull request 提供：
 
 1. **论文信息：**完整标题、稳定的一手来源链接，以及阅读的版本；注明发表状态、会议或期刊、年份，并附论文集、出版社、会议或作者公告的依据链接。Findings 和 workshop 必须明确标注。
-2. **任务范围：**生成图像/视频检测，或明确标注的局部编辑、人脸操纵、音频篡改、事实核查等相关任务。
+2. **输入模态与任务范围：**注明图像、视频、图像/视频或音视频输入；再区分生成内容检测与局部编辑、人脸操纵、音频篡改、事实核查等相关任务。
 3. **推理机制：**观察到了什么，接下来作出什么决策，哪些行动可以改变；必要时说明固定工具调用和结束条件。
 4. **证据位置：**支持描述的章节、图、算法或简短原文。在 README 中请使用自己的概括，不要复制摘要。
-5. **建议位置：**已发表/已录用论文或预印本，可补充方法索引标签。正式发表或录用信息尚未核实的论文保留在预印本部分。
+5. **表格位置与日期：**选择输入模态章节，按日期倒序插入。已发表论文使用会议开幕日期；预印本及尚未核实正式出版的已录用论文使用 arXiv 首次提交日期。附日期来源，明确标注状态，并使用简短的任务与技术标签。
 
 可参考以下格式：
 
 - 论文及版本：…
 - 会议或期刊、年份、状态及依据：…
-- 任务范围：…
+- 输入模态、任务范围与技术标签：…
+- 排序日期及来源：…
 - 已观察证据 → 下一步决策 → 可能行动：…
 - 证据位置：§… / 图 … / 算法 …
 - 固定部分或待核实之处：…
-- 建议的一句话描述：…
+- 建议表格行（完整论文标题及链接放在第一列）：…
 
 ### 编辑原则
 
@@ -89,7 +91,7 @@ Please submit links and original summaries rather than uploading third-party pap
 - [ ] 论文没有以其他标题或框架名重复收录。
 - [ ] 一手链接可打开，标题与版本对应。
 - [ ] 发表状态与会议或期刊有来源支持；仅有 arXiv 记录不代表已录用。
-- [ ] 任务范围和推理行为有具体来源支持。
+- [ ] 已核对输入模态、日期来源、倒序排列、任务范围及推理行为。
 - [ ] 没有把训练行为写成推理行为。
 - [ ] 没有无依据的性能声明。
 - [ ] 两种语言已同步，或已注明待补翻译。
