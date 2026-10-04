@@ -16,19 +16,24 @@ assignees: ''
 - Sorting date and source (conference opening date if published; first arXiv submission otherwise) / 排序日期及来源（已发表使用会议开幕日期；其他使用 arXiv 首次提交日期）:
 
 ## Input modality / 输入模态
-Image, video, image/video, or audio-video? / 图像、视频、图像/视频，还是音视频？
+Audio, visual (images/videos), text, or cross-modal? Classify by evidence examined. / 音频、视觉（图像/视频）、文本，还是跨模态？按实际分析的证据归类。
 
 ## Task scope / 任务范围
-Generated images, generated videos, or a clearly marked related task? / 生成图像、生成视频，还是需明确标注的相关任务？
+Generated-content detection or a clearly marked related task? / 生成内容检测，还是需明确标注的相关任务？
 
-## Inference mechanism / 推理机制
-Observed evidence → next decision → possible action. What stays fixed? / 已观察证据 → 下一步决策 → 可能行动。哪些部分固定？
+## Technical comparison / 技术对比
+- Agent organization / 智能体组织:
+- Tool interface / 工具接口:
+- What changes after feedback? / 反馈后改变什么？:
+- Agent training / 智能体训练:
+- Evidence output / 证据输出:
+- Official repository and authorship evidence / 官方仓库及归属依据:
 
 ## Evidence location / 证据位置
 Section, figure, or algorithm supporting the description. Distinguish training from inference. / 提供章节、图或算法位置，并区分训练与推理。
 
 ## Suggested entry and placement / 建议描述与分类
-Use a title-first table row with venue/status, date, task, and concise method tags; place it by input modality and descending date. / 使用论文标题优先的表格行，附发表位置/状态、日期、任务与简短技术标签；按输入模态归类，并按日期倒序排列。
+Use a title-first row with plain-text venue/status and date, input/task, and verified official repository link; place it by modality and descending date. Supply the comparison fields separately. / 使用论文标题优先的表格行，附纯文本发表位置/状态及日期、输入/任务和已核实仓库链接；按模态归类并按日期倒序排列，另附技术对比字段。
 
 Include uncertainty or missing translation, if any. / 请注明不确定之处或待补翻译。
 
