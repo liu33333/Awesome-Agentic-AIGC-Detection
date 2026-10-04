@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README_CN.md)
 
-Papers on agentic AIGC detection, organized by audio, visual, text and cross-modal evidence, with comparisons of agent organization, tools, feedback, training and evidence outputs.
+Papers on agentic AIGC detection across audio, visual, text and cross-modal inputs.
 
 ## Contents
 
@@ -10,16 +10,13 @@ Papers on agentic AIGC detection, organized by audio, visual, text and cross-mod
 - [Visual (images & videos)](#visual)
 - [Text](#text)
 - [Cross-modal](#cross-modal)
-- [Technical comparison](#technical-comparison)
-- [Contributing](#contributing)
-
-Tables run newest first: published papers use the conference opening date; preprints and accepted papers without verified proceedings publication use the first arXiv submission date. Status checked on 2026-10-04; “—” means no official repository verified.
+- [Technical comparison](docs/COMPARISON.md)
 
 <a id="audio"></a>
 
 ## Audio
 
-No verified standalone entries yet.
+No papers listed.
 
 <a id="visual"></a>
 
@@ -42,42 +39,13 @@ No verified standalone entries yet.
 
 ## Text
 
-No verified standalone entries yet.
+No papers listed.
 
 <a id="cross-modal"></a>
 
 ## Cross-modal
 
-Classified by jointly analyzed media evidence; text instructions alone do not make a method cross-modal.
-
 | Paper | Venue / status | Date | Input / task | Official repository |
 | --- | --- | --- | --- | --- |
 | <a id="omnivl-guard-pro"></a>**[OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics](https://arxiv.org/abs/2605.16962)** | arXiv 2026 · preprint | 2026-05-16 | Text–image / text–video · forgery/localization/fact-checking; also standalone modes | [Project; code pending](https://github.com/shen8424/OmniVL-Guard-Pro) |
 | <a id="fakehunter"></a>**[Memory-Anchored Multimodal Reasoning for Explainable Video Forensics](https://arxiv.org/abs/2508.14581)** (FakeHunter) | arXiv 2025 · preprint | 2025-08-20 | Audio–video · manipulation detection | — |
-
-<a id="technical-comparison"></a>
-
-## Technical comparison
-
-Organization refers to inference time; training describes agent adaptation, not whether underlying tools were pretrained. Tools are predefined unless code generation is specified.
-
-| Method | Agent organization | Tool interface | What changes after feedback? | Agent training | Evidence output |
-| --- | --- | --- | --- | --- | --- |
-| ATAR | Single agent | Predefined crop + 22 forensic tools | Choose next crop/tool or stop | SFT + GRPO; tool-prior curriculum | Verdict + region descriptions; Grounded-SAM masks |
-| ForenAgent | Single agent | Generated processing code + 12 fixed forensic tools | Revise operations/crops using tool outputs | SFT + GRPO | Verdict + reasoning + tool visualizations |
-| SafeGuard | Perceptual solver + verifier | Predefined localization + four forensic tools | Revise hypotheses and reacquire evidence (≤3 cycles) | No agent fine-tuning; forensic tools tuned | Verdict + confidence + localized cues |
-| Defake-o3 | Single agent | Predefined Zoom In | Choose another crop or final verdict | SFT + GRPO; verifier used for rewards | Verdict + global text; optional boxes/text |
-| Hermes | Planner + reasoner + three-role deliberation | RAG-selected Q&A checks + vision tools | Acquire tool evidence; revise graph (≤3 rounds) | No task-specific agent training | Verdict/score + temporal evidence graph |
-| UniShield | Perception → detection → report | Predefined eight-detector toolbox | One detector per image; no backtracking | GRPO task router; prompted scheduler | Verdict + report; task-dependent masks |
-| AgentFoX | Single reasoning core + experts | Predefined experts + reliability profiles | Refine fusion/report on collected evidence | No core fine-tuning described; fitted calibration | Verdict + confidence + evidence report |
-| EvoGuard | Single orchestrator | Detector APIs + capability profiles | Invoke complementary detectors or stop | GRPO; frozen detector tools | Verdict + multi-tool analysis |
-| ForgeryVCR | Single agent | ELA / NoisePrint++ / FFT / zoom | Use visual outputs for further tools/localization | SFT + GRPO | Verdict + boxes → SAM2 masks |
-| AIFo | Gatherer / reasoner / debaters / judge | Search / metadata / classifiers / VLM | Debate existing evidence; judge stops | Prompted agents; no weight training | Verdict + provenance/metadata + rationale |
-| OmniVL-Guard Pro | Single inference policy | Predefined search / crop / vision / SAM3 | Choose next tool from observations/errors | SFT + outcome RL + Checker-guided process RL | Verdict + trace + spatial/text/temporal grounding |
-| FakeHunter | Single prompted multimodal model | Memory retrieval / zoom / mel-spectrogram | Low confidence triggers visual/audio inspection | No agent fine-tuning; training-set memory | Verdict + manipulation type + explanation |
-
-<a id="contributing"></a>
-
-## Contributing
-
-[Suggest a paper](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=paper_suggestion.md) or [report a correction](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=correction.md). Include publication/date evidence, the official repository and source locations for comparison fields. See [CONTRIBUTING.md](CONTRIBUTING.md).
