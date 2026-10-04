@@ -10,6 +10,8 @@ assignees: ''
 - Title / 标题:
 - Primary-source URL / 一手来源链接:
 - Version or date / 版本或日期:
+- Venue, year, and status (published / accepted / preprint) / 发表场合、年份与状态（已发表 / 已录用 / 预印本）:
+- Publication or acceptance source (mark Findings/workshop explicitly) / 发表或录用依据（明确标注 Findings/workshop）:
 
 ## Task scope / 任务范围
 Generated images, generated videos, or a clearly marked related task? / 生成图像、生成视频，还是需明确标注的相关任务？

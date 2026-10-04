@@ -1,216 +1,127 @@
-![Evidence, tools, and adaptive investigation](assets/banner.svg)
-
 # Awesome Agentic AIGC Detection
 
 [English](README.md) | [简体中文](README_CN.md)
 
-循证整理智能体检测 AI 生成图像与视频的机制。
+整理面向生成图像与视频检测的智能体相关论文，并注明图像编辑、音频篡改等相关任务。
 
-[![Papers: 12](https://img.shields.io/badge/papers-12-0f766e?style=flat-square)](#feedback-loops) [![Languages: EN / 中文](https://img.shields.io/badge/languages-EN%20%2F%20中文-334155?style=flat-square)](README_CN.md)
+## 目录
 
-[范围与阅读方式](#scope) · [覆盖 AIGC 的反馈循环](#feedback-loops) · [相关篡改取证](#related-forensics) · [限定流程中的自适应](#bounded-workflows) · [参与维护](#contributing)
+- [已发表 / 已录用论文](#published-accepted)
+  - [2026](#published-2026)
+- [预印本](#preprints)
+  - [2026](#preprints-2026)
+  - [2025](#preprints-2025)
+- [方法索引](#method-index)
+- [补充与纠错](#contributing)
 
-<a id="scope"></a>
+<a id="published-accepted"></a>
 
-## 范围与阅读方式
+## 已发表 / 已录用论文
 
-聚焦生成图像与视频检测；局部编辑、人脸操纵、音频篡改和事实核查均明确标为相关任务。描述以所引论文为依据，不代表独立性能验证，也不是排行榜或复现项目。
+发表与录用信息核实日期为 **2026-10-04**；会议名称链接至论文集或录用依据，Findings 与主会分开标注。
 
-<details>
-<summary>清单如何组织</summary>
+<a id="published-2026"></a>
 
-阅读时关注**什么会调整、在何时调整、面向什么任务**：选择检测器、观察局部区域、执行取证代码，或根据新证据调整判断。
+### 2026
 
-当前收录 **12 篇论文**，按三个阅读入口组织（7 / 2 / 3）：
+<a id="hermes"></a>
 
-- **覆盖 AIGC 的反馈循环：**推理时，观测结果或验证反馈可以改变后续行动。
-- **相关篡改取证：**相邻任务中的智能体机制；收录并不代表论文覆盖完整生成内容。
-- **限定流程中的自适应：**通过辩论、档案查询或初始路由调整流程，不据此推断存在任意工具重规划。
+**[ICML 2026 · 已发表](https://proceedings.mlr.press/v306/li26be.html)** [Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection](https://proceedings.mlr.press/v306/li26be.html)
 
-这些是互补的阅读标签，不是质量分级。任务范围与控制流程是两个维度：篡改检测可以有反馈循环，AIGC 检测也可以使用限定流程。仅有最大步数限制，并不意味着属于这里所说的“限定流程”。
+面向生成视频检测，检索取证计划，再通过工具辅助的多智能体讨论修订证据图并请求补充证据。
 
-**证据标准：**机制描述来自所引论文，不代表独立验证了性能。这是一份选择性文献地图，不是排行榜或复现项目。方法名包含“Agent”、使用推理或调用多个模型，本身不足以证明存在测试时的证据—行动循环。训练阶段的迭代与推理阶段的反馈分开记录。
+<a id="forenagent"></a>
 
-</details>
+**[ECCV 2026 · 已发表](https://link.springer.com/chapter/10.1007/978-3-032-37592-6_12)** [Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection](https://arxiv.org/abs/2512.16300) (ForenAgent)
 
-<a id="feedback-loops"></a>
+面向生成图像及局部编辑，生成并执行 Python 代码，根据返回的文本和可视化结果继续分析。
 
-## 覆盖 AIGC 的反馈循环
+<a id="safeguard"></a>
 
-### [EvoGuard](https://arxiv.org/abs/2603.17343)
+**[ECCV 2026 · 已发表](https://link.springer.com/chapter/10.1007/978-3-032-37029-7_33)** [SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection](https://arxiv.org/abs/2607.03069)
 
-`图像` · **任务范围：** 生成图像
+面向具有社会风险的生成视频，核查证据对假设的支持程度，并在验证不足时修订假设、重新感知与推理。
 
-按能力档案选择检测工具；根据返回结果决定追加调用或结束。
+<a id="unishield"></a>
 
-<details>
-<summary>论文依据</summary>
+**[CVPR Findings 2026 · 已发表](https://openaccess.thecvf.com/content/CVPR2026F/html/Huang_UniShield_An_Adaptive_Multi-Agent_Framework_for_Unified_Forgery_Image_Detection_CVPRF_2026_paper.html)** [UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization](https://arxiv.org/abs/2510.03161)
 
-§3.2–3.3；图 2
+覆盖生成图像及人脸、局部图像和文档篡改，将输入路由至单个检测器并汇总结果，不采用回溯或多工具协作。
 
-</details>
+<a id="defake-o3"></a>
 
-### [Defake-o3](https://arxiv.org/abs/2608.16259)
+**[ACM Multimedia 2026 · 已录用](https://arxiv.org/abs/2608.16259)** [Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection](https://arxiv.org/abs/2608.16259)
 
-`图像` · **任务范围：** 生成图像
+面向生成图像检测，自适应选择局部区域进行观察后作出判断；Evidence Verifier 用于训练奖励，并非测试时的验证环节。
 
-观察当前图像或裁剪区域后，选择继续裁剪或输出结论。Evidence Verifier 用于训练奖励；推理时的循环是视觉搜索。
+<a id="atar"></a>
 
-<details>
-<summary>论文依据</summary>
+**[ACM Multimedia 2026 · 口头报告 · 已录用](https://arxiv.org/abs/2609.39066)** [Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection](https://arxiv.org/abs/2609.39066) (ATAR)
 
-§4.1–4.4；图 3
+覆盖 AIGC 检测及图像编辑、人脸和文档篡改，根据返回结果交替调用裁剪与取证工具。
 
-</details>
+<a id="forgeryvcr"></a>
 
-### [ForenAgent](https://arxiv.org/abs/2512.16300)，*Code-in-the-Loop Forensics*
+**[ACM Multimedia 2026 · 口头报告 · 已录用](https://github.com/youqiwong/ForgeryVCR)** [ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization](https://arxiv.org/abs/2602.14098)
 
-`图像` · **任务范围：** 完整合成图像，兼及**相关局部编辑**
+面向相关的图像篡改检测与定位，选择性调用取证变换和局部放大，并将可视化结果用于后续推理。
 
-生成并执行 Python，利用返回的文本和视觉结果继续编写代码与推理。
+<a id="preprints"></a>
 
-<details>
-<summary>论文依据</summary>
+## 预印本
 
-§3.2
+以下论文截至 **2026-10-04** 尚未核实正式发表或录用信息；按 arXiv 首次提交年份归档，同年按时间倒序排列。
 
-</details>
+<a id="preprints-2026"></a>
 
-### [ATAR](https://arxiv.org/abs/2609.39066)，*Agentic Tool-Augmented Reasoning*
+### 2026
 
-`图像` · **任务范围：** 包含 AIGC 的混合图像取证；兼及**编辑、人脸和文档篡改**
+<a id="omnivl-guard-pro"></a>
 
-在裁剪、22 种取证工具与输出决策之间切换，工具结果进入下一轮上下文。
+**[arXiv 2026 · 预印本]** [OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics](https://arxiv.org/abs/2605.16962)
 
-<details>
-<summary>论文依据</summary>
+覆盖生成图像/视频及相关的定位、事实核查任务，根据已有观测选择后续工具与参数；检查器引导的训练属于独立环节。
 
-§3.1；图 2
+<a id="agentfox"></a>
 
-</details>
+**[arXiv 2026 · 预印本]** [AgentFoX: LLM Agent-Guided Fusion with eXplainability for AI-Generated Image Detection](https://arxiv.org/abs/2603.23115)
 
-### [OmniVL-Guard Pro](https://arxiv.org/abs/2605.16962)
+面向生成图像检测，先调用各个专家，再在结果冲突时查询可靠性档案，调整证据解释而非重新规划检测器调用。
 
-`图像 / 视频` · **任务范围：** 混合媒体取证中的生成图像/视频；兼及**定位与事实核查**
+<a id="evoguard"></a>
 
-利用已返回的观测选择后续工具及参数，包括裁剪、视频帧提取与搜索。Checker 引导训练是另一个组成部分。
+**[arXiv 2026 · 预印本]** [EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection](https://arxiv.org/abs/2603.17343)
 
-<details>
-<summary>论文依据</summary>
+面向生成图像检测，依据能力档案选择检测器，并根据结果决定继续调用工具或停止。
 
-§2；附录 E；§4（训练）
+<a id="preprints-2025"></a>
 
-</details>
+### 2025
 
-### [SafeGuard](https://arxiv.org/abs/2607.03069)
+<a id="aifo"></a>
 
-`视频` · **任务范围：** 生成视频，侧重社会风险场景
+**[arXiv 2025 · 预印本]** [From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection](https://arxiv.org/abs/2511.00181) (AIFo)
 
-验证器检查证据与假设的一致性；可靠性不足时修改假设，重新执行感知—推理循环。
+面向生成图像检测，执行初始工具集后，在证据不足或冲突时启动讨论，不重新规划证据采集。
 
-<details>
-<summary>论文依据</summary>
+<a id="fakehunter"></a>
 
-§3.2；图 2
+**[arXiv 2025 · 预印本]** [Memory-Anchored Multimodal Reasoning for Explainable Video Forensics](https://arxiv.org/abs/2508.14581) (FakeHunter)
 
-</details>
+面向相关的视频和音频篡改，检索参考样例，并在置信度不足时调用视觉或音频工具进行条件验证，随后给出解释。
 
-### [Hermes](https://proceedings.mlr.press/v306/li26be.html)
+<a id="method-index"></a>
 
-`视频` · **任务范围：** 生成视频
+## 方法索引
 
-检索针对当前视频的取证计划，构建证据图，再通过调用工具的多智能体讨论重新检查不确定证据；证据图修订与补充证据请求决定是否继续下一轮。
-
-<details>
-<summary>论文依据</summary>
-
-§3.1–3.3；图 2–3。[论文 PDF](https://raw.githubusercontent.com/mlresearch/v306/main/assets/li26be/li26be.pdf)
-
-§3.3 描述了调用工具的讨论过程，以及超出初始计划的证据空间扩展。修订后的证据图进入下一轮；没有被接受的修订且不再需要更多证据，或达到轮数上限时结束。
-
-</details>
-
-<a id="related-forensics"></a>
-
-## 相关篡改取证
-
-### [ForgeryVCR](https://arxiv.org/abs/2602.14098)
-
-`相关任务` · **任务范围：** 图像篡改检测与定位
-
-按需调用取证变换和局部放大，将视觉工具输出加入推理上下文，再完成定位。
-
-<details>
-<summary>论文依据</summary>
-
-§3.1–3.2；图 2
-
-</details>
-
-### [FakeHunter](https://arxiv.org/abs/2508.14581)，*Memory-Anchored Multimodal Reasoning for Explainable Video Forensics*
-
-`相关任务` · **任务范围：** 视频与音频篡改
-
-检索案例辅助推理；低置信度触发视觉/音频工具后再综合判断。该条件验证阶段不等同于任意工具重规划。
-
-<details>
-<summary>论文依据</summary>
-
-“Tool-Augmented Verification” 小节
-
-</details>
-
-FakeHunter 使用框架名索引，上方列出链接论文的当前标题。标题与机制可能随论文版本变化。
-
-<a id="bounded-workflows"></a>
-
-## 限定流程中的自适应
-
-### [AIFo](https://arxiv.org/abs/2511.00181)，*From Evidence to Verdict*
-
-`图像` · **任务范围：** 生成图像
-
-先执行初始工具集合；证据不足或冲突时触发辩论。辩论与结束条件自适应，所述核心流程不重新规划证据采集。
-
-<details>
-<summary>论文依据</summary>
-
-“The AIFo Framework” 的 Overview；图 1
-
-</details>
-
-### [AgentFoX](https://arxiv.org/abs/2603.23115)
-
-`图像` · **任务范围：** 生成图像
-
-初始阶段查询全部专家；出现冲突后查询上下文可靠性/档案。应区分证据解释的自适应与重新选择检测器调用序列。
-
-<details>
-<summary>论文依据</summary>
-
-§3.2，阶段 2–3；图 3
-
-</details>
-
-### [UniShield](https://arxiv.org/abs/2510.03161)
-
-`图像` · **任务范围：** 生成图像，兼及**人脸、局部图像和文档篡改**
-
-为输入路由选择一个检测器，再汇总结果；所述流程明确避免回溯与多工具协同。
-
-<details>
-<summary>论文依据</summary>
-
-Methodology 的 Overview；图 2
-
-</details>
+- **自适应工具调用：** [EvoGuard](#evoguard)、[ForenAgent](#forenagent)、[ATAR](#atar)、[OmniVL-Guard Pro](#omnivl-guard-pro)。
+- **主动视觉观察：** [Defake-o3](#defake-o3)、[ForgeryVCR](#forgeryvcr)。
+- **多智能体证据推理：** [SafeGuard](#safeguard)、[Hermes](#hermes)、[AIFo](#aifo)。
+- **专家路由与证据融合：** [UniShield](#unishield)、[AgentFoX](#agentfox)。
+- **检索与条件验证：** [FakeHunter](#fakehunter)。
 
 <a id="contributing"></a>
 
-## 参与维护
+## 补充与纠错
 
-[推荐论文](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=paper_suggestion.md) · [报告纠错](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=correction.md)
-
-欢迎通过 issue 或 pull request 补充论文、修正机制描述或澄清任务边界。请提供论文链接，以及支持描述的章节、图或算法位置。小而有据的修改尤其有帮助。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
-
-无需重跑实验或提交性能排名。链接指向原始工作；收录不代表认可某方法适合用于高后果决策。
+欢迎[推荐论文](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=paper_suggestion.md)或[提交纠错](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=correction.md)。请提供完整标题、发表状态、场合及来源，以及支持方法描述的章节或图。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。

@@ -1,216 +1,127 @@
-![Evidence, tools, and adaptive investigation](assets/banner.svg)
-
 # Awesome Agentic AIGC Detection
 
 [English](README.md) | [简体中文](README_CN.md)
 
-An evidence-led guide to agentic detection of AI-generated images and videos.
+Papers on agentic detection of AI-generated images and videos, with related manipulation-forensics tasks marked separately.
 
-[![Papers: 12](https://img.shields.io/badge/papers-12-0f766e?style=flat-square)](#feedback-loops) [![Languages: EN / 中文](https://img.shields.io/badge/languages-EN%20%2F%20中文-334155?style=flat-square)](README_CN.md)
+## Contents
 
-[Scope and reading guide](#scope) · [AIGC-capable feedback loops](#feedback-loops) · [Related manipulation forensics](#related-forensics) · [Bounded adaptive workflows](#bounded-workflows) · [Contributing](#contributing)
+- [Published / accepted papers](#published-accepted)
+  - [2026](#published-2026)
+- [Preprints](#preprints)
+  - [2026](#preprints-2026)
+  - [2025](#preprints-2025)
+- [Method index](#method-index)
+- [Contributing](#contributing)
 
-<a id="scope"></a>
+<a id="published-accepted"></a>
 
-## Scope and reading guide
+## Published / accepted papers
 
-Focused on generated-image and generated-video detection, with local editing, face manipulation, audio manipulation, and factual verification explicitly marked as related tasks. Descriptions follow the cited papers; this is not independent performance validation, a leaderboard, or a reproduction suite.
+Publication and acceptance records checked on **2026-10-04**; venue links point to proceedings or acceptance evidence, with Findings labeled explicitly.
 
-<details>
-<summary>How this list is organized</summary>
+<a id="published-2026"></a>
 
-Follow **what adapts, when it adapts, and which task it addresses**: selecting detectors, inspecting regions, executing forensic code, or revisiting conclusions with new evidence.
+### 2026
 
-**12 papers**, organized into three browsing groups (7 / 2 / 3):
+<a id="hermes"></a>
 
-- **AIGC-capable feedback loops:** observations or verifier feedback can change subsequent inference actions.
-- **Related manipulation forensics:** useful agent mechanisms in adjacent tasks; their inclusion does not establish coverage of fully generated media.
-- **Bounded adaptive workflows:** adaptation through debate, profile lookup, or initial routing, without assuming unrestricted tool replanning.
+**[ICML 2026 · published](https://proceedings.mlr.press/v306/li26be.html)** [Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection](https://proceedings.mlr.press/v306/li26be.html)
 
-These are complementary browsing labels, not a quality hierarchy. Task scope and control flow are separate dimensions: a manipulation-focused method can have a feedback loop, and an AIGC detector can use a bounded workflow. A finite step budget does not itself make a method “bounded” in the narrower workflow sense used here.
+For generated-video detection, retrieves a forensic plan and uses tool-assisted multi-agent deliberation to revise an evidence graph and request further evidence.
 
-**Evidence standard:** descriptions reflect the cited papers, not independent performance validation. This is a selective literature map, not a leaderboard or reproduction suite. “Agent,” “reasoning,” and multiple model calls alone do not establish a test-time evidence–action loop. Training-time refinement is recorded separately from inference behavior.
+<a id="forenagent"></a>
 
-</details>
+**[ECCV 2026 · published](https://link.springer.com/chapter/10.1007/978-3-032-37592-6_12)** [Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection](https://arxiv.org/abs/2512.16300) (ForenAgent)
 
-<a id="feedback-loops"></a>
+For synthetic images and local edits, generates and executes Python, using returned text and visual results to guide further analysis.
 
-## AIGC-capable feedback loops
+<a id="safeguard"></a>
 
-### [EvoGuard](https://arxiv.org/abs/2603.17343)
+**[ECCV 2026 · published](https://link.springer.com/chapter/10.1007/978-3-032-37029-7_33)** [SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection](https://arxiv.org/abs/2607.03069)
 
-`Images` · **Scope:** Generated images
+For generated videos with social risks, checks evidence against hypotheses and repeats perception and reasoning when the verifier finds insufficient support.
 
-Selects detector tools using capability profiles; returned results guide additional calls or stopping.
+<a id="unishield"></a>
 
-<details>
-<summary>Evidence pointer</summary>
+**[CVPR Findings 2026 · published](https://openaccess.thecvf.com/content/CVPR2026F/html/Huang_UniShield_An_Adaptive_Multi-Agent_Framework_for_Unified_Forgery_Image_Detection_CVPRF_2026_paper.html)** [UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization](https://arxiv.org/abs/2510.03161)
 
-§3.2–3.3; Fig. 2
+For generated images and related face, local-image and document manipulation, routes each image to one detector and summarizes its output without backtracking or multi-tool collaboration.
 
-</details>
+<a id="defake-o3"></a>
 
-### [Defake-o3](https://arxiv.org/abs/2608.16259)
+**[ACM Multimedia 2026 · accepted](https://arxiv.org/abs/2608.16259)** [Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection](https://arxiv.org/abs/2608.16259)
 
-`Images` · **Scope:** Generated images
+For generated-image detection, adaptively inspects crops before deciding; its Evidence Verifier provides training rewards rather than test-time verification.
 
-Chooses another crop or a final output after observing the current image/patch. Its Evidence Verifier supplies training rewards; the inference loop is visual search.
+<a id="atar"></a>
 
-<details>
-<summary>Evidence pointer</summary>
+**[ACM Multimedia 2026 · Oral · accepted](https://arxiv.org/abs/2609.39066)** [Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection](https://arxiv.org/abs/2609.39066) (ATAR)
 
-§4.1–4.4; Fig. 3
+For AIGC detection and related image, face and document manipulation, alternates crops and forensic tools according to returned results.
 
-</details>
+<a id="forgeryvcr"></a>
 
-### [ForenAgent](https://arxiv.org/abs/2512.16300), *Code-in-the-Loop Forensics*
+**[ACM Multimedia 2026 · Oral · accepted](https://github.com/youqiwong/ForgeryVCR)** [ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization](https://arxiv.org/abs/2602.14098)
 
-`Images` · **Scope:** Fully synthetic images **and related local editing**
+For image-manipulation detection and localization, selectively applies forensic transforms and local zoom, feeding the visual outputs into subsequent reasoning.
 
-Generates and executes Python; returned text and visual outputs inform further code and reasoning.
+<a id="preprints"></a>
 
-<details>
-<summary>Evidence pointer</summary>
+## Preprints
 
-§3.2
+No formal publication or acceptance was verified for the following papers as of **2026-10-04**; years refer to the first arXiv submission, with newer submissions listed first.
 
-</details>
+<a id="preprints-2026"></a>
 
-### [ATAR](https://arxiv.org/abs/2609.39066), *Agentic Tool-Augmented Reasoning*
+### 2026
 
-`Images` · **Scope:** Mixed image forensics, including AIGC; **related editing, face and document manipulation**
+<a id="omnivl-guard-pro"></a>
 
-Alternates crops, a 22-tool forensic library, and decisions; tool outputs feed the next turn.
+**[arXiv 2026 · preprint]** [OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics](https://arxiv.org/abs/2605.16962)
 
-<details>
-<summary>Evidence pointer</summary>
+For generated images/videos and related localization and factual verification, selects subsequent tools and parameters from returned observations; checker-guided training is a separate component.
 
-§3.1; Fig. 2
+<a id="agentfox"></a>
 
-</details>
+**[arXiv 2026 · preprint]** [AgentFoX: LLM Agent-Guided Fusion with eXplainability for AI-Generated Image Detection](https://arxiv.org/abs/2603.23115)
 
-### [OmniVL-Guard Pro](https://arxiv.org/abs/2605.16962)
+For generated-image detection, initially queries every expert and consults reliability profiles when results conflict, adapting interpretation rather than replanning detector calls.
 
-`Images / videos` · **Scope:** Generated images/videos within mixed media forensics; **related localization and factual verification**
+<a id="evoguard"></a>
 
-Uses returned observations to select subsequent tools and parameters, including crops, frame extraction, and search. Checker-guided training is a separate component.
+**[arXiv 2026 · preprint]** [EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection](https://arxiv.org/abs/2603.17343)
 
-<details>
-<summary>Evidence pointer</summary>
+For generated-image detection, selects detectors using capability profiles and uses their results to decide whether to call more tools or stop.
 
-§2; Appendix E; §4 (training)
+<a id="preprints-2025"></a>
 
-</details>
+### 2025
 
-### [SafeGuard](https://arxiv.org/abs/2607.03069)
+<a id="aifo"></a>
 
-`Video` · **Scope:** Generated videos, with a social-risk focus
+**[arXiv 2025 · preprint]** [From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection](https://arxiv.org/abs/2511.00181) (AIFo)
 
-A verifier checks evidence against hypotheses; low reliability triggers hypothesis revision and another perception–reasoning cycle.
+For generated-image detection, executes an initial tool set and conditionally debates insufficient or conflicting evidence, without replanning evidence acquisition.
 
-<details>
-<summary>Evidence pointer</summary>
+<a id="fakehunter"></a>
 
-§3.2; Fig. 2
+**[arXiv 2025 · preprint]** [Memory-Anchored Multimodal Reasoning for Explainable Video Forensics](https://arxiv.org/abs/2508.14581) (FakeHunter)
 
-</details>
+For related video and audio manipulation, retrieves reference examples and conditionally invokes visual/audio tools when confidence is low before producing a final explanation.
 
-### [Hermes](https://proceedings.mlr.press/v306/li26be.html)
+<a id="method-index"></a>
 
-`Video` · **Scope:** Generated videos
+## Method index
 
-Retrieves a video-specific forensic plan, builds an evidence graph, then revisits uncertain evidence with tool-assisted multi-agent deliberation; graph revisions and requests for more evidence control further rounds.
-
-<details>
-<summary>Evidence pointer</summary>
-
-§3.1–3.3; Figs. 2–3. [Paper PDF](https://raw.githubusercontent.com/mlresearch/v306/main/assets/li26be/li26be.pdf)
-
-§3.3 describes tool-assisted deliberation and evidence-space expansion beyond the initial plan. The revised evidence graph feeds the next round; the loop stops when no revision is accepted and no more evidence is requested, or the round limit is reached.
-
-</details>
-
-<a id="related-forensics"></a>
-
-## Related manipulation forensics
-
-### [ForgeryVCR](https://arxiv.org/abs/2602.14098)
-
-`Related task` · **Scope:** **Related:** image manipulation detection and localization
-
-Selectively invokes forensic transforms and local zoom; visual tool outputs enter the reasoning context before localization.
-
-<details>
-<summary>Evidence pointer</summary>
-
-§3.1–3.2; Fig. 2
-
-</details>
-
-### [FakeHunter](https://arxiv.org/abs/2508.14581), *Memory-Anchored Multimodal Reasoning for Explainable Video Forensics*
-
-`Related task` · **Scope:** **Related:** video and audio manipulation
-
-Retrieved examples support reasoning; low confidence triggers visual/audio tools before a final synthesis. This conditional verification stage should not be equated with unrestricted replanning.
-
-<details>
-<summary>Evidence pointer</summary>
-
-“Tool-Augmented Verification” section
-
-</details>
-
-FakeHunter is listed under its framework name; the linked paper's current title is shown above. Paper titles and mechanisms may change between versions.
-
-<a id="bounded-workflows"></a>
-
-## Bounded adaptive workflows
-
-### [AIFo](https://arxiv.org/abs/2511.00181), *From Evidence to Verdict*
-
-`Images` · **Scope:** Generated images
-
-Executes the initial tool set, then conditionally debates conflicting or insufficient evidence. Debate and stopping adapt; the described core does not replan evidence acquisition.
-
-<details>
-<summary>Evidence pointer</summary>
-
-“The AIFo Framework”: Overview; Fig. 1
-
-</details>
-
-### [AgentFoX](https://arxiv.org/abs/2603.23115)
-
-`Images` · **Scope:** Generated images
-
-Initially queries each expert; conflict triggers contextual reliability/profile consultation. Distinguish adaptive evidence interpretation from choosing a fresh sequence of detectors.
-
-<details>
-<summary>Evidence pointer</summary>
-
-§3.2, Stages 2–3; Fig. 3
-
-</details>
-
-### [UniShield](https://arxiv.org/abs/2510.03161)
-
-`Images` · **Scope:** Generated images **and related face, local-image and document manipulation**
-
-Routes an image to one detector and summarizes its output. The described workflow intentionally avoids backtracking and multi-tool collaboration.
-
-<details>
-<summary>Evidence pointer</summary>
-
-Methodology: Overview; Fig. 2
-
-</details>
+- **Adaptive tool use:** [EvoGuard](#evoguard), [ForenAgent](#forenagent), [ATAR](#atar), [OmniVL-Guard Pro](#omnivl-guard-pro).
+- **Active perception:** [Defake-o3](#defake-o3), [ForgeryVCR](#forgeryvcr).
+- **Multi-agent evidence reasoning:** [SafeGuard](#safeguard), [Hermes](#hermes), [AIFo](#aifo).
+- **Expert routing and evidence fusion:** [UniShield](#unishield), [AgentFoX](#agentfox).
+- **Retrieval and conditional verification:** [FakeHunter](#fakehunter).
 
 <a id="contributing"></a>
 
 ## Contributing
 
-[Suggest a paper](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=paper_suggestion.md) · [Report a correction](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=correction.md)
-
-Add a paper, correct a mechanism description, or clarify a boundary through an issue or pull request. Please include a paper link and the section, figure, or algorithm supporting the proposed description. Small, evidence-backed changes are especially useful. See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-No experiment reruns or performance rankings are required. Links point to the original works; inclusion is not an endorsement of a method's reliability for consequential decisions.
+[Suggest a paper](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=paper_suggestion.md) or [report a correction](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=correction.md). Include the full title, publication status, venue and source, plus a section or figure supporting the method description. See [CONTRIBUTING.md](CONTRIBUTING.md).

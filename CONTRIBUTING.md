@@ -4,21 +4,22 @@
 
 <a id="english"></a>
 
-Thank you for helping make agentic AIGC detection easier to navigate. A useful contribution can be as small as one corrected link or a clearer explanation of one inference step.
+Contributions can add papers or correct publication details, links, and method descriptions.
 
 ## Propose a paper or correction
 
 Open an issue or pull request with:
 
-1. **Paper:** title, stable primary-source link, and the version you read.
+1. **Paper:** full title, stable primary-source link, and the version you read. Include publication status, venue, year, and a supporting proceedings, publisher, conference, or author announcement link; identify Findings and workshop tracks explicitly.
 2. **Task scope:** generated image/video detection, or a clearly identified related task such as local editing, face manipulation, audio manipulation, or factual verification.
 3. **Inference mechanism:** what is observed, which decision follows, and what action can change. Note fixed tool calls and stopping conditions when relevant.
 4. **Evidence:** the supporting section, figure, algorithm, or short source passage. Paraphrase in the README; do not copy abstracts.
-5. **Suggested placement:** feedback-loop, related-forensics, or bounded-workflow group. Explain uncertainty rather than forcing a label.
+5. **Suggested placement:** published/accepted papers or preprints, followed by an optional method-index tag. Keep papers under preprints when formal publication or acceptance has not been verified.
 
 Example submission:
 
 - Paper and version: …
+- Venue, year, status, and source: …
 - Scope: …
 - Observed evidence → next decision → possible action: …
 - Evidence location: §… / Fig. … / Algorithm …
@@ -40,6 +41,7 @@ Example submission:
 
 - [ ] The paper is not already listed under another title or framework name.
 - [ ] The primary link opens and the title/version match.
+- [ ] Publication status and venue have a source; an arXiv posting alone is not evidence of acceptance.
 - [ ] Scope and inference behavior are supported by a specific source location.
 - [ ] Training behavior is not presented as inference behavior.
 - [ ] The change contains no unsupported performance claim.
@@ -55,15 +57,16 @@ Please submit links and original summaries rather than uploading third-party pap
 
 请通过 issue 或 pull request 提供：
 
-1. **论文信息：**标题、稳定的一手来源链接，以及阅读的版本。
+1. **论文信息：**完整标题、稳定的一手来源链接，以及阅读的版本；注明发表状态、会议或期刊、年份，并附论文集、出版社、会议或作者公告的依据链接。Findings 和 workshop 必须明确标注。
 2. **任务范围：**生成图像/视频检测，或明确标注的局部编辑、人脸操纵、音频篡改、事实核查等相关任务。
 3. **推理机制：**观察到了什么，接下来作出什么决策，哪些行动可以改变；必要时说明固定工具调用和结束条件。
 4. **证据位置：**支持描述的章节、图、算法或简短原文。在 README 中请使用自己的概括，不要复制摘要。
-5. **建议分类：**反馈循环、相关取证或限定流程。不确定的地方请明确说明，不必勉强归类。
+5. **建议位置：**已发表/已录用论文或预印本，可补充方法索引标签。正式发表或录用信息尚未核实的论文保留在预印本部分。
 
 可参考以下格式：
 
 - 论文及版本：…
+- 发表场合、年份、状态及依据：…
 - 任务范围：…
 - 已观察证据 → 下一步决策 → 可能行动：…
 - 证据位置：§… / 图 … / 算法 …
@@ -85,6 +88,7 @@ Please submit links and original summaries rather than uploading third-party pap
 
 - [ ] 论文没有以其他标题或框架名重复收录。
 - [ ] 一手链接可打开，标题与版本对应。
+- [ ] 发表状态与场合有来源支持；仅有 arXiv 记录不代表已录用。
 - [ ] 任务范围和推理行为有具体来源支持。
 - [ ] 没有把训练行为写成推理行为。
 - [ ] 没有无依据的性能声明。
