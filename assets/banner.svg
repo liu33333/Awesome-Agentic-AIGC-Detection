@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic AIGC Detection</title>
+  <desc id="desc">An original navy and teal illustration connecting evidence, tools, and adaptive investigation.</desc>
+  <rect width="1200" height="220" rx="16" fill="#0f172a"/>
+  <path d="M0 219H1200" stroke="#2dd4bf" stroke-width="3"/>
+  <g fill="none" stroke="#334155" stroke-width="1">
+    <path d="M840 0V220M920 0V220M1000 0V220M1080 0V220M1160 0V220M800 40H1200M800 110H1200M800 180H1200"/>
+  </g>
+  <text x="56" y="85" fill="#5eead4" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="3">EVIDENCE → ACTION</text>
+  <text x="54" y="143" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Investigate. Adapt. Verify.</text>
+  <g fill="none" stroke="#2dd4bf" stroke-width="3">
+    <path d="M870 112H955M991 112H1080M973 130V167H870V130"/>
+    <rect x="842" y="84" width="56" height="56" rx="10" fill="#132a3b"/>
+    <circle cx="973" cy="112" r="28" fill="#132a3b"/>
+    <rect x="1052" y="84" width="56" height="56" rx="10" fill="#132a3b"/>
+    <path d="M858 100H882M858 111H878M858 122H874M960 112H986M973 99V125M1065 113L1076 123L1095 102"/>
+  </g>
+</svg>
