@@ -124,4 +124,4 @@
 
 ## 补充与纠错
 
-欢迎[推荐论文](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=paper_suggestion.md)或[提交纠错](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=correction.md)。请提供完整标题、发表状态、场合及来源，以及支持方法描述的章节或图。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+欢迎[推荐论文](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=paper_suggestion.md)或[提交纠错](https://github.com/liu33333/Awesome-Agentic-AIGC-Detection/issues/new?template=correction.md)。请提供完整标题、发表状态、会议或期刊及来源，以及支持方法描述的章节或图。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
