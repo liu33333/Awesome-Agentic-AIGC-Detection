@@ -14,7 +14,7 @@ Task tags describe explicit outputs: Detection (authenticity verdict), Localizat
 
 ### Visual (images & videos)
 
-| Method | Input / task coverage | Forensic inference models / tools | Agent training-free | Training / setup notes |
+| Method | Input / task coverage | Forensic inference models / tools | Agent<br>training‑free | Training / setup notes |
 | --- | --- | --- | --- | --- |
 | **[ATAR](../README.md#atar)** | Image · generated-image detection; face/local/document manipulation<br><sub>Outputs: Detection · Localization · Explanation</sub> | Qwen3-VL-8B-Instruct<br><sub>Tools: Grounded-SAM</sub> | No | SFT + GRPO. Grounded-SAM converts region descriptions to localization masks. |
 | **[ForenAgent](../README.md#forenagent)** | Image · generated-image detection; local tampering<br><sub>Outputs: Detection · Explanation</sub> | Qwen2.5-VL-7B<br><sub>Tools: 12 forensic tools</sub> | No | Full-parameter SFT + GRPO. Artifact-based adjudication; crops guide inspection. |
@@ -29,7 +29,7 @@ Task tags describe explicit outputs: Detection (authenticity verdict), Localizat
 
 ### Cross-modal
 
-| Method | Input / task coverage | Forensic inference models / tools | Agent training-free | Training / setup notes |
+| Method | Input / task coverage | Forensic inference models / tools | Agent<br>training‑free | Training / setup notes |
 | --- | --- | --- | --- | --- |
 | **[OmniVL-Guard Pro](../README.md#omnivl-guard-pro)** | Text–image / text–video · forgery/localization/fact-checking; also standalone modes<br><sub>Outputs: Detection · Localization</sub> | Qwen3-VL-8B<br><sub>Tools: InsightFace; SAM3; search / crop / frame tools</sub> | No | FSTR SFT + outcome/process RL. Checker is training-only; reported task outputs include classes and grounding. |
 | **[FakeHunter](../README.md#fakehunter)** | Audio–video · manipulation detection<br><sub>Outputs: Detection · Explanation</sub> | Qwen2.5-Omni-7B<br><sub>Alternative evaluated: MiniCPM-o-2_6</sub><br><sub>Tools: CLIP + CLAP encoders; FAISS retrieval memory</sub> | Yes | No agent fine-tuning. K-means fits retrieval memory on training-set CLIP/CLAP embeddings. |
