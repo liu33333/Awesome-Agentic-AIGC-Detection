@@ -2,15 +2,58 @@
 
 [返回论文列表](../README_CN.md) · [English](COMPARISON.md) · **简体中文**
 
-从智能体组织、工具接口、反馈、训练与证据输出五个维度比较收录方法。
+对比各方法的推理模型、训练要求与智能体工作流程。
 
-[视觉（图像与视频）](#visual) · [跨模态](#cross-modal)
+[推理配置](#inference-setups) · [智能体流程](#agent-workflows)
+
+<a name="inference-setups"></a>
+
+## 推理配置
+
+任务标签对应明确输出：检测（真伪判定）、定位（篡改区域/片段/掩码）、解释（面向读者的取证理由）。模型按鉴伪推理配置列出；“智能体免训练”按任务专用的智能体参数更新判断，工具训练、校准与记忆构建分别注明。
+
+### 视觉（图像与视频）
+
+| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智能体免训练 | 训练 / 配置说明 |
+| --- | --- | --- | --- | --- |
+| **[ATAR](../README_CN.md#atar)** | 图像 · 生成检测；人脸/局部/文档篡改<br><sub>输出：检测 · 定位 · 解释</sub> | Qwen3-VL-8B-Instruct<br><sub>工具：Grounded-SAM</sub> | 否 | SFT + GRPO；Grounded-SAM 将区域描述转为定位掩码。 |
+| **[ForenAgent](../README_CN.md#forenagent)** | 图像 · 生成检测；局部篡改<br><sub>输出：检测 · 解释</sub> | Qwen2.5-VL-7B<br><sub>工具：12 个取证工具</sub> | 否 | 全参数 SFT + GRPO；基于伪造痕迹给出判断理由，裁剪用于辅助检查。 |
+| **[SafeGuard](../README_CN.md#safeguard)** | 视频 · 社会风险生成内容<br><sub>输出：检测 · 解释</sub> | GPT-4o + Gemini-2.5-Pro<br><sub>工具：Grounding DINO；SAM 2；RAFT；Depth Anything V2；DINOv2；D3</sub> | 是 | 提示词智能体；D3 与 Depth Anything V2 经任务调优。掩码用于选择检查区域。 |
+| **[Defake-o3](../README_CN.md#defake-o3)** | 图像 · 生成内容检测<br><sub>输出：检测 · 定位 · 解释</sub> | Qwen3-VL-8B-Instruct<br><sub>工具：Zoom In 裁剪工具</sub> | 否 | SFT + GRPO；局部证据框为可选输出，Evidence Verifier 仅用于训练。 |
+| **[Hermes](../README_CN.md#hermes)** | 视频 · 生成内容检测<br><sub>输出：检测 · 解释</sub> | Qwen3-VL-8B + ChatGPT-5<br><sub>工具：现成视觉工具</sub> | 是 | 无任务专用智能体训练；ChatGPT-5 参与推理时规划，ERG 时间戳用于证据定位。 |
+| **[UniShield](../README_CN.md#unishield)** | 图像 · 生成检测；人脸/局部/文档篡改<br><sub>输出：检测 · 定位 · 解释</sub> | Qwen2.5-VL + GPT-4o<br><sub>工具：IML-ViT；FakeShield；AscFormer；DMDL-R1 / GLaMM；CLIP；DFD-R1；AIDE；FakeVLM</sub> | 否 | 路由器 / DFD-R1 / DMDL-R1 使用 GRPO，GLaMM 经微调；自然图像/文档分支提供定位。Qwen 规模未注明。 |
+| **[AgentFoX](../README_CN.md#agentfox)** | 图像 · 生成内容检测<br><sub>输出：检测 · 解释</sub> | Qwen3-32B + GPT-4o<br><sub>工具：DRCT；RINE；SPAI；PatchShuffle</sub> | 是 | 智能体与专家权重固定；分数校准器与参考数据先验需拟合。 |
+| **[EvoGuard](../README_CN.md#evoguard)** | 图像 · 生成内容检测<br><sub>输出：检测</sub> | Qwen3-VL-4B-Instruct<br><sub>工具：Effort；FakeVLM；MIRROR；AIDE</sub> | 否 | 策略经 GRPO 训练，工具冻结；免训练扩展指策略训练后添加工具。 |
+| **[ForgeryVCR](../README_CN.md#forgeryvcr)** | 图像 · 篡改检测/定位<br><sub>输出：检测 · 定位</sub> | Qwen3-VL-4B-Instruct<br><sub>工具：NoisePrint++；SAM2；ELA / FFT / 放大</sub> | 否 | SFT + GRPO；预测框经 SAM2 转为掩码，主方法使用视觉中间结果。 |
+| **[AIFo](../README_CN.md#aifo)** | 图像 · 生成内容检测<br><sub>输出：检测 · 解释</sub> | GPT-4o<br><sub>工具：5 个预训练分类器；可选 CLIP-ViT-B/32 检索</sub> | 是 | 提示词智能体与冻结分类器；可选案例记忆通过检索工作，无参数更新。 |
+
+### 跨模态
+
+| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智能体免训练 | 训练 / 配置说明 |
+| --- | --- | --- | --- | --- |
+| **[OmniVL-Guard Pro](../README_CN.md#omnivl-guard-pro)** | 文图 / 文视频 · 伪造检测/定位/事实核查；兼容单模态<br><sub>输出：检测 · 定位</sub> | Qwen3-VL-8B<br><sub>工具：InsightFace；SAM3；检索 / 裁剪 / 视频帧工具</sub> | 否 | FSTR SFT + 结果/过程 RL；Checker 仅用于训练，任务输出包括类别与定位。 |
+| **[FakeHunter](../README_CN.md#fakehunter)** | 音视频 · 篡改检测<br><sub>输出：检测 · 解释</sub> | Qwen2.5-Omni-7B<br><sub>另评测备选模型：MiniCPM-o-2_6</sub><br><sub>工具：CLIP + CLAP 编码器；FAISS 检索记忆</sub> | 是 | 智能体不微调；在训练集 CLIP/CLAP 嵌入上用 K-means 拟合检索记忆。 |
+
+<details>
+<summary>AIFo 分类器标识</summary>
+
+- haywoodsloan/ai-image-detector-deploy
+- Organika/sdxl-detector
+- legekka/AI-Anime-Image-Detector-ViT
+- Smogy/SMOGY-Ai-images-detector
+- NYUAD-ComNets/NYUAD_AI-generated_images_detector
+
+</details>
+
+<a name="agent-workflows"></a>
+
+## 智能体流程
 
 “组织”指推理阶段；“训练”指智能体适配，不代表底层工具未经预训练。工具未注明代码生成时均为预定义接口。
 
 <a name="visual"></a>
 
-## 视觉（图像与视频）
+### 视觉（图像与视频）
 
 | 方法 | 智能体组织 | 工具接口 | 反馈后改变什么？ | 智能体训练 | 证据输出 |
 | --- | --- | --- | --- | --- | --- |
@@ -27,9 +70,10 @@
 
 <a name="cross-modal"></a>
 
-## 跨模态
+### 跨模态
 
 | 方法 | 智能体组织 | 工具接口 | 反馈后改变什么？ | 智能体训练 | 证据输出 |
 | --- | --- | --- | --- | --- | --- |
 | **[OmniVL-Guard Pro](../README_CN.md#omnivl-guard-pro)** | 单推理策略 | 预定义检索 / 裁剪 / 视觉 / SAM3 | 依据观测/错误选择后续工具 | SFT + 结果 RL + Checker 引导过程 RL | 判定 + 轨迹 + 空间/文本/时序定位 |
 | **[FakeHunter](../README_CN.md#fakehunter)** | 单提示词多模态模型 | 记忆检索 / 放大 / 梅尔频谱 | 低置信度触发视觉/音频复核 | 智能体不微调；训练集构建记忆 | 判定 + 篡改类型 + 解释 |
+
