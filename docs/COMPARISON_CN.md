@@ -10,29 +10,29 @@
 
 ## 推理配置
 
-任务标签对应明确输出：检⁠测（真伪判定）、定位（篡改区域/片段/掩码）、解释（面向读者的取证理由）。模型按鉴伪推理配置列出；“智能体免训练”按任务专用的智能体参数更新判断，工具训练、校准与记忆构建分别注明。
+任务标签对应明确输出：检⁠测（真伪判定）、定位（篡改区域/片段/掩码）、解释（面向读者的取证理由）。模型按鉴伪推理配置列出；训练方式指鉴伪智能体的任务适配，工具训练、校准与记忆构建分别注明。
 
 ### 视觉（图像与视频）
 
-| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智⁠能⁠体<br>免⁠训⁠练 | 训练 / 配置说明 |
+| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智能体<br>训练方式 | 训练 / 配置说明 |
 | --- | --- | --- | --- | --- |
-| **[ATAR](../README_CN.md#atar)** | 图像 · 生成检测；人脸/局部/文档篡改<br><sub>输出：检⁠测 · 定⁠位 · 解⁠释</sub> | Qwen3-VL-8B-Instruct<br><sub>工具：Grounded-SAM</sub> | 否 | SFT + GRPO；Grounded-SAM 将区域描述转为定位掩码。 |
-| **[ForenAgent](../README_CN.md#forenagent)** | 图像 · 生成检测；局部篡改<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen2.5-VL-7B<br><sub>工具：12 个取证工具</sub> | 否 | 全参数 SFT + GRPO；基于伪造痕迹给出判断理由，裁剪用于辅助检查。 |
-| **[SafeGuard](../README_CN.md#safeguard)** | 视频 · 社会风险生成内容<br><sub>输出：检⁠测 · 解⁠释</sub> | GPT-4o + Gemini-2.5-Pro<br><sub>工具：Grounding DINO；SAM 2；RAFT；Depth Anything V2；DINOv2；D3</sub> | 是 | 提示词智能体；D3 与 Depth Anything V2 经任务调优。掩码用于选择检查区域。 |
-| **[Defake-o3](../README_CN.md#defake-o3)** | 图像 · 生成内容检测<br><sub>输出：检⁠测 · 定⁠位 · 解⁠释</sub> | Qwen3-VL-8B-Instruct<br><sub>工具：Zoom In 裁剪工具</sub> | 否 | SFT + GRPO；局部证据框为可选输出，Evidence Verifier 仅用于训练。 |
-| **[Hermes](../README_CN.md#hermes)** | 视频 · 生成内容检测<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen3-VL-8B + ChatGPT-5<br><sub>工具：现成视觉工具</sub> | 是 | 无任务专用智能体训练；ChatGPT-5 参与推理时规划，ERG 时间戳用于证据定位。 |
-| **[UniShield](../README_CN.md#unishield)** | 图像 · 生成检测；人脸/局部/文档篡改<br><sub>输出：检⁠测 · 定⁠位 · 解⁠释</sub> | Qwen2.5-VL + GPT-4o<br><sub>工具：IML-ViT；FakeShield；AscFormer；DMDL-R1 / GLaMM；CLIP；DFD-R1；AIDE；FakeVLM</sub> | 否 | 路由器 / DFD-R1 / DMDL-R1 使用 GRPO，GLaMM 经微调；自然图像/文档分支提供定位。Qwen 规模未注明。 |
-| **[AgentFoX](../README_CN.md#agentfox)** | 图像 · 生成内容检测<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen3-32B + GPT-4o<br><sub>工具：DRCT；RINE；SPAI；PatchShuffle</sub> | 是 | 智能体与专家权重固定；分数校准器与参考数据先验需拟合。 |
-| **[EvoGuard](../README_CN.md#evoguard)** | 图像 · 生成内容检测<br><sub>输出：检⁠测</sub> | Qwen3-VL-4B-Instruct<br><sub>工具：Effort；FakeVLM；MIRROR；AIDE</sub> | 否 | 策略经 GRPO 训练，工具冻结；免训练扩展指策略训练后添加工具。 |
-| **[ForgeryVCR](../README_CN.md#forgeryvcr)** | 图像 · 篡改检测/定位<br><sub>输出：检⁠测 · 定⁠位</sub> | Qwen3-VL-4B-Instruct<br><sub>工具：NoisePrint++；SAM2；ELA / FFT / 放大</sub> | 否 | SFT + GRPO；预测框经 SAM2 转为掩码，主方法使用视觉中间结果。 |
-| **[AIFo](../README_CN.md#aifo)** | 图像 · 生成内容检测<br><sub>输出：检⁠测 · 解⁠释</sub> | GPT-4o<br><sub>工具：5 个预训练分类器；可选 CLIP-ViT-B/32 检索</sub> | 是 | 提示词智能体与冻结分类器；可选案例记忆通过检索工作，无参数更新。 |
+| **[ATAR](../README_CN.md#atar)**<br><sub>ACM Multimedia 2026 口头报告 · 已录用</sub> | 图像 · 生成检测；人脸/局部/文档篡改<br><sub>输出：检⁠测 · 定⁠位 · 解⁠释</sub> | Qwen3-VL-8B-Instruct<br><sub>工具：Grounded-SAM</sub> | SFT + RL | SFT + GRPO；Grounded-SAM 将区域描述转为定位掩码。 |
+| **[ForenAgent](../README_CN.md#forenagent)**<br><sub>ECCV 2026 已发表</sub> | 图像 · 生成检测；局部篡改<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen2.5-VL-7B<br><sub>工具：12 个取证工具</sub> | SFT + RL | 全参数 SFT + GRPO；基于伪造痕迹给出判断理由，裁剪用于辅助检查。 仓库：仅工具集。 |
+| **[SafeGuard](../README_CN.md#safeguard)**<br><sub>ECCV 2026 已发表</sub> | 视频 · 社会风险生成内容<br><sub>输出：检⁠测 · 解⁠释</sub> | GPT-4o + Gemini-2.5-Pro<br><sub>工具：Grounding DINO；SAM 2；RAFT；Depth Anything V2；DINOv2；D3</sub> | Training-free | 提示词智能体；D3 与 Depth Anything V2 经任务调优。掩码用于选择检查区域。 仓库：项目； 代码待发布。 |
+| **[Defake-o3](../README_CN.md#defake-o3)**<br><sub>ACM Multimedia 2026 已录用</sub> | 图像 · 生成内容检测<br><sub>输出：检⁠测 · 定⁠位 · 解⁠释</sub> | Qwen3-VL-8B-Instruct<br><sub>工具：Zoom In 裁剪工具</sub> | SFT + RL | SFT + GRPO；局部证据框为可选输出，Evidence Verifier 仅用于训练。 |
+| **[Hermes](../README_CN.md#hermes)**<br><sub>ICML 2026 已发表</sub> | 视频 · 生成内容检测<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen3-VL-8B + ChatGPT-5<br><sub>工具：现成视觉工具</sub> | Training-free | 无任务专用智能体训练；ChatGPT-5 参与推理时规划，ERG 时间戳用于证据定位。 |
+| **[UniShield](../README_CN.md#unishield)**<br><sub>CVPR Findings 2026 已发表</sub> | 图像 · 生成检测；人脸/局部/文档篡改<br><sub>输出：检⁠测 · 定⁠位 · 解⁠释</sub> | Qwen2.5-VL + GPT-4o<br><sub>工具：IML-ViT；FakeShield；AscFormer；DMDL-R1 / GLaMM；CLIP；DFD-R1；AIDE；FakeVLM</sub> | RL（路由器） | 路由器 / DFD-R1 / DMDL-R1 使用 GRPO，GLaMM 经微调；自然图像/文档分支提供定位。Qwen 规模未注明。 |
+| **[AgentFoX](../README_CN.md#agentfox)**<br><sub>arXiv 2026 预印本</sub> | 图像 · 生成内容检测<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen3-32B + GPT-4o<br><sub>工具：DRCT；RINE；SPAI；PatchShuffle</sub> | Training-free | 智能体与专家权重固定；分数校准器与参考数据先验需拟合。 仓库：最小推理实现。 |
+| **[EvoGuard](../README_CN.md#evoguard)**<br><sub>arXiv 2026 预印本</sub> | 图像 · 生成内容检测<br><sub>输出：检⁠测</sub> | Qwen3-VL-4B-Instruct<br><sub>工具：Effort；FakeVLM；MIRROR；AIDE</sub> | RL | 策略经 GRPO 训练，工具冻结；免训练扩展指策略训练后添加工具。 |
+| **[ForgeryVCR](../README_CN.md#forgeryvcr)**<br><sub>ACM Multimedia 2026 口头报告 · 已录用</sub> | 图像 · 篡改检测/定位<br><sub>输出：检⁠测 · 定⁠位</sub> | Qwen3-VL-4B-Instruct<br><sub>工具：NoisePrint++；SAM2；ELA / FFT / 放大</sub> | SFT + RL | SFT + GRPO；预测框经 SAM2 转为掩码，主方法使用视觉中间结果。 仓库：推理 + 权重。 |
+| **[AIFo](../README_CN.md#aifo)**<br><sub>arXiv 2025 预印本</sub> | 图像 · 生成内容检测<br><sub>输出：检⁠测 · 解⁠释</sub> | GPT-4o<br><sub>工具：5 个预训练分类器；可选 CLIP-ViT-B/32 检索</sub> | Training-free | 提示词智能体与冻结分类器；可选案例记忆通过检索工作，无参数更新。 |
 
 ### 跨模态
 
-| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智⁠能⁠体<br>免⁠训⁠练 | 训练 / 配置说明 |
+| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智能体<br>训练方式 | 训练 / 配置说明 |
 | --- | --- | --- | --- | --- |
-| **[OmniVL-Guard Pro](../README_CN.md#omnivl-guard-pro)** | 文图 / 文视频 · 伪造检测/定位/事实核查；兼容单模态<br><sub>输出：检⁠测 · 定⁠位</sub> | Qwen3-VL-8B<br><sub>工具：InsightFace；SAM3；检索 / 裁剪 / 视频帧工具</sub> | 否 | FSTR SFT + 结果/过程 RL；Checker 仅用于训练，任务输出包括类别与定位。 |
-| **[FakeHunter](../README_CN.md#fakehunter)** | 音视频 · 篡改检测<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen2.5-Omni-7B<br><sub>另评测备选模型：MiniCPM-o-2_6</sub><br><sub>工具：CLIP + CLAP 编码器；FAISS 检索记忆</sub> | 是 | 智能体不微调；在训练集 CLIP/CLAP 嵌入上用 K-means 拟合检索记忆。 |
+| **[OmniVL-Guard Pro](../README_CN.md#omnivl-guard-pro)**<br><sub>arXiv 2026 预印本</sub> | 文图 / 文视频 · 伪造检测/定位/事实核查；兼容单模态<br><sub>输出：检⁠测 · 定⁠位</sub> | Qwen3-VL-8B<br><sub>工具：InsightFace；SAM3；检索 / 裁剪 / 视频帧工具</sub> | SFT + RL | FSTR SFT + 结果/过程 RL；Checker 仅用于训练，任务输出包括类别与定位。 仓库：项目； 代码待发布。 |
+| **[FakeHunter](../README_CN.md#fakehunter)**<br><sub>arXiv 2025 预印本</sub> | 音视频 · 篡改检测<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen2.5-Omni-7B<br><sub>另评测备选模型：MiniCPM-o-2_6</sub><br><sub>工具：CLIP + CLAP 编码器；FAISS 检索记忆</sub> | Training-free | 智能体不微调；在训练集 CLIP/CLAP 嵌入上用 K-means 拟合检索记忆。 |
 
 <details>
 <summary>AIFo 分类器标识</summary>
@@ -76,4 +76,5 @@
 | --- | --- | --- | --- | --- | --- |
 | **[OmniVL-Guard Pro](../README_CN.md#omnivl-guard-pro)** | 单推理策略 | 预定义检索 / 裁剪 / 视觉 / SAM3 | 依据观测/错误选择后续工具 | SFT + 结果 RL + Checker 引导过程 RL | 判定 + 轨迹 + 空间/文本/时序定位 |
 | **[FakeHunter](../README_CN.md#fakehunter)** | 单提示词多模态模型 | 记忆检索 / 放大 / 梅尔频谱 | 低置信度触发视觉/音频复核 | 智能体不微调；训练集构建记忆 | 判定 + 篡改类型 + 解释 |
+
 
