@@ -2,9 +2,20 @@
 
 **English** · [简体中文](README_CN.md)
 
-Papers on agentic AIGC detection across audio, visual, text and cross-modal inputs.
+[Intro](#intro) · [News](#news) · [Audio](#audio) · [Visual (images & videos)](#visual) · [Text](#text) · [Cross-modal](#cross-modal) · **[Technical comparison →](docs/COMPARISON.md)**
 
-[Audio](#audio) · [Visual (images & videos)](#visual) · [Text](#text) · [Cross-modal](#cross-modal) · **[Technical comparison →](docs/COMPARISON.md)**
+<a name="intro"></a>
+
+## Intro
+
+A collection of research on agentic detection of AI-generated content and related media manipulation. The focus is on methods that use tools, evidence-guided reasoning or multi-agent collaboration to investigate authenticity. Papers are grouped by input modality, with publication information and the availability of official implementations.
+
+<a name="news"></a>
+
+## News
+
+- **2026‑10‑04**: Added the [technical comparison](docs/COMPARISON.md), covering five method-level dimensions.
+- **2026‑10‑04**: Launched the Agentic AIGC Detection reading list.
 
 <a name="audio"></a>
 

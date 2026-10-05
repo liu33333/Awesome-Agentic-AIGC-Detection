@@ -2,9 +2,20 @@
 
 [English](README.md) · **简体中文**
 
-按音频、视觉、文本和跨模态整理的 Agentic AIGC 检测论文。
+[简介](#intro) · [动态](#news) · [音频](#audio) · [视觉（图像与视频）](#visual) · [文本](#text) · [跨模态](#cross-modal) · **[技术对比 →](docs/COMPARISON_CN.md)**
 
-[音频](#audio) · [视觉（图像与视频）](#visual) · [文本](#text) · [跨模态](#cross-modal) · **[技术对比 →](docs/COMPARISON_CN.md)**
+<a name="intro"></a>
+
+## 简介 · Intro
+
+本仓库整理面向 AI 生成内容与相关媒体篡改检测的智能体研究，关注工具调用、证据驱动推理与多智能体协作等方法。论文按输入模态分类，提供发表信息和官方实现的开放情况。
+
+<a name="news"></a>
+
+## 动态 · News
+
+- **2026‑10‑04**：上线[技术对比](docs/COMPARISON_CN.md)，从五个维度并列比较收录方法。
+- **2026‑10‑04**：仓库上线，整理 Agentic AIGC 检测相关论文。
 
 <a name="audio"></a>
 
