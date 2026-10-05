@@ -29,13 +29,15 @@ No papers listed.
 
 ## Visual (images & videos)
 
+<sub>I: Image · V: Video · A: Audio · T: Text<br>D: Detection · L: Localization · E: Explanation</sub>
+
 <table>
 <thead>
 <tr>
 <th width="340" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 <th width="170" align="left">Venue / status</th>
-<th width="112" align="left">Date</th>
-<th width="150" align="left">Input / tasks</th>
+<th width="64" align="left">Date&nbsp;&nbsp;</th>
+<th width="88" align="left">Input / tasks</th>
 <th width="170" align="left">Inference<br>models&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 <th width="145" align="left">Agent<br>training‑free</th>
 <th width="130" align="left">Official repository</th>
@@ -45,8 +47,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="atar"></a><strong><a href="https://arxiv.org/abs/2609.39066">Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection</a></strong> (ATAR)</td>
 <td width="170" valign="top">ACM&nbsp;Multimedia<br>2026<br><sub>Oral · accepted</sub></td>
-<td width="112" valign="top">2026‑09‑30</td>
-<td width="150" valign="top">Image<br><sub>Detection<br>Localization<br>Explanation</sub></td>
+<td width="64" valign="top">26/09</td>
+<td width="88" valign="top">I<br><sub>D · L · E</sub></td>
 <td width="170" valign="top">Qwen3-VL-8B-Instruct</td>
 <td width="145" valign="top">No</td>
 <td width="130" valign="top">—</td>
@@ -54,8 +56,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="forenagent"></a><strong><a href="https://arxiv.org/abs/2512.16300">Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection</a></strong> (ForenAgent)</td>
 <td width="170" valign="top">ECCV&nbsp;2026<br><sub>published</sub></td>
-<td width="112" valign="top">2026‑09‑08</td>
-<td width="150" valign="top">Image<br><sub>Detection<br>Explanation</sub></td>
+<td width="64" valign="top">26/09</td>
+<td width="88" valign="top">I<br><sub>D · E</sub></td>
 <td width="170" valign="top">Qwen2.5-VL-7B</td>
 <td width="145" valign="top">No</td>
 <td width="130" valign="top"><a href="https://github.com/zfr00/ForenAgent">Toolkit&nbsp;only</a></td>
@@ -63,8 +65,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="safeguard"></a><strong><a href="https://arxiv.org/abs/2607.03069">SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection</a></strong></td>
 <td width="170" valign="top">ECCV&nbsp;2026<br><sub>published</sub></td>
-<td width="112" valign="top">2026‑09‑08</td>
-<td width="150" valign="top">Video<br><sub>Detection<br>Explanation</sub></td>
+<td width="64" valign="top">26/09</td>
+<td width="88" valign="top">V<br><sub>D · E</sub></td>
 <td width="170" valign="top">GPT-4o + Gemini-2.5-Pro</td>
 <td width="145" valign="top">Yes<br><sub>tools tuned</sub></td>
 <td width="130" valign="top"><a href="https://github.com/williamw99/SafeGuard">Project;<br>code&nbsp;pending</a></td>
@@ -72,8 +74,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="defake-o3"></a><strong><a href="https://arxiv.org/abs/2608.16259">Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection</a></strong></td>
 <td width="170" valign="top">ACM&nbsp;Multimedia<br>2026<br><sub>accepted</sub></td>
-<td width="112" valign="top">2026‑08‑17</td>
-<td width="150" valign="top">Image<br><sub>Detection<br>Localization<br>Explanation</sub></td>
+<td width="64" valign="top">26/08</td>
+<td width="88" valign="top">I<br><sub>D · L · E</sub></td>
 <td width="170" valign="top">Qwen3-VL-8B-Instruct</td>
 <td width="145" valign="top">No</td>
 <td width="130" valign="top">—</td>
@@ -81,8 +83,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="hermes"></a><strong><a href="https://proceedings.mlr.press/v306/li26be.html">Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection</a></strong></td>
 <td width="170" valign="top">ICML&nbsp;2026<br><sub>published</sub></td>
-<td width="112" valign="top">2026‑07‑06</td>
-<td width="150" valign="top">Video<br><sub>Detection<br>Explanation</sub></td>
+<td width="64" valign="top">26/07</td>
+<td width="88" valign="top">V<br><sub>D · E</sub></td>
 <td width="170" valign="top">Qwen3-VL-8B + ChatGPT-5</td>
 <td width="145" valign="top">Yes</td>
 <td width="130" valign="top">—</td>
@@ -90,8 +92,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="unishield"></a><strong><a href="https://arxiv.org/abs/2510.03161">UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization</a></strong></td>
 <td width="170" valign="top">CVPR&nbsp;Findings<br>2026<br><sub>published</sub></td>
-<td width="112" valign="top">2026‑06‑03</td>
-<td width="150" valign="top">Image<br><sub>Detection<br>Localization<br>Explanation</sub></td>
+<td width="64" valign="top">26/06</td>
+<td width="88" valign="top">I<br><sub>D · L · E</sub></td>
 <td width="170" valign="top">Qwen2.5-VL + GPT-4o</td>
 <td width="145" valign="top">No</td>
 <td width="130" valign="top">—</td>
@@ -99,8 +101,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="agentfox"></a><strong><a href="https://arxiv.org/abs/2603.23115">AgentFoX: LLM Agent-Guided Fusion with eXplainability for AI-Generated Image Detection</a></strong></td>
 <td width="170" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="112" valign="top">2026‑03‑24</td>
-<td width="150" valign="top">Image<br><sub>Detection<br>Explanation</sub></td>
+<td width="64" valign="top">26/03</td>
+<td width="88" valign="top">I<br><sub>D · E</sub></td>
 <td width="170" valign="top">Qwen3-32B + GPT-4o</td>
 <td width="145" valign="top">Yes<br><sub>calibration</sub></td>
 <td width="130" valign="top"><a href="https://github.com/suncore946/AgentFoX">Minimal inference</a></td>
@@ -108,8 +110,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="evoguard"></a><strong><a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></strong></td>
 <td width="170" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="112" valign="top">2026‑03‑18</td>
-<td width="150" valign="top">Image<br><sub>Detection</sub></td>
+<td width="64" valign="top">26/03</td>
+<td width="88" valign="top">I<br><sub>D</sub></td>
 <td width="170" valign="top">Qwen3-VL-4B-Instruct</td>
 <td width="145" valign="top">No</td>
 <td width="130" valign="top">—</td>
@@ -117,8 +119,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="forgeryvcr"></a><strong><a href="https://arxiv.org/abs/2602.14098">ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization</a></strong></td>
 <td width="170" valign="top">ACM&nbsp;Multimedia<br>2026<br><sub>Oral · accepted</sub></td>
-<td width="112" valign="top">2026‑02‑15</td>
-<td width="150" valign="top">Image<br><sub>Detection<br>Localization</sub></td>
+<td width="64" valign="top">26/02</td>
+<td width="88" valign="top">I<br><sub>D · L</sub></td>
 <td width="170" valign="top">Qwen3-VL-4B-Instruct</td>
 <td width="145" valign="top">No</td>
 <td width="130" valign="top"><a href="https://github.com/youqiwong/ForgeryVCR">Inference + weights</a></td>
@@ -126,8 +128,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="aifo"></a><strong><a href="https://arxiv.org/abs/2511.00181">From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection</a></strong> (AIFo)</td>
 <td width="170" valign="top">arXiv&nbsp;2025<br><sub>preprint</sub></td>
-<td width="112" valign="top">2025‑10‑31</td>
-<td width="150" valign="top">Image<br><sub>Detection<br>Explanation</sub></td>
+<td width="64" valign="top">25/10</td>
+<td width="88" valign="top">I<br><sub>D · E</sub></td>
 <td width="170" valign="top">GPT-4o</td>
 <td width="145" valign="top">Yes</td>
 <td width="130" valign="top">—</td>
@@ -145,13 +147,15 @@ No papers listed.
 
 ## Cross-modal
 
+<sub>I: Image · V: Video · A: Audio · T: Text<br>D: Detection · L: Localization · E: Explanation</sub>
+
 <table>
 <thead>
 <tr>
 <th width="340" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 <th width="170" align="left">Venue / status</th>
-<th width="112" align="left">Date</th>
-<th width="150" align="left">Input / tasks</th>
+<th width="64" align="left">Date&nbsp;&nbsp;</th>
+<th width="88" align="left">Input / tasks</th>
 <th width="170" align="left">Inference<br>models&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 <th width="145" align="left">Agent<br>training‑free</th>
 <th width="130" align="left">Official repository</th>
@@ -161,8 +165,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="omnivl-guard-pro"></a><strong><a href="https://arxiv.org/abs/2605.16962">OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics</a></strong></td>
 <td width="170" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="112" valign="top">2026‑05‑16</td>
-<td width="150" valign="top">Text‑image<br>Text‑video<br><sub>Detection<br>Localization</sub></td>
+<td width="64" valign="top">26/05</td>
+<td width="88" valign="top">T+I / T+V<br><sub>D · L</sub></td>
 <td width="170" valign="top">Qwen3-VL-8B</td>
 <td width="145" valign="top">No</td>
 <td width="130" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">Project;<br>code&nbsp;pending</a></td>
@@ -170,8 +174,8 @@ No papers listed.
 <tr>
 <td width="340" valign="top"><a name="fakehunter"></a><strong><a href="https://arxiv.org/abs/2508.14581">Memory-Anchored Multimodal Reasoning for Explainable Video Forensics</a></strong> (FakeHunter)</td>
 <td width="170" valign="top">arXiv&nbsp;2025<br><sub>preprint</sub></td>
-<td width="112" valign="top">2025‑08‑20</td>
-<td width="150" valign="top">Audio–video<br><sub>Detection<br>Explanation</sub></td>
+<td width="64" valign="top">25/08</td>
+<td width="88" valign="top">A+V<br><sub>D · E</sub></td>
 <td width="170" valign="top">Qwen2.5-Omni-7B; alt. MiniCPM-o-2_6</td>
 <td width="145" valign="top">Yes<br><sub>fitted memory</sub></td>
 <td width="130" valign="top">—</td>
@@ -215,3 +219,4 @@ Selected platforms, model backbones and development tools for agentic media-fore
 - [Codex SDK](https://learn.chatgpt.com/docs/codex-sdk) · Programmatic coding-agent sessions for code-based experiments and integration with research workflows.
 - [OpenHands Software Agent SDK](https://docs.openhands.dev/sdk) · Custom agents with shell, file, browser and MCP tools, plus local and remote execution options.
 - [Pi](https://pi.dev/docs/latest/sdk) · Embeddable coding-agent SDK with configurable sessions and extensible tools for custom execution workflows.
+
