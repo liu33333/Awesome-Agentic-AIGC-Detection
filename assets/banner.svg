@@ -1,18 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-labelledby="title desc">
-  <title id="title">Agentic AIGC Detection</title>
-  <desc id="desc">An original navy and teal illustration connecting evidence, tools, and adaptive investigation.</desc>
-  <rect width="1200" height="220" rx="16" fill="#0f172a"/>
-  <path d="M0 219H1200" stroke="#2dd4bf" stroke-width="3"/>
-  <g fill="none" stroke="#334155" stroke-width="1">
-    <path d="M840 0V220M920 0V220M1000 0V220M1080 0V220M1160 0V220M800 40H1200M800 110H1200M800 180H1200"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-labelledby="title description">
+  <title id="title">Awesome Agentic AIGC Detection</title>
+  <desc id="description">An original editorial illustration: visual, audio and text signals connect to an agentic investigation, a magnified image region and a structured evidence report.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#dfe5df" stroke-width="1"/></pattern>
+    <clipPath id="scene"><rect x="672" y="64" width="186" height="135" rx="9"/></clipPath>
+  </defs>
+  <rect x="1" y="1" width="1198" height="278" rx="16" fill="#f5f5ee" stroke="#d8dfd9" stroke-width="2"/>
+  <path d="M563 24V256" stroke="#d8dfd9"/>
+  <rect x="585" y="23" width="590" height="234" rx="10" fill="url(#grid)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="43" y="48" font-size="13" font-weight="700" letter-spacing="2.6" fill="#286c60">AWESOME RESEARCH COLLECTION</text>
+    <text x="40" y="109" font-size="47" font-weight="700" letter-spacing="-1.9" fill="#193536">Agentic AIGC</text>
+    <text x="40" y="163" font-size="47" font-weight="700" letter-spacing="-1.9" fill="#193536">Detection</text>
+    <path d="M43 190H507" stroke="#b7c9c0"/>
+    <text x="43" y="223" font-size="16" fill="#44605b">A research reading list for agentic forensics</text>
+    <text x="43" y="246" font-size="12" letter-spacing="1.1" fill="#44605b">AUDIO / VISUAL / TEXT / CROSS-MODAL</text>
   </g>
-  <text x="56" y="85" fill="#5eead4" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="3">EVIDENCE → ACTION</text>
-  <text x="54" y="143" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Investigate. Adapt. Verify.</text>
-  <g fill="none" stroke="#2dd4bf" stroke-width="3">
-    <path d="M870 112H955M991 112H1080M973 130V167H870V130"/>
-    <rect x="842" y="84" width="56" height="56" rx="10" fill="#132a3b"/>
-    <circle cx="973" cy="112" r="28" fill="#132a3b"/>
-    <rect x="1052" y="84" width="56" height="56" rx="10" fill="#132a3b"/>
-    <path d="M858 100H882M858 111H878M858 122H874M960 112H986M973 99V125M1065 113L1076 123L1095 102"/>
+  <!-- Three media traces enter an evidence-centered investigation. -->
+  <g stroke="#708d80" fill="none" stroke-width="1.8">
+    <path d="M634 86H653V128H672M634 141H653M634 196H653V151H672"/>
+    <path d="M858 123H929M938 124H970" stroke-dasharray="4 5"/>
+    <path d="M978 221H879V207" stroke-dasharray="4 5"/>
   </g>
+  <g fill="#fffef9" stroke="#bacbc1" stroke-width="1.5">
+    <rect x="602" y="70" width="32" height="32" rx="7"/>
+    <rect x="602" y="125" width="32" height="32" rx="7"/>
+    <rect x="602" y="180" width="32" height="32" rx="7"/>
+  </g>
+  <g stroke="#46776b" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M609 91L616 84L621 88L628 80M609 77H628V95H609Z"/>
+    <path d="M609 140H612L615 133L619 149L623 136L626 140H629"/>
+    <path d="M610 189H626M610 196H626M610 203H620"/>
+  </g>
+  <!-- Image sheet and region-level inspection. -->
+  <rect x="668" y="60" width="194" height="168" rx="12" fill="#fffef9" stroke="#8ba599" stroke-width="1.5"/>
+  <g clip-path="url(#scene)">
+    <rect x="672" y="64" width="186" height="135" fill="#d9e4dc"/>
+    <circle cx="818" cy="94" r="17" fill="#efe7bd"/>
+    <path d="M672 169L716 113L753 153L781 127L858 187V200H672Z" fill="#9bb7a7"/>
+    <path d="M672 195L735 151L770 179L802 149L858 181V200H672Z" fill="#598572"/>
+    <path d="M792 135H835V178H792Z" fill="#ede1b7" opacity=".8"/>
+    <path d="M792 135L835 178M803 135L835 167M792 148L822 178M792 160L810 178" stroke="#b7a268" stroke-width="1"/>
+  </g>
+  <g fill="#537269"><rect x="682" y="210" width="61" height="4" rx="2"/><rect x="750" y="210" width="36" height="4" rx="2" opacity=".4"/></g>
+  <g fill="none" stroke="#226d59" stroke-width="2.5" stroke-linecap="round">
+    <path d="M783 143V127H799M828 127H844V143M844 170V186H828M799 186H783V170"/>
+    <path d="M841 159L880 177" stroke-dasharray="3 5" stroke-width="1.5"/>
+  </g>
+  <!-- Agent node and focused lens. -->
+  <circle cx="928" cy="83" r="24" fill="#e5eee7" stroke="#7d9c8c" stroke-width="1.5"/>
+  <g fill="#2e715d"><circle cx="921" cy="79" r="3"/><circle cx="935" cy="79" r="3"/></g>
+  <path d="M920 89Q928 95 936 89M928 59V51" stroke="#2e715d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <circle cx="928" cy="49" r="3" fill="#bc9b54"/>
+  <path d="M928 108V136" stroke="#769889" stroke-width="1.7" stroke-dasharray="4 4"/>
+  <circle cx="911" cy="170" r="34" fill="#fffdf5" stroke="#234f43" stroke-width="3"/>
+  <circle cx="911" cy="170" r="26" fill="#e4ddbd"/>
+  <g stroke="#b19c62" stroke-width="1"><path d="M895 151L930 185M888 158L923 192M893 177L908 192M909 144L937 172"/></g>
+  <path d="M935 196L951 212" stroke="#234f43" stroke-width="9" stroke-linecap="round"/>
+  <path d="M936 196L940 200" stroke="#698b75" stroke-width="5" stroke-linecap="round"/>
+  <!-- Structured evidence, without implying a verdict. -->
+  <rect x="980" y="77" width="155" height="154" rx="10" fill="#fffef9" stroke="#8ba599" stroke-width="1.5"/>
+  <path d="M980 113H1135" stroke="#dbe2d9"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#335c4f">
+    <text x="994" y="100" font-size="11" font-weight="700" letter-spacing="1.5">EVIDENCE</text>
+    <text x="689" y="45" font-size="10" font-weight="700" letter-spacing="1.4">SIGNALS</text>
+  </g>
+  <g fill="none" stroke="#38806b" stroke-width="1.7"><circle cx="999" cy="133" r="4"/><circle cx="999" cy="156" r="4"/><circle cx="999" cy="179" r="4"/></g>
+  <g fill="#9bb1a1"><rect x="1012" y="130" width="105" height="5" rx="2.5"/><rect x="1012" y="153" width="85" height="5" rx="2.5"/><rect x="1012" y="176" width="96" height="5" rx="2.5"/></g>
+  <path d="M994 200H1120" stroke="#dbe2d9"/>
+  <g fill="#c2aa6d"><rect x="995" y="212" width="44" height="5" rx="2.5"/><rect x="1045" y="212" width="21" height="5" rx="2.5"/></g>
 </svg>
