@@ -33,6 +33,8 @@
 
 输入：<code>I</code> 图像 · <code>V</code> 视频 · <code>A</code> 音频 · <code>T</code> 文本<br>任务：<code>D</code> 检测 · <code>L</code> 定位 · <code>E</code> 解释
 
+**[查看技术对比 →](docs/COMPARISON_CN.md#visual)**
+
 <table>
 <thead>
 <tr>
@@ -139,6 +141,8 @@
 ## 跨模态
 
 输入：<code>I</code> 图像 · <code>V</code> 视频 · <code>A</code> 音频 · <code>T</code> 文本<br>任务：<code>D</code> 检测 · <code>L</code> 定位 · <code>E</code> 解释
+
+**[查看技术对比 →](docs/COMPARISON_CN.md#cross-modal)**
 
 <table>
 <thead>

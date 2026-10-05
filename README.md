@@ -33,6 +33,8 @@ No papers listed.
 
 Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
 
+**[View technical comparison →](docs/COMPARISON.md#visual)**
+
 <table>
 <thead>
 <tr>
@@ -139,6 +141,8 @@ No papers listed.
 ## Cross-modal
 
 Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
+
+**[View technical comparison →](docs/COMPARISON.md#cross-modal)**
 
 <table>
 <thead>
