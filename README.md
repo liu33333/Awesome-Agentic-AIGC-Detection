@@ -1,8 +1,8 @@
-![Awesome Agentic AIGC Detection. Forensic illustration connecting image, audio and text signals with an agent, a magnified region and an evidence report.](assets/banner.svg)
+![Agentic AIGC Detection: conceptual cyan wireframe face with an amber inspection region and local-detail visualization.](assets/banner.svg)
 
 **English** · [简体中文](README_CN.md)
 
-[Intro](#intro) · [News](#news) · [Audio](#audio) · [Visual (images & videos)](#visual) · [Text](#text) · [Cross-modal](#cross-modal) · **[Technical comparison →](docs/COMPARISON.md)**
+[Intro](#intro) · [News](#news) · [Audio](#audio) · [Visual (images & videos)](#visual) · [Text](#text) · [Cross-modal](#cross-modal) · **[Technical comparison →](docs/COMPARISON.md)** · [Resources](#resources)
 
 <a name="intro"></a>
 
@@ -29,18 +29,111 @@ No papers listed.
 
 ## Visual (images & videos)
 
-| Paper / task / model | Venue / status | Date | Official repository |
-| --- | --- | --- | --- |
-| <a name="atar"></a>**[Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection](https://arxiv.org/abs/2609.39066)** (ATAR)<br><sub>Image · <b>Detection · Localization · Explanation</b></sub><br><sub>Model: Qwen3-VL-8B-Instruct<br>Agent training-free: No</sub> | ACM&nbsp;Multimedia<br>2026<br><sub>Oral · accepted</sub> | 2026‑09‑30 | — |
-| <a name="forenagent"></a>**[Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection](https://arxiv.org/abs/2512.16300)** (ForenAgent)<br><sub>Image · <b>Detection · Explanation</b></sub><br><sub>Model: Qwen2.5-VL-7B<br>Agent training-free: No</sub> | ECCV&nbsp;2026<br><sub>published</sub> | 2026‑09‑08 | [Toolkit&nbsp;only](https://github.com/zfr00/ForenAgent) |
-| <a name="safeguard"></a>**[SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection](https://arxiv.org/abs/2607.03069)**<br><sub>Video · <b>Detection · Explanation</b></sub><br><sub>Model: GPT-4o + Gemini-2.5-Pro<br>Agent training-free: Yes (tools tuned)</sub> | ECCV&nbsp;2026<br><sub>published</sub> | 2026‑09‑08 | [Project;<br>code&nbsp;pending](https://github.com/williamw99/SafeGuard) |
-| <a name="defake-o3"></a>**[Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection](https://arxiv.org/abs/2608.16259)**<br><sub>Image · <b>Detection · Localization · Explanation</b></sub><br><sub>Model: Qwen3-VL-8B-Instruct<br>Agent training-free: No</sub> | ACM&nbsp;Multimedia<br>2026<br><sub>accepted</sub> | 2026‑08‑17 | — |
-| <a name="hermes"></a>**[Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection](https://proceedings.mlr.press/v306/li26be.html)**<br><sub>Video · <b>Detection · Explanation</b></sub><br><sub>Model: Qwen3-VL-8B + ChatGPT-5<br>Agent training-free: Yes</sub> | ICML&nbsp;2026<br><sub>published</sub> | 2026‑07‑06 | — |
-| <a name="unishield"></a>**[UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization](https://arxiv.org/abs/2510.03161)**<br><sub>Image · <b>Detection · Localization · Explanation</b></sub><br><sub>Model: Qwen2.5-VL + GPT-4o<br>Agent training-free: No</sub> | CVPR&nbsp;Findings<br>2026<br><sub>published</sub> | 2026‑06‑03 | — |
-| <a name="agentfox"></a>**[AgentFoX: LLM Agent-Guided Fusion with eXplainability for AI-Generated Image Detection](https://arxiv.org/abs/2603.23115)**<br><sub>Image · <b>Detection · Explanation</b></sub><br><sub>Model: Qwen3-32B + GPT-4o<br>Agent training-free: Yes (calibration)</sub> | arXiv&nbsp;2026<br><sub>preprint</sub> | 2026‑03‑24 | [Minimal inference](https://github.com/suncore946/AgentFoX) |
-| <a name="evoguard"></a>**[EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection](https://arxiv.org/abs/2603.17343)**<br><sub>Image · <b>Detection</b></sub><br><sub>Model: Qwen3-VL-4B-Instruct<br>Agent training-free: No</sub> | arXiv&nbsp;2026<br><sub>preprint</sub> | 2026‑03‑18 | — |
-| <a name="forgeryvcr"></a>**[ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization](https://arxiv.org/abs/2602.14098)**<br><sub>Image · <b>Detection · Localization</b></sub><br><sub>Model: Qwen3-VL-4B-Instruct<br>Agent training-free: No</sub> | ACM&nbsp;Multimedia<br>2026<br><sub>Oral · accepted</sub> | 2026‑02‑15 | [Inference + weights](https://github.com/youqiwong/ForgeryVCR) |
-| <a name="aifo"></a>**[From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection](https://arxiv.org/abs/2511.00181)** (AIFo)<br><sub>Image · <b>Detection · Explanation</b></sub><br><sub>Model: GPT-4o<br>Agent training-free: Yes</sub> | arXiv&nbsp;2025<br><sub>preprint</sub> | 2025‑10‑31 | — |
+<table>
+<thead>
+<tr>
+<th width="340" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="170" align="left">Venue / status</th>
+<th width="112" align="left">Date</th>
+<th width="150" align="left">Input / tasks</th>
+<th width="170" align="left">Inference<br>models&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="145" align="left">Agent<br>training‑free</th>
+<th width="130" align="left">Official repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="340" valign="top"><a name="atar"></a><strong><a href="https://arxiv.org/abs/2609.39066">Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection</a></strong> (ATAR)</td>
+<td width="170" valign="top">ACM&nbsp;Multimedia<br>2026<br><sub>Oral · accepted</sub></td>
+<td width="112" valign="top">2026‑09‑30</td>
+<td width="150" valign="top">Image<br><sub>Detection<br>Localization<br>Explanation</sub></td>
+<td width="170" valign="top">Qwen3-VL-8B-Instruct</td>
+<td width="145" valign="top">No</td>
+<td width="130" valign="top">—</td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="forenagent"></a><strong><a href="https://arxiv.org/abs/2512.16300">Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection</a></strong> (ForenAgent)</td>
+<td width="170" valign="top">ECCV&nbsp;2026<br><sub>published</sub></td>
+<td width="112" valign="top">2026‑09‑08</td>
+<td width="150" valign="top">Image<br><sub>Detection<br>Explanation</sub></td>
+<td width="170" valign="top">Qwen2.5-VL-7B</td>
+<td width="145" valign="top">No</td>
+<td width="130" valign="top"><a href="https://github.com/zfr00/ForenAgent">Toolkit&nbsp;only</a></td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="safeguard"></a><strong><a href="https://arxiv.org/abs/2607.03069">SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection</a></strong></td>
+<td width="170" valign="top">ECCV&nbsp;2026<br><sub>published</sub></td>
+<td width="112" valign="top">2026‑09‑08</td>
+<td width="150" valign="top">Video<br><sub>Detection<br>Explanation</sub></td>
+<td width="170" valign="top">GPT-4o + Gemini-2.5-Pro</td>
+<td width="145" valign="top">Yes<br><sub>tools tuned</sub></td>
+<td width="130" valign="top"><a href="https://github.com/williamw99/SafeGuard">Project;<br>code&nbsp;pending</a></td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="defake-o3"></a><strong><a href="https://arxiv.org/abs/2608.16259">Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection</a></strong></td>
+<td width="170" valign="top">ACM&nbsp;Multimedia<br>2026<br><sub>accepted</sub></td>
+<td width="112" valign="top">2026‑08‑17</td>
+<td width="150" valign="top">Image<br><sub>Detection<br>Localization<br>Explanation</sub></td>
+<td width="170" valign="top">Qwen3-VL-8B-Instruct</td>
+<td width="145" valign="top">No</td>
+<td width="130" valign="top">—</td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="hermes"></a><strong><a href="https://proceedings.mlr.press/v306/li26be.html">Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection</a></strong></td>
+<td width="170" valign="top">ICML&nbsp;2026<br><sub>published</sub></td>
+<td width="112" valign="top">2026‑07‑06</td>
+<td width="150" valign="top">Video<br><sub>Detection<br>Explanation</sub></td>
+<td width="170" valign="top">Qwen3-VL-8B + ChatGPT-5</td>
+<td width="145" valign="top">Yes</td>
+<td width="130" valign="top">—</td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="unishield"></a><strong><a href="https://arxiv.org/abs/2510.03161">UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization</a></strong></td>
+<td width="170" valign="top">CVPR&nbsp;Findings<br>2026<br><sub>published</sub></td>
+<td width="112" valign="top">2026‑06‑03</td>
+<td width="150" valign="top">Image<br><sub>Detection<br>Localization<br>Explanation</sub></td>
+<td width="170" valign="top">Qwen2.5-VL + GPT-4o</td>
+<td width="145" valign="top">No</td>
+<td width="130" valign="top">—</td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="agentfox"></a><strong><a href="https://arxiv.org/abs/2603.23115">AgentFoX: LLM Agent-Guided Fusion with eXplainability for AI-Generated Image Detection</a></strong></td>
+<td width="170" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="112" valign="top">2026‑03‑24</td>
+<td width="150" valign="top">Image<br><sub>Detection<br>Explanation</sub></td>
+<td width="170" valign="top">Qwen3-32B + GPT-4o</td>
+<td width="145" valign="top">Yes<br><sub>calibration</sub></td>
+<td width="130" valign="top"><a href="https://github.com/suncore946/AgentFoX">Minimal inference</a></td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="evoguard"></a><strong><a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></strong></td>
+<td width="170" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="112" valign="top">2026‑03‑18</td>
+<td width="150" valign="top">Image<br><sub>Detection</sub></td>
+<td width="170" valign="top">Qwen3-VL-4B-Instruct</td>
+<td width="145" valign="top">No</td>
+<td width="130" valign="top">—</td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="forgeryvcr"></a><strong><a href="https://arxiv.org/abs/2602.14098">ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization</a></strong></td>
+<td width="170" valign="top">ACM&nbsp;Multimedia<br>2026<br><sub>Oral · accepted</sub></td>
+<td width="112" valign="top">2026‑02‑15</td>
+<td width="150" valign="top">Image<br><sub>Detection<br>Localization</sub></td>
+<td width="170" valign="top">Qwen3-VL-4B-Instruct</td>
+<td width="145" valign="top">No</td>
+<td width="130" valign="top"><a href="https://github.com/youqiwong/ForgeryVCR">Inference + weights</a></td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="aifo"></a><strong><a href="https://arxiv.org/abs/2511.00181">From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection</a></strong> (AIFo)</td>
+<td width="170" valign="top">arXiv&nbsp;2025<br><sub>preprint</sub></td>
+<td width="112" valign="top">2025‑10‑31</td>
+<td width="150" valign="top">Image<br><sub>Detection<br>Explanation</sub></td>
+<td width="170" valign="top">GPT-4o</td>
+<td width="145" valign="top">Yes</td>
+<td width="130" valign="top">—</td>
+</tr>
+</tbody>
+</table>
 
 <a name="text"></a>
 
@@ -52,9 +145,73 @@ No papers listed.
 
 ## Cross-modal
 
-| Paper / task / model | Venue / status | Date | Official repository |
-| --- | --- | --- | --- |
-| <a name="omnivl-guard-pro"></a>**[OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics](https://arxiv.org/abs/2605.16962)**<br><sub>Text–image / text–video · <b>Detection · Localization</b></sub><br><sub>Model: Qwen3-VL-8B<br>Agent training-free: No</sub> | arXiv&nbsp;2026<br><sub>preprint</sub> | 2026‑05‑16 | [Project;<br>code&nbsp;pending](https://github.com/shen8424/OmniVL-Guard-Pro) |
-| <a name="fakehunter"></a>**[Memory-Anchored Multimodal Reasoning for Explainable Video Forensics](https://arxiv.org/abs/2508.14581)** (FakeHunter)<br><sub>Audio–video · <b>Detection · Explanation</b></sub><br><sub>Model: Qwen2.5-Omni-7B; alt. MiniCPM-o-2_6<br>Agent training-free: Yes (fitted memory)</sub> | arXiv&nbsp;2025<br><sub>preprint</sub> | 2025‑08‑20 | — |
+<table>
+<thead>
+<tr>
+<th width="340" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="170" align="left">Venue / status</th>
+<th width="112" align="left">Date</th>
+<th width="150" align="left">Input / tasks</th>
+<th width="170" align="left">Inference<br>models&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="145" align="left">Agent<br>training‑free</th>
+<th width="130" align="left">Official repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="340" valign="top"><a name="omnivl-guard-pro"></a><strong><a href="https://arxiv.org/abs/2605.16962">OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics</a></strong></td>
+<td width="170" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="112" valign="top">2026‑05‑16</td>
+<td width="150" valign="top">Text‑image<br>Text‑video<br><sub>Detection<br>Localization</sub></td>
+<td width="170" valign="top">Qwen3-VL-8B</td>
+<td width="145" valign="top">No</td>
+<td width="130" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">Project;<br>code&nbsp;pending</a></td>
+</tr>
+<tr>
+<td width="340" valign="top"><a name="fakehunter"></a><strong><a href="https://arxiv.org/abs/2508.14581">Memory-Anchored Multimodal Reasoning for Explainable Video Forensics</a></strong> (FakeHunter)</td>
+<td width="170" valign="top">arXiv&nbsp;2025<br><sub>preprint</sub></td>
+<td width="112" valign="top">2025‑08‑20</td>
+<td width="150" valign="top">Audio–video<br><sub>Detection<br>Explanation</sub></td>
+<td width="170" valign="top">Qwen2.5-Omni-7B; alt. MiniCPM-o-2_6</td>
+<td width="145" valign="top">Yes<br><sub>fitted memory</sub></td>
+<td width="130" valign="top">—</td>
+</tr>
+</tbody>
+</table>
 
+<a name="resources"></a>
 
+## Resources
+
+Selected platforms, model backbones and development tools for agentic media-forensics research. Check access requirements, model versions and data-handling terms before use.
+
+### Agentic forensic platforms
+
+- [Resemble Detect Agents](https://docs.resemble.ai/detect/agents) · **Managed API.** Media-authenticity investigations with streamed evidence and assessments; requires an account with Detect Agents access.
+- [Clyravision](https://en.merantix-momentum.com/clyravision) · **Contact-based platform.** Agent-based image analysis combining forensic traces, metadata and source/context checks; the product page includes a recorded demonstration.
+
+### Detection services for agent tools
+
+- [Reality Defender RealAPI](https://www.realitydefender.com/product/realapi) · **Detection API.** Image, audio and video manipulation analysis with structured results for integration into an agent's evidence pipeline.
+- [Sightengine](https://www.sightengine.com/docs/ai-generated-image-detection) · **Detection API.** AI-generated image scoring, with separate deepfake and AI-video detection models documented alongside it.
+
+### Open-weight model backbones
+
+- [Qwen3-VL](https://github.com/QwenLM/Qwen3-VL) · Vision-language family with image/video reasoning and grounding; includes the 4B and 8B variants used by several listed methods.
+- [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) · Image/video understanding backbone from the Qwen2.5-VL family used by ForenAgent and UniShield.
+- [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B) · Text reasoning model used in AgentFoX's agent-guided evidence fusion.
+- [Qwen2.5-Omni-7B](https://huggingface.co/Qwen/Qwen2.5-Omni-7B) · Text, image, audio and video understanding backbone used by FakeHunter.
+- [MiniCPM-o 2.6](https://huggingface.co/openbmb/MiniCPM-o-2_6) · Omni-modal model supporting vision, audio and language; an alternative backbone evaluated by FakeHunter.
+
+### Proprietary model services
+
+- [OpenAI API models](https://developers.openai.com/api/docs/models) · Official model catalogue for the GPT-family services used in several listed methods; check the paper's exact model or snapshot when reproducing results.
+- [Google Gemini API](https://ai.google.dev/gemini-api/docs/models) · Official multimodal model catalogue and API documentation, including the Gemini family used by SafeGuard.
+
+### Agent frameworks and tool execution
+
+- [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview) · Stateful workflow orchestration with persistence and human review, suitable for multi-step evidence gathering and arbitration.
+- [Pydantic AI](https://pydantic.dev/docs/ai/overview/) · Python agent framework with typed tools, structured outputs and dependency injection for explicit detector interfaces.
+- [Codex SDK](https://learn.chatgpt.com/docs/codex-sdk) · Programmatic coding-agent sessions for code-based experiments and integration with research workflows.
+- [OpenHands Software Agent SDK](https://docs.openhands.dev/sdk) · Custom agents with shell, file, browser and MCP tools, plus local and remote execution options.
+- [Pi](https://pi.dev/docs/latest/sdk) · Embeddable coding-agent SDK with configurable sessions and extensible tools for custom execution workflows.
