@@ -8,16 +8,17 @@
 
 ## Intro
 
-A collection of research on agentic detection of AI-generated content and related media manipulation. The focus is on methods that use tools, evidence-guided reasoning or multi-agent collaboration to investigate authenticity. Papers are grouped by input modality, with publication information and the availability of official implementations.
+A collection of research on agentic detection of AI-generated content and related media manipulation. The focus is on methods that use tools, evidence-guided reasoning or multi-agent collaboration to investigate authenticity. Papers are grouped by input modality, with publication information and the availability of official implementations. Related fixed-tool and rule-orchestrated methods are explicitly separated for comparison.
 
 Models refer to forensic inference. Catalog labels omit the -Instruct suffix; exact variants, tool training, calibration and retrieval memory are detailed in [Inference setups](docs/COMPARISON.md#inference-setups).
 
-Training describes forensic-agent adaptation: Training-free, SFT (supervised fine-tuning), or RL (reinforcement learning).
+Training describes forensic-agent adaptation: Training-free, SFT (supervised fine-tuning), or RL (reinforcement learning). “Not reported” means agent adaptation is unspecified, not that its tools are untrained.
 
 <a name="news"></a>
 
 ## News
 
+- **2026‑10‑23**: Added Qwen–LangGraph text detection and two explicitly separated related tool-grounded/rule-orchestrated methods; updated comparisons, added an agent-evaluation survey, refreshed Qwen/System-1 model resources and audited code status.
 - **2026‑10‑04**: Added the [technical comparison](docs/COMPARISON.md), covering five method-level dimensions.
 - **2026‑10‑04**: Launched the Agentic AIGC Detection reading list.
 
@@ -130,11 +131,65 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 </tbody>
 </table>
 
+### Related tool-grounded method
+
+This uses a fixed forensic-tool → explanation-model pipeline, not autonomous tool selection.
+
+**[View technical comparison →](docs/COMPARISON.md#related-visual)**
+
+<table>
+<thead>
+<tr>
+<th width="400" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="115" align="left">Venue</th>
+<th width="64" align="left">Date</th>
+<th width="70" align="left">Tags</th>
+<th width="180" align="left">Model / Training</th>
+<th width="85" align="left">Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="400" valign="top"><a name="pate-forensics"></a><strong><a href="https://arxiv.org/abs/2608.18573">PATE-Forensics: Perception-as-Tool for Explainable Deepfake Forensics with General-Purpose MLLMs</a></strong></td>
+<td width="115" valign="top">arXiv&nbsp;2026<br><sub>DDL-X challenge report</sub></td>
+<td width="64" valign="top">26/08</td>
+<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Qwen3.5‑Flash<br><sub>Training-free · tool trained</sub></td>
+<td width="85" valign="top"><a href="https://github.com/yqli00000/CLASP">Code<br><sub>now CLASP</sub></a></td>
+</tr>
+</tbody>
+</table>
+
 <a name="text"></a>
 
 ## Text
 
-No papers listed.
+Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
+
+**[View technical comparison →](docs/COMPARISON.md#text)**
+
+<table>
+<thead>
+<tr>
+<th width="400" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="115" align="left">Venue</th>
+<th width="64" align="left">Date</th>
+<th width="70" align="left">Tags</th>
+<th width="180" align="left">Model / Training</th>
+<th width="85" align="left">Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="400" valign="top"><a name="qwen-langgraph"></a><strong><a href="https://link.springer.com/article/10.1007/s10791-026-10710-z">Performance evaluation and interpretability of a Qwen LangGraph agent for AI written and AI rewritten text detection</a></strong></td>
+<td width="115" valign="top">Discover<br>Computing&nbsp;2026</td>
+<td width="64" valign="top">26/10</td>
+<td width="70" valign="top"><code>T</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Qwen2.5‑1.5B<br><sub>Not reported · tools trained</sub></td>
+<td width="85" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">Author link<br><sub>not verified</sub></a></td>
+</tr>
+</tbody>
+</table>
 
 <a name="cross-modal"></a>
 
@@ -175,6 +230,35 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 </tbody>
 </table>
 
+### Related rule-orchestrated method
+
+This escalates to extra detectors using fixed disagreement rules; LLMs provide context and reports rather than an autonomous action policy.
+
+**[View technical comparison →](docs/COMPARISON.md#related-cross-modal)**
+
+<table>
+<thead>
+<tr>
+<th width="400" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="115" align="left">Venue</th>
+<th width="64" align="left">Date</th>
+<th width="70" align="left">Tags</th>
+<th width="180" align="left">Model / Training</th>
+<th width="85" align="left">Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="400" valign="top"><a name="adaptive-multi-agent"></a><strong><a href="https://doi.org/10.3390/informatics13100163">A Multi-Agent Framework with Adaptive Orchestration for Explainable Multi-Modal Deepfake Detection</a></strong></td>
+<td width="115" valign="top">Informatics&nbsp;2026</td>
+<td width="64" valign="top">26/10</td>
+<td width="70" valign="top"><code>A+V</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Llama‑3‑70B<br>+ Gemini‑1.5‑Flash<br><sub>Rule-based · detectors trained</sub></td>
+<td width="85" valign="top"><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection">Code<br><sub>+ weights</sub></a></td>
+</tr>
+</tbody>
+</table>
+
 <a name="surveys"></a>
 
 ## Related surveys
@@ -187,6 +271,7 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 
 | Survey | Venue / status | Main contents |
 | --- | --- | --- |
+| **[Large language model agent evaluation and benchmarking: a systematic survey, meta-taxonomy, and critical research roadmap](https://doi.org/10.1007/s10462-026-11678-4)** | Artificial Intelligence Review, 2026 | Validity-centered agent evaluation; capability–scoring–environment taxonomy, contamination, nondeterminism, reproducibility and execution cost. |
 | **[A Survey on the Optimization of Large Language Model-based Agents](https://doi.org/10.1145/3789261)** | ACM Computing Surveys, 2026 | Agent SFT, RL and hybrid optimization; trajectory construction, reward design, prompt optimization and knowledge retrieval. |
 | **[A Survey on Agentic Multimodal Large Language Models](https://arxiv.org/abs/2510.10991)** | arXiv 2025 · preprint | Multimodal reasoning, reflection and memory; tool invocation and environment interaction; training frameworks and evaluation datasets. |
 | **[Evaluation and Benchmarking of LLM Agents: A Survey](https://doi.org/10.1145/3711896.3736570)** | KDD 2025 | Evaluation objectives (behavior, capabilities, reliability and safety), interaction modes, benchmarks, metrics and tooling; long-horizon deployment challenges. |
@@ -211,9 +296,11 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 
 Selected platforms, model backbones and development tools for agentic media-forensics research. Check access requirements, model versions and data-handling terms before use.
 
+Current model candidates are separated from paper-specific reproduction backbones; inclusion is not evidence of validated forensic performance. Resources checked: 2026‑10‑23.
+
 ### Agentic forensic platforms
 
-- [Resemble Detect Agents](https://docs.resemble.ai/detect/agents) · **Managed API.** Media-authenticity investigations with streamed evidence and assessments; requires an account with Detect Agents access.
+- [Resemble Investigator](https://docs.resemble.ai/detect/agents) · **Managed API.** Media-authenticity investigations with streamed evidence and assessments; requires an account with Investigator access.
 - [Clyravision](https://en.merantix-momentum.com/clyravision) · **Contact-based platform.** Agent-based image analysis combining forensic traces, metadata and source/context checks; the product page includes a recorded demonstration.
 
 ### Detection services for agent tools
@@ -221,10 +308,31 @@ Selected platforms, model backbones and development tools for agentic media-fore
 - [Reality Defender RealAPI](https://www.realitydefender.com/product/realapi) · **Detection API.** Image, audio and video manipulation analysis with structured results for integration into an agent's evidence pipeline.
 - [Sightengine](https://www.sightengine.com/docs/ai-generated-image-detection) · **Detection API.** AI-generated image scoring, with separate deepfake and AI-video detection models documented alongside it.
 
-### Open-weight model backbones
+### Current multimodal backbones for new experiments
+
+These Qwen variants support vision without a separate “-VL” suffix. Input modalities and licenses still vary by checkpoint; do not assume every later Qwen release is multimodal.
+
+- [Qwen3.5](https://github.com/QwenLM/Qwen3.8#qwen35), especially [Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B) · Native image/video understanding; 9B is a compact open-weight candidate for local tool-using agents.
+- [Qwen3.6-35B-A3B](https://huggingface.co/Qwen/Qwen3.6-35B-A3B) · Open-weight image/video-capable MoE with 35B total / 3B active parameters and preserved reasoning context for iterative agent workflows.
+- [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) · Newer open-weight native VLM for image/video understanding and multi-step agent tasks; Apache-2.0.
+- [Qwen3.8-Flash-Next](https://github.com/QwenLM/Qwen3.8-Flash-Next) ([weights](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)) · Open-weight multimodal MoE architecture preview with image/video support; Qwen Community 1.0 license, not Apache-2.0.
+
+### System-1 fast decision and perception models
+
+“System-1” here covers direct structured decisions and candidate ranking, not a single architecture or only the Jev ecosystem. These are general-purpose perception/decision resources, not validated forensic detectors; scores need task-specific calibration, and parallel questions do not imply constant latency.
+
+- [Liquid d1](https://www.liquid.ai/blog/d1-open) · [d1-ultra](https://www.liquid.ai/blog/d1-ultra) (2026‑10‑15) provides text/image decisions via API; open-weight [d1-3B](https://huggingface.co/LiquidAI/d1-3B) supports text/images, while experimental [d1-omni-600M](https://huggingface.co/LiquidAI/d1-omni-600M) accepts text+image or text+audio for single-forward decisions. Open weights use LFM Open License v1.0 with commercial-use revenue restrictions.
+- [Cloudflare Clef](https://blog.cloudflare.com/clef-faster-cheaper-multimodal/) · [Clef](https://huggingface.co/Cloudflare/clef) / [Clef-flash](https://huggingface.co/Cloudflare/clef-flash) make structured decisions over text, images and video; [Clef-omni](https://huggingface.co/Cloudflare/clef-omni) adds audio. Apache-2.0 weights and hosted Workers AI access; multimodal release updated 2026‑10‑09.
+- [pplx-decider-v1.2](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) · Perplexity's Qwen3.8-27B-based text/image decision model with parallel question-marker readout. Questions can attend to one another, rather than operating independently. Apache-2.0 weight files and inference code are listed, but download access was not verified because the model card retains private-access instructions.
+- [MetaEncoder-30B](https://huggingface.co/facebook/meta-encoder) · Cacheable text/image/video task and candidate embeddings for direct candidate ranking; [evaluation code](https://github.com/facebook/meta-encoder-eval) is available. Released weights require gated access and acceptance of model terms. Video uses the native implementation, not the text/image-only vLLM adapter; similarities are not automatically calibrated probabilities.
+- [Intern-Decision](https://github.com/InternLM/Intern-Decision) · Text plus optional images → multiple typed JSON decisions in one forward pass; [4B weights](https://huggingface.co/internlm/Intern-Decision-4B), alongside 0.8B/2B variants. Apache-2.0 code/weights are released; training data and private calibration records are not fully public.
+- [Valen](https://github.com/Valen-Team/Valen) · Shared-state text/image/sampled-video decisions with 0.8B/2B/[4B weights](https://huggingface.co/Valen-Team/Valen-4B), Apache-2.0, and local ONNX/GGUF options. Local video uses 16 sampled frames; the free web chat uses one middle frame and the free API is single-question, so demo capabilities differ from local models.
+- [TypeSafe Jev](https://docs.typesafe.ai/models) · Hosted structured-decision API: Jev 1.14 preview (2026‑10‑14), with 1.13 still the stable alias. [Image input](https://docs.typesafe.ai/images) is experimental; 1.14 adds experimental [Box localization](https://docs.typesafe.ai/primitives/box). No open weights are claimed.
+
+### Backbones used by listed papers
 
 - [Qwen3-VL](https://github.com/QwenLM/Qwen3-VL) · Vision-language family with image/video reasoning and grounding; includes the 4B and 8B variants used by several listed methods.
-- [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) · Image/video understanding backbone from the Qwen2.5-VL family used by ForenAgent and UniShield.
+- [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) · Image/video understanding backbone used by ForenAgent; UniShield uses the Qwen2.5-VL family without a reported parameter size.
 - [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B) · Text reasoning model used in AgentFoX's agent-guided evidence fusion.
 - [Qwen2.5-Omni-7B](https://huggingface.co/Qwen/Qwen2.5-Omni-7B) · Text, image, audio and video understanding backbone used by FakeHunter.
 - [MiniCPM-o 2.6](https://huggingface.co/openbmb/MiniCPM-o-2_6) · Omni-modal model supporting vision, audio and language; an alternative backbone evaluated by FakeHunter.
@@ -233,6 +341,7 @@ Selected platforms, model backbones and development tools for agentic media-fore
 
 - [OpenAI API models](https://developers.openai.com/api/docs/models) · Official model catalogue for the GPT-family services used in several listed methods; check the paper's exact model or snapshot when reproducing results.
 - [Google Gemini API](https://ai.google.dev/gemini-api/docs/models) · Official multimodal model catalogue and API documentation, including the Gemini family used by SafeGuard.
+- [Qwen3.8-Omni-Flash](https://qwen.ai/blog?id=qwen3.8-omni-flash) · Hosted native omnimodal model with text, image, audio and video inputs, tool calling and long-context audio-visual reasoning; not listed as open weights.
 
 ### Agent frameworks and tool execution
 
@@ -241,6 +350,4 @@ Selected platforms, model backbones and development tools for agentic media-fore
 - [Codex SDK](https://learn.chatgpt.com/docs/codex-sdk) · Programmatic coding-agent sessions for code-based experiments and integration with research workflows.
 - [OpenHands Software Agent SDK](https://docs.openhands.dev/sdk) · Custom agents with shell, file, browser and MCP tools, plus local and remote execution options.
 - [Pi](https://pi.dev/docs/latest/sdk) · Embeddable coding-agent SDK with configurable sessions and extensible tools for custom execution workflows.
-
-
-
+- [reflex](https://github.com/kshetrajna12/reflex) · Structured visual-judgment execution with shared-prefix caching and isolated batched questions, using frozen Qwen3.5-4B by default. The current stable release is a framework, not a newly fine-tuned checkpoint.

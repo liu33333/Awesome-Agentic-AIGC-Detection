@@ -4,6 +4,8 @@
 
 对比各方法的推理模型、训练要求与智能体工作流程。
 
+本页保留论文报告的模型版本；更新的候选模型见[资源](../README_CN.md#resources)。
+
 [推理配置](#inference-setups) · [智能体流程](#agent-workflows)
 
 <a name="inference-setups"></a>
@@ -27,12 +29,30 @@
 | **[ForgeryVCR](../README_CN.md#forgeryvcr)**<br><sub>ACM Multimedia 2026 口头报告 · 已录用</sub> | 图像 · 篡改检测/定位<br><sub>输出：检⁠测 · 定⁠位</sub> | Qwen3-VL-4B-Instruct<br><sub>工具：NoisePrint++；SAM2；ELA / FFT / 放大</sub> | SFT + RL | SFT + GRPO；预测框经 SAM2 转为掩码，主方法使用视觉中间结果。 仓库：推理 + 权重。 |
 | **[AIFo](../README_CN.md#aifo)**<br><sub>arXiv 2025 预印本</sub> | 图像 · 生成内容检测<br><sub>输出：检⁠测 · 解⁠释</sub> | GPT-4o<br><sub>工具：5 个预训练分类器；可选 CLIP-ViT-B/32 检索</sub> | Training-free | 提示词智能体与冻结分类器；可选案例记忆通过检索工作，无参数更新。 |
 
+### 相关视觉方法：固定工具流程
+
+| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智能体<br>训练方式 | 训练 / 配置说明 |
+| --- | --- | --- | --- | --- |
+| **[PATE-Forensics](../README_CN.md#pate-forensics)**<br><sub>arXiv 2026 · DDL-X 挑战报告</sub> | 图像 · 人脸伪造<br><sub>输出：检测 · 定位 · 解释</sub> | Qwen3.5-Flash<br><sub>工具：DINOv3-L/16 取证检测/分割</sub> | 解释模型免训练 | 固定感知 → 解释流程，无自主工具选择；取证工具经 LoRA 和监督检测/掩码损失训练。论文代码链接重定向至 CLASP，与论文命名不同。 |
+
+### 文本
+
+| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智能体<br>训练方式 | 训练 / 配置说明 |
+| --- | --- | --- | --- | --- |
+| **[Qwen–LangGraph](../README_CN.md#qwen-langgraph)**<br><sub>Discover Computing 2026 已发表</sub> | 文本 · 人工/AI 来源与 AI 生成/改写分类<br><sub>输出：检测 · 解释</sub> | Qwen2.5-1.5B-Instruct<br><sub>工具：DeBERTa-v3-xsmall；ELECTRA-small；词汇 SGD 分类器；文体诊断</sub> | 未报告 | Qwen 任务适配未说明；专用分类器经训练/微调，融合权重与路由阈值在验证集选定。作者提供分析代码/数据链接，内容未独立核验。 |
+
 ### 跨模态
 
 | 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智能体<br>训练方式 | 训练 / 配置说明 |
 | --- | --- | --- | --- | --- |
 | **[OmniVL-Guard Pro](../README_CN.md#omnivl-guard-pro)**<br><sub>arXiv 2026 预印本</sub> | 文图 / 文视频 · 伪造检测/定位/事实核查；兼容单模态<br><sub>输出：检⁠测 · 定⁠位</sub> | Qwen3-VL-8B<br><sub>工具：InsightFace；SAM3；检索 / 裁剪 / 视频帧工具</sub> | SFT + RL | FSTR SFT + 结果/过程 RL；Checker 仅用于训练，任务输出包括类别与定位。 仓库：项目； 代码待发布。 |
 | **[FakeHunter](../README_CN.md#fakehunter)**<br><sub>arXiv 2025 预印本</sub> | 音视频 · 篡改检测<br><sub>输出：检⁠测 · 解⁠释</sub> | Qwen2.5-Omni-7B<br><sub>另评测备选模型：MiniCPM-o-2_6</sub><br><sub>工具：CLIP + CLAP 编码器；FAISS 检索记忆</sub> | Training-free | 智能体不微调；在训练集 CLIP/CLAP 嵌入上用 K-means 拟合检索记忆。 |
+
+### 相关跨模态方法：规则编排
+
+| 方法 | 输入 / 任务范围 | 鉴伪推理模型 / 工具 | 智能体<br>训练方式 | 训练 / 配置说明 |
+| --- | --- | --- | --- | --- |
+| **[Adaptive multi-agent framework](../README_CN.md#adaptive-multi-agent)**<br><sub>Informatics 2026 已发表</sub> | 音视频 · 深度伪造检测<br><sub>输出：检测 · 解释</sub> | Llama-3-70B（报告）+ Gemini-1.5-Flash（语境）<br><sub>检测器：Xception；FreqNet；MobileNetV2 + BiLSTM；EfficientNet-B0；ECAPA-TDNN + MLP</sub> | 规则编排 | 检测器经监督训练/微调；ECAPA 主干冻结。固定分歧阈值触发第二阶段，验证集选择融合权重；非 LLM 行动策略。仓库：代码 + 五个检测器权重。 |
 
 <details>
 <summary>AIFo 分类器标识</summary>
@@ -68,6 +88,22 @@
 | **[ForgeryVCR](../README_CN.md#forgeryvcr)** | 单智能体 | ELA / NoisePrint++ / FFT / 放大 | 依据视觉输出继续调用工具/定位 | SFT + GRPO | 判定 + 框 → SAM2 掩码 |
 | **[AIFo](../README_CN.md#aifo)** | 采集者 / 推理者 / 辩手 / 裁判 | 检索 / 元数据 / 分类器 / VLM | 围绕已有证据辩论；裁判终止 | 提示词智能体；无权重训练 | 判定 + 溯源/元数据 + 理由 |
 
+<a name="related-visual"></a>
+
+### 相关视觉方法：固定工具流程
+
+| 方法 | 智能体组织 | 工具接口 | 反馈后改变什么？ | 智能体训练 | 证据输出 |
+| --- | --- | --- | --- | --- | --- |
+| **[PATE-Forensics](../README_CN.md#pate-forensics)** | 固定感知工具 → 解释模型 | 检测概率 / 掩码 / 可疑区域裁剪 | 无工具选择或反馈迭代 | 解释模型不微调；感知工具经训练 | 判定 + 掩码 + 证据约束解释 |
+
+<a name="text"></a>
+
+### 文本
+
+| 方法 | 智能体组织 | 工具接口 | 反馈后改变什么？ | 智能体训练 | 证据输出 |
+| --- | --- | --- | --- | --- | --- |
+| **[Qwen–LangGraph](../README_CN.md#qwen-langgraph)** | 局部融合 + 按需调用单控制器 | 预定义分类器 / 文体诊断 | 根据新增证据选择工具、停止或转人工（≤2 步，≤1 次专用模型调用） | 控制器适配未报告；工具经训练，路由经校准 | 来源/改写概率 + 词汇/语言诊断 + 路由记录；概率来自分类器而非控制器 |
+
 <a name="cross-modal"></a>
 
 ### 跨模态
@@ -77,4 +113,10 @@
 | **[OmniVL-Guard Pro](../README_CN.md#omnivl-guard-pro)** | 单推理策略 | 预定义检索 / 裁剪 / 视觉 / SAM3 | 依据观测/错误选择后续工具 | SFT + 结果 RL + Checker 引导过程 RL | 判定 + 轨迹 + 空间/文本/时序定位 |
 | **[FakeHunter](../README_CN.md#fakehunter)** | 单提示词多模态模型 | 记忆检索 / 放大 / 梅尔频谱 | 低置信度触发视觉/音频复核 | 智能体不微调；训练集构建记忆 | 判定 + 篡改类型 + 解释 |
 
+<a name="related-cross-modal"></a>
 
+### 相关跨模态方法：规则编排
+
+| 方法 | 智能体组织 | 工具接口 | 反馈后改变什么？ | 智能体训练 | 证据输出 |
+| --- | --- | --- | --- | --- | --- |
+| **[Adaptive multi-agent framework](../README_CN.md#adaptive-multi-agent)** | 规则编排的五检测器集合 + 报告模型 | 固定检测器 / XAI / 语境与转录 | 分歧触发第二阶段两个检测器；无 LLM 工具规划 | 无学习型编排策略；检测器经训练/微调 | 融合分数 + 显著性/SHAP/跨模态诊断 + 取证报告 |
