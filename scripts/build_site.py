@@ -205,6 +205,7 @@ def render(catalog, lang):
     cards = '\n'.join(card(p, l, readme) for p in papers)
     tasks = ''.join(f'<option value="{t}">{l[t]}</option>' for t in ('D', 'L', 'E'))
     training = ''.join(f'<option value="{t}">{l[t]}</option>' for t in ('training-free', 'sft', 'rl', 'other'))
+    asset_version = lambda name: hashlib.sha256((ROOT / 'site/assets' / name).read_bytes()).hexdigest()[:12]
     page = f'''<!doctype html>
 <html lang="{l['lang']}">
 <head>
@@ -212,9 +213,9 @@ def render(catalog, lang):
 <meta name="description" content="{escape(l['description'])}">
 <meta name="theme-color" content="#ffffff">
 <title>Awesome Agentic AIGC Detection · {l['collection']}</title>
-<link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{prefix}assets/style.css">
-<script src="{prefix}assets/app.js" defer></script>
+<link rel="icon" href="{prefix}assets/favicon.svg?v={asset_version("favicon.svg")}" type="image/svg+xml">
+<link rel="stylesheet" href="{prefix}assets/style.css?v={asset_version("style.css")}">
+<script src="{prefix}assets/app.js?v={asset_version("app.js")}" defer></script>
 </head>
 <body data-language="{lang}" data-result-label="{l['results']}">
 <a class="skip-link" href="#papers">{l['skip']}</a>

@@ -60,6 +60,9 @@ class WebsiteTests(unittest.TestCase):
             self.assertIn('id="apply-filters"', page)
             self.assertLess(page.index('id="search"'), page.index('id="filter-panel"'))
             self.assertIn('id="library-title"', page)
+            for asset in ('style.css', 'app.js', 'favicon.svg'):
+                digest = hashlib.sha256((ROOT/'site/assets'/asset).read_bytes()).hexdigest()[:12]
+                self.assertIn(f'assets/{asset}?v={digest}', page)
 
     def test_source_training_classification_does_not_infer_tool_training(self):
         self.assertEqual(site.training_tags('Training-free · tools tuned'), ['training-free'])
