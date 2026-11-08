@@ -104,6 +104,28 @@ class CatalogTests(unittest.TestCase):
                 self.assertIn(item['basis'], {'conference', 'preprint', 'journal'})
                 self.assertTrue(item['source'].startswith('https://'))
 
+    def test_resource_labels_are_standardized_and_bilingually_equivalent(self):
+        translation = {'Code': '代码', 'Dataset': '数据集',
+                       'Weights': '权重', 'Project Page': '项目主页'}
+        _, en = catalog('README.md')
+        _, cn = catalog('README_CN.md')
+        for modality in MODALITIES:
+            for (key, a), (_, b) in zip(en[modality][1], cn[modality][1]):
+                with self.subTest(paper=key):
+                    labels = lambda cell: [visible(label) for label in re.findall(
+                        r'<a\b[^>]*href="[^"]+"[^>]*>(.*?)</a>', cell, re.S)]
+                    en_labels, cn_labels = labels(a[4]), labels(b[4])
+                    self.assertTrue(all(label in translation for label in en_labels))
+                    self.assertEqual([translation[label] for label in en_labels], cn_labels)
+                    # An announcement-only repository is not released source code.
+                    if key in {'safeguard', 'omnivl-guard-pro'}:
+                        self.assertEqual(en_labels, ['Project Page'])
+                    # The paper's Data/Code availability sections cite the same folder.
+                    if key == 'qwen-langgraph':
+                        self.assertEqual(en_labels, ['Code', 'Dataset'])
+                        urls = re.findall(r'href="([^"]+)"', a[4])
+                        self.assertEqual(urls[0], urls[1])
+
     def test_comparisons_cover_catalog_in_the_same_order(self):
         for cn in (False, True):
             readme = 'README_CN.md' if cn else 'README.md'

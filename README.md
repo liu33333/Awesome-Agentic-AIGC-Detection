@@ -60,7 +60,7 @@ Input: <code>A</code> Audio<br>Task: <code>D</code> Detection · <code>L</code> 
 <td width="16%" valign="top">arXiv 2026</td>
 <td width="16%" valign="top">Qwen2.5-Omni-7B<br><sub>Training-free</sub></td>
 <td width="24%" valign="top">BAEA-Adaptive selects acoustic feature groups within a budget; deterministic BAEA-Fixed performs better in the paper.</td>
-<td width="10%" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">Code</a><br><a href="https://huggingface.co/datasets/SEAR-benchmark/SEAR">Labels</a><br><sub>Raw audio separate</sub></td>
+<td width="10%" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">Code</a><br><a href="https://huggingface.co/datasets/SEAR-benchmark/SEAR">Dataset</a><br><sub>Raw audio separate</sub></td>
 </tr>
 </tbody>
 </table>
@@ -118,14 +118,14 @@ Input: <code>I</code> Image · <code>V</code> Video<br>Task: <code>D</code> Dete
 <td width="16%" valign="top">ECCV 2026</td>
 <td width="16%" valign="top">Qwen2.5-VL-7B<br><sub>SFT + RL</sub></td>
 <td width="24%" valign="top">Generate processing code and use 12 forensic tools; revise operations from feedback.</td>
-<td width="10%" valign="top"><a href="https://github.com/zfr00/ForenAgent">Toolkit</a></td>
+<td width="10%" valign="top"><a href="https://github.com/zfr00/ForenAgent">Code</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="safeguard"></a><strong><a href="https://arxiv.org/abs/2607.03069">SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection</a></strong><br><code>V</code> · <code>D</code>&nbsp;<code>E</code></td>
 <td width="16%" valign="top">ECCV 2026</td>
 <td width="16%" valign="top">GPT-4o<br>+ Gemini-2.5-Pro<br><sub>Training-free · tools tuned</sub></td>
 <td width="24%" valign="top">Perceptual solver + verifier revise hypotheses and reacquire evidence (≤3 cycles).</td>
-<td width="10%" valign="top"><a href="https://github.com/williamw99/SafeGuard">Project</a></td>
+<td width="10%" valign="top"><a href="https://github.com/williamw99/SafeGuard">Project Page</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="dissecting-agentic-forensics"></a><strong><a href="https://arxiv.org/abs/2609.24359">Dissecting Agentic Forensics: The Role of Triage, Prompting, and Evidence Arbitration in Open-World Fake Image Detection</a></strong><br><code>I</code> · <code>D</code>&nbsp;<code>E</code></td>
@@ -146,7 +146,7 @@ Input: <code>I</code> Image · <code>V</code> Video<br>Task: <code>D</code> Dete
 <td width="16%" valign="top">arXiv 2026<br>DDL-X challenge report</td>
 <td width="16%" valign="top">Qwen3.5-Flash<br><sub>Training-free · tool trained</sub></td>
 <td width="24%" valign="top">Fixed perception → explanation pipeline.</td>
-<td width="10%" valign="top"><a href="https://github.com/yqli00000/CLASP">Code<br><sub>now CLASP</sub></a></td>
+<td width="10%" valign="top"><a href="https://github.com/yqli00000/CLASP">Code</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="argus"></a><strong><a href="https://arxiv.org/abs/2608.06865">Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection</a></strong> (ARGUS)<br><code>V</code> · <code>D</code>&nbsp;<code>E</code></td>
@@ -188,7 +188,7 @@ Input: <code>I</code> Image · <code>V</code> Video<br>Task: <code>D</code> Dete
 <td width="16%" valign="top">arXiv 2026</td>
 <td width="16%" valign="top">Qwen3-32B<br>+ GPT-4o<br><sub>Training-free · calibration</sub></td>
 <td width="24%" valign="top">Fuse collected expert evidence using calibrated reliability profiles.</td>
-<td width="10%" valign="top"><a href="https://github.com/suncore946/AgentFoX">Minimal</a></td>
+<td width="10%" valign="top"><a href="https://github.com/suncore946/AgentFoX">Code</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="evoguard"></a><strong><a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></strong><br><code>I</code> · <code>D</code></td>
@@ -232,14 +232,14 @@ Input: <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> L
 <td width="16%" valign="top">Findings EMNLP 2026</td>
 <td width="16%" valign="top">GPT-5-mini</td>
 <td width="24%" valign="top">Separate detection and search modules; fixed exact-then-fuzzy search and webpage-evidence aggregation.</td>
-<td width="10%" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">Code</a><br><a href="https://github.com/TrustAIRLab/AIGT-Agent/tree/main/data/benchmark_4k">4K data</a></td>
+<td width="10%" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">Code</a><br><a href="https://github.com/TrustAIRLab/AIGT-Agent/tree/main/data/benchmark_4k">Dataset</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="qwen-langgraph"></a><strong><a href="https://link.springer.com/article/10.1007/s10791-026-10710-z">Performance evaluation and interpretability of a Qwen LangGraph agent for AI written and AI rewritten text detection</a></strong><br><code>T</code> · <code>D</code>&nbsp;<code>E</code></td>
 <td width="16%" valign="top">Discover<br>Computing 2026</td>
 <td width="16%" valign="top">Qwen2.5-1.5B<br><sub>Tools trained</sub></td>
 <td width="24%" valign="top">Fusion + selective controller: choose tools, stop or abstain (≤2 steps; ≤1 specialist call).</td>
-<td width="10%" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">Author files</a></td>
+<td width="10%" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">Code</a><br><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">Dataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -298,14 +298,14 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 <td width="16%" valign="top">arXiv 2026</td>
 <td width="16%" valign="top">Qwen3-VL-8B<br><sub>SFT + RL</sub></td>
 <td width="24%" valign="top">Select search / crop / vision tools from observations or errors.</td>
-<td width="10%" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">Project</a></td>
+<td width="10%" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">Project Page</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="t2agent"></a><strong><a href="https://arxiv.org/abs/2505.19768">T²Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search</a></strong><br><code>T+I</code> · <code>D</code></td>
 <td width="16%" valign="top">AAAI 2026</td>
 <td width="16%" valign="top">GPT-4o<br><sub>Training-free</sub></td>
 <td width="24%" valign="top">MCTS explores tool / evidence paths; v2 adds greedy tool-subset selection. Broader image–text misinformation, including AIGC.</td>
-<td width="10%" valign="top"><a href="https://github.com/cuixing100876/T2Agent">Code<br><sub>partly cached</sub></a></td>
+<td width="10%" valign="top"><a href="https://github.com/cuixing100876/T2Agent">Code</a><br><sub>Partly cached</sub></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="fakehunter"></a><strong><a href="https://arxiv.org/abs/2508.14581">Memory-Anchored Multimodal Reasoning for Explainable Video Forensics</a></strong> (FakeHunter)<br><code>A+V</code> · <code>D</code>&nbsp;<code>E</code></td>

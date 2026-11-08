@@ -60,7 +60,7 @@
 <td width="16%" valign="top">arXiv 2026</td>
 <td width="16%" valign="top">Qwen2.5-Omni-7B<br><sub>Training-free</sub></td>
 <td width="24%" valign="top">BAEA-Adaptive 在预算内选择声学特征组；确定性 BAEA-Fixed 在论文中表现更好。</td>
-<td width="10%" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">代码</a><br><a href="https://huggingface.co/datasets/SEAR-benchmark/SEAR">标注</a><br><sub>原始音频另行获取</sub></td>
+<td width="10%" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">代码</a><br><a href="https://huggingface.co/datasets/SEAR-benchmark/SEAR">数据集</a><br><sub>原始音频另行获取</sub></td>
 </tr>
 </tbody>
 </table>
@@ -118,14 +118,14 @@
 <td width="16%" valign="top">ECCV 2026</td>
 <td width="16%" valign="top">Qwen2.5-VL-7B<br><sub>SFT + RL</sub></td>
 <td width="24%" valign="top">生成处理代码并调用 12 个取证工具，依据反馈调整操作。</td>
-<td width="10%" valign="top"><a href="https://github.com/zfr00/ForenAgent">工具集</a></td>
+<td width="10%" valign="top"><a href="https://github.com/zfr00/ForenAgent">代码</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="safeguard"></a><strong><a href="https://arxiv.org/abs/2607.03069">SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection</a></strong><br><code>V</code> · <code>D</code>&nbsp;<code>E</code></td>
 <td width="16%" valign="top">ECCV 2026</td>
 <td width="16%" valign="top">GPT-4o<br>+ Gemini-2.5-Pro<br><sub>Training-free · 工具经调优</sub></td>
 <td width="24%" valign="top">感知求解器与验证器修订假设并重新采证（≤3 轮）。</td>
-<td width="10%" valign="top"><a href="https://github.com/williamw99/SafeGuard">项目</a></td>
+<td width="10%" valign="top"><a href="https://github.com/williamw99/SafeGuard">项目主页</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="dissecting-agentic-forensics"></a><strong><a href="https://arxiv.org/abs/2609.24359">Dissecting Agentic Forensics: The Role of Triage, Prompting, and Evidence Arbitration in Open-World Fake Image Detection</a></strong><br><code>I</code> · <code>D</code>&nbsp;<code>E</code></td>
@@ -146,7 +146,7 @@
 <td width="16%" valign="top">arXiv 2026<br>DDL-X 挑战报告</td>
 <td width="16%" valign="top">Qwen3.5-Flash<br><sub>Training-free · 工具经训练</sub></td>
 <td width="24%" valign="top">固定感知 → 解释流程。</td>
-<td width="10%" valign="top"><a href="https://github.com/yqli00000/CLASP">代码<br><sub>现名 CLASP</sub></a></td>
+<td width="10%" valign="top"><a href="https://github.com/yqli00000/CLASP">代码</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="argus"></a><strong><a href="https://arxiv.org/abs/2608.06865">Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection</a></strong> (ARGUS)<br><code>V</code> · <code>D</code>&nbsp;<code>E</code></td>
@@ -188,7 +188,7 @@
 <td width="16%" valign="top">arXiv 2026</td>
 <td width="16%" valign="top">Qwen3-32B<br>+ GPT-4o<br><sub>Training-free · 需校准</sub></td>
 <td width="24%" valign="top">结合经校准的可靠性档案，融合已采集的专家证据。</td>
-<td width="10%" valign="top"><a href="https://github.com/suncore946/AgentFoX">最小推理</a></td>
+<td width="10%" valign="top"><a href="https://github.com/suncore946/AgentFoX">代码</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="evoguard"></a><strong><a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></strong><br><code>I</code> · <code>D</code></td>
@@ -232,14 +232,14 @@
 <td width="16%" valign="top">Findings EMNLP 2026</td>
 <td width="16%" valign="top">GPT-5-mini</td>
 <td width="24%" valign="top">检测与搜索模块分别执行；固定先精确后模糊搜索，再聚合网页证据。</td>
-<td width="10%" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">代码</a><br><a href="https://github.com/TrustAIRLab/AIGT-Agent/tree/main/data/benchmark_4k">基准</a></td>
+<td width="10%" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">代码</a><br><a href="https://github.com/TrustAIRLab/AIGT-Agent/tree/main/data/benchmark_4k">数据集</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="qwen-langgraph"></a><strong><a href="https://link.springer.com/article/10.1007/s10791-026-10710-z">Performance evaluation and interpretability of a Qwen LangGraph agent for AI written and AI rewritten text detection</a></strong><br><code>T</code> · <code>D</code>&nbsp;<code>E</code></td>
 <td width="16%" valign="top">Discover<br>Computing 2026</td>
 <td width="16%" valign="top">Qwen2.5-1.5B<br><sub>工具经训练</sub></td>
 <td width="24%" valign="top">融合 + 按需调用控制器：选择工具、停止或转人工（≤2 步，≤1 次专用模型调用）。</td>
-<td width="10%" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">作者资源</a></td>
+<td width="10%" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">代码</a><br><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">数据集</a></td>
 </tr>
 </tbody>
 </table>
@@ -298,14 +298,14 @@
 <td width="16%" valign="top">arXiv 2026</td>
 <td width="16%" valign="top">Qwen3-VL-8B<br><sub>SFT + RL</sub></td>
 <td width="24%" valign="top">依据观测或错误选择检索／裁剪／视觉工具。</td>
-<td width="10%" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">项目</a></td>
+<td width="10%" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">项目主页</a></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="t2agent"></a><strong><a href="https://arxiv.org/abs/2505.19768">T²Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search</a></strong><br><code>T+I</code> · <code>D</code></td>
 <td width="16%" valign="top">AAAI 2026</td>
 <td width="16%" valign="top">GPT-4o<br><sub>Training-free</sub></td>
 <td width="24%" valign="top">MCTS 探索工具／证据路径；v2 加入贪心工具子集选择。面向包含 AIGC 的广义图文虚假信息。</td>
-<td width="10%" valign="top"><a href="https://github.com/cuixing100876/T2Agent">代码<br><sub>部分缓存</sub></a></td>
+<td width="10%" valign="top"><a href="https://github.com/cuixing100876/T2Agent">代码</a><br><sub>部分缓存</sub></td>
 </tr>
 <tr>
 <td width="34%" valign="top"><a name="fakehunter"></a><strong><a href="https://arxiv.org/abs/2508.14581">Memory-Anchored Multimodal Reasoning for Explainable Video Forensics</a></strong> (FakeHunter)<br><code>A+V</code> · <code>D</code>&nbsp;<code>E</code></td>
