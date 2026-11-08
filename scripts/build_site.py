@@ -23,7 +23,7 @@ LABELS = {
     'en': {
         'lang': 'en', 'other_lang': '简体中文', 'other_url': 'zh/',
         'kicker': 'Research library', 'title': 'Agentic AIGC Detection',
-        'description': 'Research on detecting, localizing and explaining AI-generated content with agents, tools and multi-agent systems.',
+        'description': 'Research on agent-based detection, localization and explanation of AI-generated content.',
         'browse': 'Explore papers', 'comparison': 'Technical comparison', 'repo': 'GitHub repository',
         'papers': 'Papers', 'modalities': 'Modalities', 'tasks': 'Tasks', 'collection': 'The research library',
         'subtitle': 'Browse papers', 'search': 'Search papers',
@@ -51,7 +51,7 @@ LABELS = {
     'zh': {
         'lang': 'zh-CN', 'other_lang': 'English', 'other_url': '../',
         'kicker': '开放论文库', 'title': 'Agentic AIGC Detection',
-        'description': '汇集通过智能体、工具调用与多智能体协作，对 AI 生成内容进行检测、定位与解释的研究。',
+        'description': '汇集 AI 生成内容的智能体检测、定位与解释研究，涵盖音频、图像、视频与文本。',
         'browse': '浏览论文', 'comparison': '技术对比', 'repo': 'GitHub 仓库',
         'papers': '篇论文', 'modalities': '种输入模态', 'tasks': '类任务', 'collection': '论文目录',
         'subtitle': '浏览论文', 'search': '搜索论文',
@@ -222,7 +222,6 @@ def render(catalog, lang):
 <header class="site-header"><div class="header-inner"><a class="brand" href="{prefix or './'}" aria-label="Awesome Agentic AIGC Detection"><svg class="brand-symbol" aria-hidden="true" viewBox="0 0 28 28"><path d="M7 3h10l5 5v17H7zM16 3v6h6M11 14h7M11 18h7"/></svg><span>Agentic AIGC<span class="brand-sub">Detection</span></span></a><nav aria-label="Main"><a href="#papers" class="nav-papers">{l['collection']}</a><a href="#resources">{l['resources']}</a><a class="language-link" href="{l['other_url']}" lang="{'en' if lang == 'zh' else 'zh-CN'}">{l['other_lang']}</a><a class="github-link" href="{REPO}">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
 <main>
 <section class="intro shell" aria-labelledby="hero-title">
-  <p class="eyebrow">{l['kicker']}</p>
   <h1 id="hero-title">{l['title']}</h1>
   <p class="intro-description">{l['description']}</p>
   <div class="collection-meta"><div class="collection-stats"><span><strong>{len(papers)}</strong> {l['papers']}</span><span><strong>4</strong> {l['modalities']}</span><span><strong>3</strong> {l['tasks']}</span></div><a href="{readme_url}" class="sync-link">{l['sync']} <span aria-hidden="true">↗</span></a></div>

@@ -30,7 +30,7 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline: 3px solid
 .site-header .nav-papers { color: var(--accent); }
 .github-link { display: flex; align-items: center; gap: 5px; border: 1px solid var(--line); border-radius: 6px; padding: 6px 13px; }
 .github-link:hover { background: var(--surface); }
-.intro { padding-top: 36px; padding-bottom: 30px; }
+.intro { padding-top: 32px; padding-bottom: 26px; }
 .eyebrow { color: var(--accent); font-size: 14px; font-weight: 600; margin: 0 0 7px; }
 .intro h1 { font-size: clamp(28px, 3vw, 36px); line-height: 1.2; letter-spacing: -.9px; font-weight: 650; margin: 0 0 12px; }
 .intro-description { max-width: 760px; font-size: 16px; line-height: 1.65; color: var(--muted); margin: 0; }
