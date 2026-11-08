@@ -1,5 +1,7 @@
 """Keep the bilingual paper catalog structurally consistent."""
+from datetime import date
 import html
+import json
 from pathlib import Path
 import re
 import unittest
@@ -7,6 +9,8 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 MODALITIES = ('audio', 'visual', 'text', 'cross-modal')
+SORT_DATA = json.loads((ROOT / 'data/catalog-order.json').read_text(encoding='utf-8'))
+SORT_KEYS = {paper['id']: paper for paper in SORT_DATA['papers']}
 
 
 def catalog(filename):
@@ -38,18 +42,24 @@ class CatalogTests(unittest.TestCase):
                 with self.subTest(file=filename, modality=modality):
                     self.assertEqual(section.count('<table>'), 1)
                     self.assertFalse(re.search(r'^###\s', section, re.M))
-                    self.assertEqual(section.count('<th '), 4)
-                    self.assertEqual(section.count('<th width="50%"'), 1)
+                    self.assertEqual(section.count('<th '), 5)
+                    self.assertEqual(section.count('<th width="34%"'), 1)
+                    self.assertRegex(section, r'>Workflow</th>|>流程</th>')
                     self.assertTrue(rows)
                     dates = []
                     for key, cells in rows:
                         all_keys.append(key)
-                        self.assertEqual(len(cells), 4, key)
-                        self.assertRegex(cells[0], r'</strong>.*?<br><sub>.+</sub>$', key)
+                        self.assertEqual(len(cells), 5, key)
+                        self.assertRegex(cells[0], r'</strong>.*?<br><code>', key)
+                        self.assertTrue(visible(cells[3]), key)
+                        self.assertNotIn('<details', cells[3], key)
+                        self.assertNotRegex(cells[1], r'<(?:sub|small|strong|b)[ >]', key)
+                        self.assertNotRegex(' '.join(cells), r'\b\d{2}/\d{2}\b', key)
                         self.assertNotIn('&nbsp;', cells[1], key)
-                        dates.append(re.search(r'\d{2}/\d{2}', cells[1])[0])
+                        dates.append(date.fromisoformat(SORT_KEYS[key]['date']))
                     self.assertEqual(dates, sorted(dates, reverse=True))
             self.assertEqual(len(all_keys), len(set(all_keys)))
+            self.assertEqual(set(all_keys), set(SORT_KEYS))
 
     def test_bilingual_rows_dates_tags_and_resource_links(self):
         en_text, en = catalog('README.md')
@@ -59,16 +69,21 @@ class CatalogTests(unittest.TestCase):
             self.assertEqual([k for k, _ in en_rows], [k for k, _ in cn_rows])
             for (key, a), (_, b) in zip(en_rows, cn_rows):
                 with self.subTest(paper=key):
-                    self.assertEqual(visible(a[0].split('<br><sub>', 1)[0]),
-                                     visible(b[0].split('<br><sub>', 1)[0]))
-                    self.assertEqual(re.findall(r'\d{2}/\d{2}', a[1]),
-                                     re.findall(r'\d{2}/\d{2}', b[1]))
-                    self.assertEqual(re.findall(r'<code>(.*?)</code>', a[2]),
-                                     re.findall(r'<code>(.*?)</code>', b[2]))
-                    self.assertEqual(re.findall(r'href="([^"]+)"', a[3]),
-                                     re.findall(r'href="([^"]+)"', b[3]))
+                    self.assertEqual(visible(a[0]), visible(b[0]))
+                    self.assertEqual(re.findall(r'<code>(.*?)</code>', a[0]),
+                                     re.findall(r'<code>(.*?)</code>', b[0]))
+                    self.assertEqual(re.findall(r'href="([^"]+)"', a[4]),
+                                     re.findall(r'href="([^"]+)"', b[4]))
         external = lambda s: set(re.findall(r'https?://[^\s<>"\)]+', s))
         self.assertEqual(external(en_text), external(cn_text))
+
+    def test_sort_metadata_is_complete_and_sourced(self):
+        self.assertEqual(len(SORT_KEYS), len(SORT_DATA['papers']))
+        for key, item in SORT_KEYS.items():
+            with self.subTest(paper=key):
+                date.fromisoformat(item['date'])
+                self.assertIn(item['basis'], {'conference', 'preprint', 'journal'})
+                self.assertTrue(item['source'].startswith('https://'))
 
     def test_comparisons_cover_catalog_in_the_same_order(self):
         for cn in (False, True):
@@ -95,7 +110,7 @@ class CatalogTests(unittest.TestCase):
             _, groups = catalog(filename)
             for _, rows in groups.values():
                 for key, cells in rows:
-                    resource = cells[3]
+                    resource = cells[4]
                     self.assertNotEqual(visible(resource), '—', key)
                     self.assertFalse(re.search(r'<(?:sub|small|strong|b)>\s*(?:\+\s*|＋)?(?:Weights|权重)', resource, re.I), key)
                     if re.search(r'>Weights</a>|>权重</a>', resource):

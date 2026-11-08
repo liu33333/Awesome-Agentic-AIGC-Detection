@@ -9,6 +9,7 @@ on:
       - 'docs/**/*.md'
       - scripts/audit_links.py
       - 'tests/**'
+      - data/catalog-order.json
       - .github/workflows/link-audit.yml
   workflow_dispatch:
   schedule:
