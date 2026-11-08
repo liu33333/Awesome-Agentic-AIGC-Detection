@@ -37,7 +37,7 @@
 <thead>
 <tr>
 <th width="50%" align="left">论文与流程</th>
-<th width="12%" align="left">发表 / 日期</th>
+<th width="12%" align="left">发表<br>日期</th>
 <th width="24%" align="left">标签 · 模型 · 训练</th>
 <th width="14%" align="left">资源</th>
 </tr>
@@ -71,7 +71,7 @@
 <thead>
 <tr>
 <th width="50%" align="left">论文与流程</th>
-<th width="12%" align="left">发表 / 日期</th>
+<th width="12%" align="left">发表<br>日期</th>
 <th width="24%" align="left">标签 · 模型 · 训练</th>
 <th width="14%" align="left">资源</th>
 </tr>
@@ -195,7 +195,7 @@
 <thead>
 <tr>
 <th width="50%" align="left">论文与流程</th>
-<th width="12%" align="left">发表 / 日期</th>
+<th width="12%" align="left">发表<br>日期</th>
 <th width="24%" align="left">标签 · 模型 · 训练</th>
 <th width="14%" align="left">资源</th>
 </tr>
@@ -230,7 +230,7 @@
 <thead>
 <tr>
 <th width="50%" align="left">论文与流程</th>
-<th width="12%" align="left">发表 / 日期</th>
+<th width="12%" align="left">发表<br>日期</th>
 <th width="24%" align="left">标签 · 模型 · 训练</th>
 <th width="14%" align="left">资源</th>
 </tr>
