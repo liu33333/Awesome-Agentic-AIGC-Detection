@@ -61,6 +61,25 @@ class CatalogTests(unittest.TestCase):
             self.assertEqual(len(all_keys), len(set(all_keys)))
             self.assertEqual(set(all_keys), set(SORT_KEYS))
 
+    def test_modality_legends_show_only_their_relevant_inputs(self):
+        expected = {'audio': ['A'], 'visual': ['I', 'V'],
+                    'text': ['T'], 'cross-modal': ['I', 'V', 'A', 'T']}
+        for filename in ('README.md', 'README_CN.md'):
+            _, groups = catalog(filename)
+            for modality, (section, rows) in groups.items():
+                with self.subTest(file=filename, modality=modality):
+                    prefix = section.split('<table>', 1)[0]
+                    input_legend = re.search(r'(?:Input:|输入：)(.*?)<br>', prefix)[1]
+                    self.assertEqual(re.findall(r'<code>(.*?)</code>', input_legend),
+                                     expected[modality])
+                    # Actual paper tags remain explicit, not filled from the heading.
+                    for key, cells in rows:
+                        tags = re.findall(r'<code>(.*?)</code>', cells[0])
+                        inputs = [tag for tag in tags if tag not in {'D', 'L', 'E'}]
+                        self.assertTrue(inputs, key)
+                        self.assertTrue(all(set(tag.split('+')) <= set(expected[modality])
+                                            for tag in inputs), key)
+
     def test_bilingual_rows_dates_tags_and_resource_links(self):
         en_text, en = catalog('README.md')
         cn_text, cn = catalog('README_CN.md')

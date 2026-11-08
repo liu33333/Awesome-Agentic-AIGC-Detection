@@ -33,7 +33,7 @@
 
 ## 音频
 
-输入：<code>I</code> 图像 · <code>V</code> 视频 · <code>A</code> 音频 · <code>T</code> 文本<br>任务：<code>D</code> 检测 · <code>L</code> 定位 · <code>E</code> 解释
+输入：<code>A</code> 音频<br>任务：<code>D</code> 检测 · <code>L</code> 定位 · <code>E</code> 解释
 
 **[查看技术对比 →](docs/COMPARISON_CN.md#audio)**
 
@@ -70,7 +70,7 @@
 
 ## 视觉（图像与视频）
 
-输入：<code>I</code> 图像 · <code>V</code> 视频 · <code>A</code> 音频 · <code>T</code> 文本<br>任务：<code>D</code> 检测 · <code>L</code> 定位 · <code>E</code> 解释
+输入：<code>I</code> 图像 · <code>V</code> 视频<br>任务：<code>D</code> 检测 · <code>L</code> 定位 · <code>E</code> 解释
 
 **[查看技术对比 →](docs/COMPARISON_CN.md#visual)**
 
@@ -212,7 +212,7 @@
 
 ## 文本
 
-输入：<code>I</code> 图像 · <code>V</code> 视频 · <code>A</code> 音频 · <code>T</code> 文本<br>任务：<code>D</code> 检测 · <code>L</code> 定位 · <code>E</code> 解释
+输入：<code>T</code> 文本<br>任务：<code>D</code> 检测 · <code>L</code> 定位 · <code>E</code> 解释
 
 **[查看技术对比 →](docs/COMPARISON_CN.md#text)**
 

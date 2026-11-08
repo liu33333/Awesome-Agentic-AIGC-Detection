@@ -33,7 +33,7 @@ Within each modality, papers are ordered newest first by conference opening date
 
 ## Audio
 
-Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
+Input: <code>A</code> Audio<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
 
 **[View technical comparison →](docs/COMPARISON.md#audio)**
 
@@ -70,7 +70,7 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 
 ## Visual (images & videos)
 
-Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
+Input: <code>I</code> Image · <code>V</code> Video<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
 
 **[View technical comparison →](docs/COMPARISON.md#visual)**
 
@@ -212,7 +212,7 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 
 ## Text
 
-Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
+Input: <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
 
 **[View technical comparison →](docs/COMPARISON.md#text)**
 
