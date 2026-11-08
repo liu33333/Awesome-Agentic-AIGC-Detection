@@ -9,6 +9,15 @@
   const training = $('training-filter');
   const sort = $('sort');
   const buttons = Array.from(document.querySelectorAll('.modality-button'));
+  const filterPanel = $('filter-panel');
+  const filterToggle = $('toggle-filters');
+  document.body.dataset.enhanced = 'true';
+  function setFiltersOpen(open) {
+    filterPanel.dataset.open = String(open);
+    filterToggle.setAttribute('aria-expanded', String(open));
+  }
+  filterToggle.addEventListener('click', () => setFiltersOpen(filterPanel.dataset.open !== 'true'));
+  $('apply-filters').addEventListener('click', () => { setFiltersOpen(false); filterToggle.focus(); });
   const params = new URLSearchParams(window.location.search);
   let modality = params.get('modality') || 'all';
   if (!buttons.some(b => b.dataset.modality === modality)) modality = 'all';
@@ -39,6 +48,9 @@
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.modality === modality)));
     $('result-count').textContent = `${count} / ${cards.length} ${document.body.dataset.resultLabel}`;
     $('empty-state').hidden = count !== 0;
+    const filterCount = Number(modality !== 'all') + Number(task.value !== 'all') + Number(training.value !== 'all');
+    $('active-filter-count').textContent = String(filterCount);
+    $('active-filter-count').hidden = filterCount === 0;
     const query = new URLSearchParams();
     if (search.value.trim()) query.set('q', search.value.trim());
     if (modality !== 'all') query.set('modality', modality);

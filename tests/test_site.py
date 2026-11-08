@@ -48,6 +48,19 @@ class WebsiteTests(unittest.TestCase):
                 for resource in p['resources']:
                     self.assertIn(site.escape(resource['url']), page)
 
+    def test_paper_first_layout_and_accessible_mobile_controls(self):
+        for lang in ('en', 'zh'):
+            page = site.render(self.catalog, lang)
+            self.assertNotIn('class="hero-art"', page)
+            self.assertNotIn('Follow the evidence', page)
+            self.assertIn('aria-controls="filter-controls"', page)
+            self.assertIn('id="toggle-filters"', page)
+            self.assertIn('aria-expanded="false"', page)
+            self.assertIn('id="active-filter-count"', page)
+            self.assertIn('id="apply-filters"', page)
+            self.assertLess(page.index('id="search"'), page.index('id="filter-panel"'))
+            self.assertIn('id="library-title"', page)
+
     def test_source_training_classification_does_not_infer_tool_training(self):
         self.assertEqual(site.training_tags('Training-free · tools tuned'), ['training-free'])
         self.assertEqual(site.training_tags('SFT + RL'), ['sft', 'rl'])

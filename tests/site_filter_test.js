@@ -19,7 +19,7 @@ function start(query = '', lang = 'en') {
     modality: p.modality, tasks: p.tasks.join(' '), training: p.training_tags.join(' '), order: String(p.order), date: p.sort_date, title: p.title,
     search: [p.id,p.title,p.venue,p.model,p.training,p.workflow,p.modality].join(' ')
   }));
-  const ids = Object.fromEntries(['paper-list','search','task-filter','training-filter','sort','result-count','empty-state','reset-filters','empty-reset'].map(id => [id,new Element()]));
+  const ids = Object.fromEntries(['paper-list','search','task-filter','training-filter','sort','result-count','empty-state','reset-filters','empty-reset','filter-panel','toggle-filters','apply-filters','active-filter-count'].map(id => [id,new Element()]));
   ids.search.tagName = 'INPUT';
   for (const [key,values] of Object.entries({'task-filter':['all','D','L','E'],'training-filter':['all','training-free','sft','rl','other'],'sort':['catalog','newest','az']})) {
     ids[key].options = values.map(value=>({value})); ids[key].value = values[0];
@@ -51,4 +51,5 @@ test('invalid URL parameters are ignored safely',()=>{const deep=start('?modalit
 test('Chinese catalogue shares filter behavior',()=>{const zh=start('?modality=cross-modal&task=L&training=rl','zh');assert.ok(zh.visible().length>0);assert.ok(zh.visible().every(c=>c.dataset.modality==='cross-modal'));assert.equal(new URL(zh.language.href).pathname,'/project/');});
 test('slash focuses search, not while editing',()=>{let prevented=false;app.doc.activeElement={tagName:'BODY'};app.doc.events.keydown({key:'/',preventDefault(){prevented=true;}});assert.equal(prevented,true);assert.equal(app.doc.activeElement,app.ids.search);});
 test('Escape clears search',()=>{app.set('search','not-a-paper');app.doc.events.keydown({key:'Escape'});assert.equal(app.ids.search.value,'');assert.ok(app.visible().length>0);});
+test('mobile filters open, close and preserve selections',()=>{app.reset();app.ids['toggle-filters'].events.click();assert.equal(app.ids['toggle-filters'].attributes['aria-expanded'],'true');app.modality('visual');app.set('task-filter','L');assert.equal(app.ids['active-filter-count'].textContent,'2');assert.equal(app.ids['active-filter-count'].hidden,false);app.ids['apply-filters'].events.click();assert.equal(app.ids['filter-panel'].dataset.open,'false');assert.equal(app.ids['toggle-filters'].attributes['aria-expanded'],'false');assert.ok(app.visible().every(c=>c.dataset.modality==='visual'));app.reset();assert.equal(app.ids['active-filter-count'].hidden,true);});
 console.log(`${assertions} filter integration checks passed.`);
