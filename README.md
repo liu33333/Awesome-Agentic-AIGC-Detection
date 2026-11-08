@@ -18,6 +18,7 @@ Training describes forensic-agent adaptation: Training-free, SFT (supervised fin
 
 ## News
 
+- **2026‑11‑08**: Added audio and cross-modal tool reasoning plus FACT; separated fixed multi-agent and rule-based workflows, added forensic models/benchmarks, and updated d1/Jev. Distinguished historical omissions, revisions and new releases; synchronized bilingual comparisons.
 - **2026‑10‑23**: Added Qwen–LangGraph text detection and two explicitly separated related tool-grounded/rule-orchestrated methods; updated comparisons, added an agent-evaluation survey, refreshed Qwen/System-1 model resources and audited code status.
 - **2026‑10‑04**: Added the [technical comparison](docs/COMPARISON.md), covering five method-level dimensions.
 - **2026‑10‑04**: Launched the Agentic AIGC Detection reading list.
@@ -26,7 +27,42 @@ Training describes forensic-agent adaptation: Training-free, SFT (supervised fin
 
 ## Audio
 
-No papers listed.
+Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <code>T</code> Text<br>Task: <code>D</code> Detection · <code>L</code> Localization · <code>E</code> Explanation
+
+**[View technical comparison →](docs/COMPARISON.md#audio)**
+
+<table>
+<thead>
+<tr>
+<th width="400" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="115" align="left">Venue</th>
+<th width="64" align="left">Date</th>
+<th width="70" align="left">Tags</th>
+<th width="180" align="left">Model / Training</th>
+<th width="85" align="left">Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="400" valign="top"><a name="tooldf"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.842/">ToolDF: Tool-Integrated Reasoning for Mixed-Authenticity Audio Deepfake Detection</a></strong></td>
+<td width="115" valign="top">Findings&nbsp;EMNLP<br>2026</td>
+<td width="64" valign="top">26/10</td>
+<td width="70" valign="top"><code>A</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Qwen2.5‑Omni‑3B<br><sub>SFT</sub></td>
+<td width="85" valign="top"><a href="https://github.com/rlataewoo/tooldf">Code</a></td>
+</tr>
+<tr>
+<td width="400" valign="top"><a name="sear"></a><strong><a href="https://arxiv.org/abs/2609.39847">SEAR: Spoofing Evidence-Grounded Audio Reasoning Benchmark for Audio Language Models</a></strong> (BAEA)</td>
+<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="64" valign="top">26/09</td>
+<td width="70" valign="top"><code>A</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Qwen2.5‑Omni‑7B<br><sub>Training-free</sub></td>
+<td width="85" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">Code</a></td>
+</tr>
+</tbody>
+</table>
+
+BAEA-Adaptive selects acoustic feature groups within a budget; BAEA-Fixed is deterministic and performs better in the paper. [SEAR annotations](https://huggingface.co/datasets/SEAR-benchmark/SEAR) exclude raw audio. ToolDF provides code and audio-reconstruction scripts; files behind its author-provided weight link were not independently verified.
 
 <a name="visual"></a>
 
@@ -71,6 +107,14 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 <td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
 <td width="180" valign="top">GPT‑4o<br>+ Gemini‑2.5‑Pro<br><sub>Training-free · tools tuned</sub></td>
 <td width="85" valign="top"><a href="https://github.com/williamw99/SafeGuard">Pending</a></td>
+</tr>
+<tr>
+<td width="400" valign="top"><a name="fact"></a><strong><a href="https://arxiv.org/abs/2609.05876">FACT: A Forensic Agent with Compiled Tool-Use Trajectories for AI-Generated Image Detection</a></strong></td>
+<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="64" valign="top">26/09</td>
+<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="85" valign="top">—</td>
 </tr>
 <tr>
 <td width="400" valign="top"><a name="defake-o3"></a><strong><a href="https://arxiv.org/abs/2608.16259">Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection</a></strong></td>
@@ -131,9 +175,9 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 </tbody>
 </table>
 
-### Related tool-grounded method
+### Related fixed-tool and multi-agent workflows
 
-This uses a fixed forensic-tool → explanation-model pipeline, not autonomous tool selection.
+These use preset detector pools, fixed roles, debate rounds or retrieval pipelines. Evidence arbitration and training-time self-improvement do not imply autonomous tool selection at inference. ForeAgent is distinct from ForenAgent above.
 
 **[View technical comparison →](docs/COMPARISON.md#related-visual)**
 
@@ -150,6 +194,14 @@ This uses a fixed forensic-tool → explanation-model pipeline, not autonomous t
 </thead>
 <tbody>
 <tr>
+<td width="400" valign="top"><a name="dissecting-agentic-forensics"></a><strong><a href="https://arxiv.org/abs/2609.24359">Dissecting Agentic Forensics: The Role of Triage, Prompting, and Evidence Arbitration in Open-World Fake Image Detection</a></strong></td>
+<td width="115" valign="top">ECCV&nbsp;2026<br><sub>AI4MFDD Workshop</sub></td>
+<td width="64" valign="top">26/09</td>
+<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Gemma‑4‑26B‑A4B‑it<br>+ GPT‑5<br><sub>Training-free · score calibration</sub></td>
+<td width="85" valign="top">—</td>
+</tr>
+<tr>
 <td width="400" valign="top"><a name="pate-forensics"></a><strong><a href="https://arxiv.org/abs/2608.18573">PATE-Forensics: Perception-as-Tool for Explainable Deepfake Forensics with General-Purpose MLLMs</a></strong></td>
 <td width="115" valign="top">arXiv&nbsp;2026<br><sub>DDL-X challenge report</sub></td>
 <td width="64" valign="top">26/08</td>
@@ -157,8 +209,42 @@ This uses a fixed forensic-tool → explanation-model pipeline, not autonomous t
 <td width="180" valign="top">Qwen3.5‑Flash<br><sub>Training-free · tool trained</sub></td>
 <td width="85" valign="top"><a href="https://github.com/yqli00000/CLASP">Code<br><sub>now CLASP</sub></a></td>
 </tr>
+<tr>
+<td width="400" valign="top"><a name="argus"></a><strong><a href="https://arxiv.org/abs/2608.06865">Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection</a></strong> (ARGUS)</td>
+<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="64" valign="top">26/08</td>
+<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Qwen2.5‑VL‑7B<br><sub>SFT + RL · fixed 4+1 roles</sub></td>
+<td width="85" valign="top"><a href="https://github.com/XavierJiezou/ARGUS">Code<br><sub>+ weights</sub></a></td>
+</tr>
+<tr>
+<td width="400" valign="top"><a name="foreagent"></a><strong><a href="https://arxiv.org/abs/2606.26552">Perception, Verdict, and Evolution: Hindsight-Driven Self-Refining Forensics Agent for AI-Generated Image Detection</a></strong> (ForeAgent)</td>
+<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="64" valign="top">26/06</td>
+<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT · training-time refinement</sub></td>
+<td width="85" valign="top">—</td>
+</tr>
+<tr>
+<td width="400" valign="top"><a name="vrag-dfd"></a><strong><a href="https://arxiv.org/abs/2604.13660">VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection</a></strong></td>
+<td width="115" valign="top">CVPR&nbsp;Findings<br>2026</td>
+<td width="64" valign="top">26/06</td>
+<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">MLLM<br><sub>exact size unverified</sub><br><sub>SFT + RL · fixed RAG</sub></td>
+<td width="85" valign="top"><a href="https://github.com/abigcatcat/VRAG-DFD">Code<br><sub>+ weights</sub></a></td>
+</tr>
+<tr>
+<td width="400" valign="top"><a name="dvar"></a><strong><a href="https://arxiv.org/abs/2604.16987">DVAR: Adversarial Multi-Agent Debate for Video Authenticity Detection</a></strong></td>
+<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026<br><sub>author-reported</sub></td>
+<td width="64" valign="top">26/04<br><sub>preprint</sub></td>
+<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">GPT‑5.4<br><sub>Training-free · fixed debate</sub></td>
+<td width="85" valign="top">—</td>
+</tr>
 </tbody>
 </table>
+
+Dissecting's workshop acceptance is author-reported; the table shows its hybrid configuration. DVAR's venue is paper-reported and its DOI remains independently unverified; no official code or knowledge-base download was found. Files at ForeAgent's [author-provided weight link](https://huggingface.co/Shimin/qwen3_vl_8b_foreagent) were not verified.
 
 <a name="text"></a>
 
@@ -191,6 +277,35 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 </tbody>
 </table>
 
+### Related tool-augmented multi-role workflow
+
+Detection and search modules run separately, with fixed exact-to-fuzzy search fallback and webpage evidence aggregation; this is not an unconstrained tool planner.
+
+**[View technical comparison →](docs/COMPARISON.md#related-text)**
+
+<table>
+<thead>
+<tr>
+<th width="400" align="left">Paper<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th width="115" align="left">Venue</th>
+<th width="64" align="left">Date</th>
+<th width="70" align="left">Tags</th>
+<th width="180" align="left">Model / Training</th>
+<th width="85" align="left">Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="400" valign="top"><a name="aigt-agent"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.272/">Beyond Text-Intrinsic Features: An Agentic Framework for Evidence-Based AI-Generated Text Detection</a></strong> (AIGT-Agent)</td>
+<td width="115" valign="top">Findings&nbsp;EMNLP<br>2026</td>
+<td width="64" valign="top">26/10</td>
+<td width="70" valign="top"><code>T</code><br><code>D</code>&nbsp;<code>E</code></td>
+<td width="180" valign="top">GPT‑5‑mini<br><sub>Training-free · prompt adaptation</sub></td>
+<td width="85" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">Code<br><sub>+ benchmark</sub></a></td>
+</tr>
+</tbody>
+</table>
+
 <a name="cross-modal"></a>
 
 ## Cross-modal
@@ -212,6 +327,14 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 </thead>
 <tbody>
 <tr>
+<td width="400" valign="top"><a name="mm-veriagent"></a><strong><a href="https://arxiv.org/abs/2609.30698">MM-VeriAgent: Learning to Use Extensive Tools to Verify Multimodal Misinformation with Reinforcement Learning</a></strong></td>
+<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="64" valign="top">26/09<br><sub>v2 26/11</sub></td>
+<td width="70" valign="top"><code>T+I</code><br><code>D</code></td>
+<td width="180" valign="top">Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
+<td width="85" valign="top">—</td>
+</tr>
+<tr>
 <td width="400" valign="top"><a name="omnivl-guard-pro"></a><strong><a href="https://arxiv.org/abs/2605.16962">OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics</a></strong></td>
 <td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
 <td width="64" valign="top">26/05</td>
@@ -227,12 +350,22 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 <td width="180" valign="top">Qwen2.5‑Omni‑7B<br><sub>alt. MiniCPM‑o‑2_6</sub><br><sub>Training-free · fitted memory</sub></td>
 <td width="85" valign="top">—</td>
 </tr>
+<tr>
+<td width="400" valign="top"><a name="t2agent"></a><strong><a href="https://arxiv.org/abs/2505.19768">T²Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search</a></strong></td>
+<td width="115" valign="top">AAAI&nbsp;2026<br><sub>Oral</sub></td>
+<td width="64" valign="top">25/05<br><sub>preprint</sub></td>
+<td width="70" valign="top"><code>T+I</code><br><code>D</code></td>
+<td width="180" valign="top">GPT‑4o<br><sub>Training-free</sub></td>
+<td width="85" valign="top"><a href="https://github.com/cuixing100876/T2Agent">Code<br><sub>partly cached</sub></a></td>
+</tr>
 </tbody>
 </table>
 
-### Related rule-orchestrated method
+MM-VeriAgent and T²Agent address broader image–text misinformation, including generated/manipulated images, rather than only AIGC provenance. T²Agent's implementation partly reads precomputed tool results and its example backend differs from the main paper; end-to-end reproduction was not verified.
 
-This escalates to extra detectors using fixed disagreement rules; LLMs provide context and reports rather than an autonomous action policy.
+### Related rule-orchestrated methods
+
+These escalate detection through fixed thresholds or deterministic state machines, without an autonomous LLM action policy. ENF presence alone does not prove authenticity; authentication requires consistency with trusted independent reference evidence.
 
 **[View technical comparison →](docs/COMPARISON.md#related-cross-modal)**
 
@@ -256,8 +389,20 @@ This escalates to extra detectors using fixed disagreement rules; LLMs provide c
 <td width="180" valign="top">Llama‑3‑70B<br>+ Gemini‑1.5‑Flash<br><sub>Rule-based · detectors trained</sub></td>
 <td width="85" valign="top"><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection">Code<br><sub>+ weights</sub></a></td>
 </tr>
+<tr>
+<td width="400" valign="top"><a name="enf-framework"></a><strong><a href="https://arxiv.org/abs/2610.22440">An Agentic ENF Framework for Forensic Video Authentication Against Generative AI</a></strong></td>
+<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
+<td width="64" valign="top">26/10</td>
+<td width="70" valign="top"><code>A+V</code><br><code>D</code></td>
+<td width="180" valign="top">Deterministic state machine<br><sub>Rule-based · detectors trained</sub></td>
+<td width="85" valign="top"><a href="https://github.com/RyanSolent95/enf-video-forensics">Code<br><sub>+ weights</sub></a></td>
+</tr>
 </tbody>
 </table>
+
+### Pending further verification
+
+- [FALCON: LLM as a forensic reasoner: Expert-guided video deepfake detection across modalities](https://doi.org/10.1016/j.patcog.2026.115240) · Pattern Recognition, online 2026‑10‑29. The abstract describes expert-extracted cross-modal evidence passed to an LLM; full-text access was restricted. Exact models, training, code and autonomy remain unverified, so no detailed comparison is included.
 
 <a name="surveys"></a>
 
@@ -296,7 +441,7 @@ This escalates to extra detectors using fixed disagreement rules; LLMs provide c
 
 Selected platforms, model backbones and development tools for agentic media-forensics research. Check access requirements, model versions and data-handling terms before use.
 
-Current model candidates are separated from paper-specific reproduction backbones; inclusion is not evidence of validated forensic performance. Resources checked: 2026‑10‑23.
+Current model candidates are separated from paper-specific reproduction backbones; inclusion is not evidence of validated forensic performance. New/updated entries checked: 2026‑11‑08; other entries retain the 2026‑10‑23 check. Visible public files do not imply full downloads or successful reproduction.
 
 ### Agentic forensic platforms
 
@@ -307,6 +452,20 @@ Current model candidates are separated from paper-specific reproduction backbone
 
 - [Reality Defender RealAPI](https://www.realitydefender.com/product/realapi) · **Detection API.** Image, audio and video manipulation analysis with structured results for integration into an agent's evidence pipeline.
 - [Sightengine](https://www.sightengine.com/docs/ai-generated-image-detection) · **Detection API.** AI-generated image scoring, with separate deepfake and AI-video detection models documented alongside it.
+
+### Specialized forensic models
+
+- [VeriSpoof](https://arxiv.org/abs/2611.04634) (2026‑11‑03) · Qwen3-ASR-1.7B encoder plus MiniCPM5-2B for audio detection, attribution, recording conditions, segment localization and source verification, with checkable explanations. [Inference code](https://github.com/swagshaw/verispoof) and [Plus weights](https://huggingface.co/AustinXiao/VeriSpoof-Plus) are available; training code is pending. Code/weights use CC BY-NC 4.0. This is a specialized model, not an autonomous tool-selection loop.
+- [Venus-DefakerOne2](https://arxiv.org/abs/2610.37918) (2026‑10‑27; revised 11‑02) · Qwen3.5-2B image/video forensic expert with fixed real/fake question answering. [Weights](https://huggingface.co/qcf568/DefakerOne2) and [inference helper scripts](https://github.com/inclusionAI/DefakerOne2) are available, not a complete training release. Use preview for paper reproduction; release uses more training data. Weight/data licensing details still need confirmation.
+
+### Datasets and benchmarks
+
+- [SEAR](https://huggingface.co/datasets/SEAR-benchmark/SEAR) · Audio QA annotations for verdicts, cues, numerical measurements and forensic rationales, with [BAEA/evaluation code](https://github.com/SEAR-benchmark/SEAR). Obtain ASVspoof raw audio separately.
+- [VeriSpoof-Bench](https://huggingface.co/datasets/AustinXiao/VeriSpoof-Bench) · Labels, manifests, metadata and reconstruction materials for 54 subsets / 177,852 items; not all raw audio. Source-corpus licenses still apply.
+- [RRVBench](https://www.modelscope.cn/models/DanceText/RRVBench) · DefakerOne2 video benchmark with 1,319 real and 11,000 synthetic videos from 11 generators. Authors specify noncommercial research use; full download access and license terms were not independently verified.
+- [DeepfakeGenome](https://arxiv.org/abs/2611.06046) (2026‑11‑04) · About two million images from 100 facial forgery methods, including retrieval-based attribution evaluation. [Data](https://huggingface.co/datasets/DeepfakeGenome/DeepfakeGenome) and [training/testing code](https://huggingface.co/DeepfakeGenome/DeepfakeGenome_Codebase) are published; some source data must be obtained separately from FF++/DF40, with source-specific restrictions.
+- [WildFakeToolBench](https://github.com/TrustAIRLab/WildFakeToolBench) ([paper](https://arxiv.org/abs/2610.31152) 10‑22; code released 10‑28) · 156 image-processing tools for robustness tests under real-world post-processing. Not a detection agent; excludes complete test images, detector weights and intermediate collection artifacts. Authors restrict use to academic purposes.
+- [WildAIGC-Bench V3](https://github.com/YuZijian/WildAIGC-Bench) (updated 2026‑11‑03) · 600 AI images and 638 real photos with source/evidence records. **Challenge set requiring review, not an unquestioned gold standard:** some AI-labeled [samples](https://huggingface.co/datasets/yuzj1997yzj/WildAIGC-Bench) retain evidence notes that ground truth awaits manual verification, including img_00e970e187abfbf5, img_024f0544ed6ff0f5 and img_02760ab536eb47cc. Review labels/evidence before evaluation.
 
 ### Current multimodal backbones for new experiments
 
@@ -321,20 +480,21 @@ These Qwen variants support vision without a separate “-VL” suffix. Input mo
 
 “System-1” here covers direct structured decisions and candidate ranking, not a single architecture or only the Jev ecosystem. These are general-purpose perception/decision resources, not validated forensic detectors; scores need task-specific calibration, and parallel questions do not imply constant latency.
 
-- [Liquid d1](https://www.liquid.ai/blog/d1-open) · [d1-ultra](https://www.liquid.ai/blog/d1-ultra) (2026‑10‑15) provides text/image decisions via API; open-weight [d1-3B](https://huggingface.co/LiquidAI/d1-3B) supports text/images, while experimental [d1-omni-600M](https://huggingface.co/LiquidAI/d1-omni-600M) accepts text+image or text+audio for single-forward decisions. Open weights use LFM Open License v1.0 with commercial-use revenue restrictions.
+- [Liquid d1](https://www.liquid.ai/blog/lfm3) · The 2026‑10‑27 release adds open-weight [d1-2B](https://huggingface.co/LiquidAI/d1-2B) (text/image/video) and [d1-Omni-2B](https://huggingface.co/LiquidAI/d1-Omni-2B) (adds audio), with visible weight/inference files; long speech and some languages remain limitations. [d1-ultra](https://www.liquid.ai/blog/d1-ultra) provides text/image decisions via API; earlier [d1-3B](https://huggingface.co/LiquidAI/d1-3B) and experimental [d1-omni-600M](https://huggingface.co/LiquidAI/d1-omni-600M) remain comparison options. Open weights use LFM Open License v1.0 with commercial-revenue restrictions; these are not forensic-specialist models.
 - [Cloudflare Clef](https://blog.cloudflare.com/clef-faster-cheaper-multimodal/) · [Clef](https://huggingface.co/Cloudflare/clef) / [Clef-flash](https://huggingface.co/Cloudflare/clef-flash) make structured decisions over text, images and video; [Clef-omni](https://huggingface.co/Cloudflare/clef-omni) adds audio. Apache-2.0 weights and hosted Workers AI access; multimodal release updated 2026‑10‑09.
 - [pplx-decider-v1.2](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) · Perplexity's Qwen3.8-27B-based text/image decision model with parallel question-marker readout. Questions can attend to one another, rather than operating independently. Apache-2.0 weight files and inference code are listed, but download access was not verified because the model card retains private-access instructions.
 - [MetaEncoder-30B](https://huggingface.co/facebook/meta-encoder) · Cacheable text/image/video task and candidate embeddings for direct candidate ranking; [evaluation code](https://github.com/facebook/meta-encoder-eval) is available. Released weights require gated access and acceptance of model terms. Video uses the native implementation, not the text/image-only vLLM adapter; similarities are not automatically calibrated probabilities.
 - [Intern-Decision](https://github.com/InternLM/Intern-Decision) · Text plus optional images → multiple typed JSON decisions in one forward pass; [4B weights](https://huggingface.co/internlm/Intern-Decision-4B), alongside 0.8B/2B variants. Apache-2.0 code/weights are released; training data and private calibration records are not fully public.
 - [Valen](https://github.com/Valen-Team/Valen) · Shared-state text/image/sampled-video decisions with 0.8B/2B/[4B weights](https://huggingface.co/Valen-Team/Valen-4B), Apache-2.0, and local ONNX/GGUF options. Local video uses 16 sampled frames; the free web chat uses one middle frame and the free API is single-question, so demo capabilities differ from local models.
-- [TypeSafe Jev](https://docs.typesafe.ai/models) · Hosted structured-decision API: Jev 1.14 preview (2026‑10‑14), with 1.13 still the stable alias. [Image input](https://docs.typesafe.ai/images) is experimental; 1.14 adds experimental [Box localization](https://docs.typesafe.ai/primitives/box). No open weights are claimed.
+- [TypeSafe Jev](https://docs.typesafe.ai/models) · Hosted structured-decision API: as of 2026‑11‑08, jev-latest and jev-preview both resolve to 1.14.0, with no separate preview version. [Image input](https://docs.typesafe.ai/images) and [Box localization](https://docs.typesafe.ai/primitives/box) remain experimental. No open weights or validated forensic performance are claimed.
 
 ### Backbones used by listed papers
 
 - [Qwen3-VL](https://github.com/QwenLM/Qwen3-VL) · Vision-language family with image/video reasoning and grounding; includes the 4B and 8B variants used by several listed methods.
-- [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) · Image/video understanding backbone used by ForenAgent; UniShield uses the Qwen2.5-VL family without a reported parameter size.
+- [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) · Image/video understanding backbone used by ForenAgent, ARGUS and MM-VeriAgent; UniShield uses the Qwen2.5-VL family without a reported parameter size.
 - [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B) · Text reasoning model used in AgentFoX's agent-guided evidence fusion.
-- [Qwen2.5-Omni-7B](https://huggingface.co/Qwen/Qwen2.5-Omni-7B) · Text, image, audio and video understanding backbone used by FakeHunter.
+- [Qwen2.5-Omni-7B](https://huggingface.co/Qwen/Qwen2.5-Omni-7B) · Text, image, audio and video understanding backbone used by FakeHunter and BAEA.
+- [Qwen2.5-Omni-3B](https://huggingface.co/Qwen/Qwen2.5-Omni-3B) · ToolDF's audio tool-use backbone, adapted with LoRA SFT.
 - [MiniCPM-o 2.6](https://huggingface.co/openbmb/MiniCPM-o-2_6) · Omni-modal model supporting vision, audio and language; an alternative backbone evaluated by FakeHunter.
 
 ### Proprietary model services
