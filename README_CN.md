@@ -36,33 +36,24 @@
 <table>
 <thead>
 <tr>
-<th width="400" align="left">论文</th>
-<th width="115" align="left">发表</th>
-<th width="64" align="left">日期</th>
-<th width="70" align="left">标签</th>
-<th width="180" align="left">模型与训练</th>
-<th width="220" align="left">流程说明</th>
-<th width="115" align="left">开放资源</th>
+<th width="50%" align="left">论文与流程</th>
+<th width="12%" align="left">发表 / 日期</th>
+<th width="24%" align="left">标签 · 模型 · 训练</th>
+<th width="14%" align="left">资源</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="400" valign="top"><a name="tooldf"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.842/">ToolDF: Tool-Integrated Reasoning for Mixed-Authenticity Audio Deepfake Detection</a></strong></td>
-<td width="115" valign="top">Findings&nbsp;EMNLP<br>2026</td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>A</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑Omni‑3B<br><sub>LoRA SFT</sub></td>
-<td width="220" valign="top">选择音源分离／专用检测工具，再聚合判定。</td>
-<td width="115" valign="top"><a href="https://github.com/rlataewoo/tooldf">代码</a><br><sub>含音频重建脚本</sub></td>
+<td width="50%" valign="top"><a name="tooldf"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.842/">ToolDF: Tool-Integrated Reasoning for Mixed-Authenticity Audio Deepfake Detection</a></strong><br><sub>选择音源分离／专用检测工具，再聚合判定。</sub></td>
+<td width="12%" valign="top">Findings EMNLP<br>2026<br>26/10</td>
+<td width="24%" valign="top"><code>A</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen2.5‑Omni‑3B<br><sub>LoRA SFT</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/rlataewoo/tooldf">代码</a><br><sub>含音频重建脚本</sub></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="sear"></a><strong><a href="https://arxiv.org/abs/2609.39847">SEAR: Spoofing Evidence-Grounded Audio Reasoning Benchmark for Audio Language Models</a></strong> (BAEA)</td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>A</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑Omni‑7B<br><sub>Training-free</sub></td>
-<td width="220" valign="top">BAEA-Adaptive 在预算内选择声学特征组；确定性 BAEA-Fixed 在论文中表现更好。</td>
-<td width="115" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">代码</a><br><a href="https://huggingface.co/datasets/SEAR-benchmark/SEAR">标注</a><br><sub>原始音频另行获取</sub></td>
+<td width="50%" valign="top"><a name="sear"></a><strong><a href="https://arxiv.org/abs/2609.39847">SEAR: Spoofing Evidence-Grounded Audio Reasoning Benchmark for Audio Language Models</a></strong> (BAEA)<br><sub>BAEA-Adaptive 在预算内选择声学特征组；确定性 BAEA-Fixed 在论文中表现更好。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/09</td>
+<td width="24%" valign="top"><code>A</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑Omni‑7B<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">代码</a><br><a href="https://huggingface.co/datasets/SEAR-benchmark/SEAR">标注</a><br><sub>原始音频另行获取</sub></td>
 </tr>
 </tbody>
 </table>
@@ -79,168 +70,114 @@
 <table>
 <thead>
 <tr>
-<th width="400" align="left">论文</th>
-<th width="115" align="left">发表</th>
-<th width="64" align="left">日期</th>
-<th width="70" align="left">标签</th>
-<th width="180" align="left">模型与训练</th>
-<th width="220" align="left">流程说明</th>
-<th width="115" align="left">开放资源</th>
+<th width="50%" align="left">论文与流程</th>
+<th width="12%" align="left">发表 / 日期</th>
+<th width="24%" align="left">标签 · 模型 · 训练</th>
+<th width="14%" align="left">资源</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="400" valign="top"><a name="atar"></a><strong><a href="https://arxiv.org/abs/2609.39066">Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection</a></strong> (ATAR)</td>
-<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026<br><sub>口头报告 · 已录用</sub></td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">选择下一次裁剪／取证工具或停止；Grounded-SAM 生成掩码。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="atar"></a><strong><a href="https://arxiv.org/abs/2609.39066">Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection</a></strong> (ATAR)<br><sub>选择下一次裁剪／取证工具或停止；Grounded-SAM 生成掩码。</sub></td>
+<td width="12%" valign="top">ACM MM 2026<br><sub>口头报告 · 已录用</sub><br>26/09</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="forenagent"></a><strong><a href="https://arxiv.org/abs/2512.16300">Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection</a></strong> (ForenAgent)</td>
-<td width="115" valign="top">ECCV&nbsp;2026</td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">生成处理代码并调用 12 个取证工具，依据反馈调整操作。</td>
-<td width="115" valign="top"><a href="https://github.com/zfr00/ForenAgent">工具集</a></td>
+<td width="50%" valign="top"><a name="forenagent"></a><strong><a href="https://arxiv.org/abs/2512.16300">Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection</a></strong> (ForenAgent)<br><sub>生成处理代码并调用 12 个取证工具，依据反馈调整操作。</sub></td>
+<td width="12%" valign="top">ECCV 2026<br>26/09</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/zfr00/ForenAgent">工具集</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="safeguard"></a><strong><a href="https://arxiv.org/abs/2607.03069">SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection</a></strong></td>
-<td width="115" valign="top">ECCV&nbsp;2026</td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">GPT‑4o<br>+ Gemini‑2.5‑Pro<br><sub>Training-free · 工具经调优</sub></td>
-<td width="220" valign="top">感知求解器与验证器修订假设并重新采证（≤3 轮）。</td>
-<td width="115" valign="top"><a href="https://github.com/williamw99/SafeGuard">项目</a></td>
+<td width="50%" valign="top"><a name="safeguard"></a><strong><a href="https://arxiv.org/abs/2607.03069">SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection</a></strong><br><sub>感知求解器与验证器修订假设并重新采证（≤3 轮）。</sub></td>
+<td width="12%" valign="top">ECCV 2026<br>26/09</td>
+<td width="24%" valign="top"><code>V</code> · <code>D</code>&nbsp;<code>E</code><br>GPT‑4o<br>+ Gemini‑2.5‑Pro<br><sub>Training-free · 工具经调优</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/williamw99/SafeGuard">项目</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="fact"></a><strong><a href="https://arxiv.org/abs/2609.05876">FACT: A Forensic Agent with Compiled Tool-Use Trajectories for AI-Generated Image Detection</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">选择五个专家／八种探针或停止；GPT-5.1 仅作训练教师。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="fact"></a><strong><a href="https://arxiv.org/abs/2609.05876">FACT: A Forensic Agent with Compiled Tool-Use Trajectories for AI-Generated Image Detection</a></strong><br><sub>选择五个专家／八种探针或停止；GPT-5.1 仅作训练教师。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/09</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="dissecting-agentic-forensics"></a><strong><a href="https://arxiv.org/abs/2609.24359">Dissecting Agentic Forensics: The Role of Triage, Prompting, and Evidence Arbitration in Open-World Fake Image Detection</a></strong></td>
-<td width="115" valign="top">ECCV&nbsp;2026<br><sub>AI4MFDD Workshop</sub></td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Gemma‑4‑26B‑A4B‑it<br>+ GPT‑5<br><sub>Training-free · 分数校准</sub></td>
-<td width="220" valign="top">七个预设检测器 → 审核者 → 裁判；所列模型为混合配置。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="dissecting-agentic-forensics"></a><strong><a href="https://arxiv.org/abs/2609.24359">Dissecting Agentic Forensics: The Role of Triage, Prompting, and Evidence Arbitration in Open-World Fake Image Detection</a></strong><br><sub>七个预设检测器 → 审核者 → 裁判；所列模型为混合配置。</sub></td>
+<td width="12%" valign="top">ECCV 2026<br><sub>AI4MFDD Workshop</sub><br>26/09</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Gemma‑4‑26B‑A4B‑it<br>+ GPT‑5<br><sub>Training-free · 分数校准</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="defake-o3"></a><strong><a href="https://arxiv.org/abs/2608.16259">Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection</a></strong></td>
-<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026<br><sub>已录用</sub></td>
-<td width="64" valign="top">26/08</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">继续检查裁剪区域或给出判定；证据验证器仅用于训练。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="defake-o3"></a><strong><a href="https://arxiv.org/abs/2608.16259">Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection</a></strong><br><sub>继续检查裁剪区域或给出判定；证据验证器仅用于训练。</sub></td>
+<td width="12%" valign="top">ACM MM 2026<br><sub>已录用</sub><br>26/08</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="pate-forensics"></a><strong><a href="https://arxiv.org/abs/2608.18573">PATE-Forensics: Perception-as-Tool for Explainable Deepfake Forensics with General-Purpose MLLMs</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>DDL-X 挑战报告</sub></td>
-<td width="64" valign="top">26/08</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3.5‑Flash<br><sub>Training-free · 工具经训练</sub></td>
-<td width="220" valign="top">固定感知 → 解释流程。</td>
-<td width="115" valign="top"><a href="https://github.com/yqli00000/CLASP">代码<br><sub>现名 CLASP</sub></a></td>
+<td width="50%" valign="top"><a name="pate-forensics"></a><strong><a href="https://arxiv.org/abs/2608.18573">PATE-Forensics: Perception-as-Tool for Explainable Deepfake Forensics with General-Purpose MLLMs</a></strong><br><sub>固定感知 → 解释流程。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>DDL-X 挑战报告</sub><br>26/08</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen3.5‑Flash<br><sub>Training-free · 工具经训练</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/yqli00000/CLASP">代码<br><sub>现名 CLASP</sub></a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="argus"></a><strong><a href="https://arxiv.org/abs/2608.06865">Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection</a></strong> (ARGUS)</td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/08</td>
-<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">固定四观察者（纹理／光照／运动／物理）→ 裁判。</td>
-<td width="115" valign="top"><a href="https://github.com/XavierJiezou/ARGUS">代码</a><br><a href="https://huggingface.co/XavierJiezou/argus-models">权重</a></td>
+<td width="50%" valign="top"><a name="argus"></a><strong><a href="https://arxiv.org/abs/2608.06865">Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection</a></strong> (ARGUS)<br><sub>固定四观察者（纹理／光照／运动／物理）→ 裁判。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/08</td>
+<td width="24%" valign="top"><code>V</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/XavierJiezou/ARGUS">代码</a><br><a href="https://huggingface.co/XavierJiezou/argus-models">权重</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="hermes"></a><strong><a href="https://proceedings.mlr.press/v306/li26be.html">Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection</a></strong></td>
-<td width="115" valign="top">ICML&nbsp;2026</td>
-<td width="64" valign="top">26/07</td>
-<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br>+ ChatGPT‑5<br><sub>Training-free</sub></td>
-<td width="220" valign="top">规划、推理与讨论角色更新时序证据图（≤3 轮）。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="hermes"></a><strong><a href="https://proceedings.mlr.press/v306/li26be.html">Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection</a></strong><br><sub>规划、推理与讨论角色更新时序证据图（≤3 轮）。</sub></td>
+<td width="12%" valign="top">ICML 2026<br>26/07</td>
+<td width="24%" valign="top"><code>V</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br>+ ChatGPT‑5<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="unishield"></a><strong><a href="https://arxiv.org/abs/2510.03161">UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization</a></strong></td>
-<td width="115" valign="top">CVPR&nbsp;Findings<br>2026</td>
-<td width="64" valign="top">26/06</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑VL<br>+ GPT‑4o<br><sub>RL（路由器） · 工具经调优</sub></td>
-<td width="220" valign="top">每张图像路由至一个检测器，再生成报告。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="unishield"></a><strong><a href="https://arxiv.org/abs/2510.03161">UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization</a></strong><br><sub>每张图像路由至一个检测器，再生成报告。</sub></td>
+<td width="12%" valign="top">CVPR Findings<br>2026<br>26/06</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen2.5‑VL<br>+ GPT‑4o<br><sub>RL（路由器） · 工具经调优</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="foreagent"></a><strong><a href="https://arxiv.org/abs/2606.26552">Perception, Verdict, and Evolution: Hindsight-Driven Self-Refining Forensics Agent for AI-Generated Image Detection</a></strong> (ForeAgent)</td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/06</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT · 训练时自改进</sub></td>
-<td width="220" valign="top">推理采用感知 → 判定流程；自我改进发生于训练期。</td>
-<td width="115" valign="top"><a href="https://huggingface.co/Shimin/qwen3_vl_8b_foreagent">权重</a></td>
+<td width="50%" valign="top"><a name="foreagent"></a><strong><a href="https://arxiv.org/abs/2606.26552">Perception, Verdict, and Evolution: Hindsight-Driven Self-Refining Forensics Agent for AI-Generated Image Detection</a></strong> (ForeAgent)<br><sub>推理采用感知 → 判定流程；自我改进发生于训练期。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/06</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br><sub>SFT · 训练时自改进</sub></td>
+<td width="14%" valign="top"><a href="https://huggingface.co/Shimin/qwen3_vl_8b_foreagent">权重</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="vrag-dfd"></a><strong><a href="https://arxiv.org/abs/2604.13660">VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection</a></strong></td>
-<td width="115" valign="top">CVPR&nbsp;Findings<br>2026</td>
-<td width="64" valign="top">26/06</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">MLLM<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">先检索，再交叉核验证据。</td>
-<td width="115" valign="top"><a href="https://github.com/abigcatcat/VRAG-DFD">代码</a><br><a href="https://huggingface.co/abigcatcat/VRAG-DFD">权重</a></td>
+<td width="50%" valign="top"><a name="vrag-dfd"></a><strong><a href="https://arxiv.org/abs/2604.13660">VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection</a></strong><br><sub>先检索，再交叉核验证据。</sub></td>
+<td width="12%" valign="top">CVPR Findings<br>2026<br>26/06</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>MLLM<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/abigcatcat/VRAG-DFD">代码</a><br><a href="https://huggingface.co/abigcatcat/VRAG-DFD">权重</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="dvar"></a><strong><a href="https://arxiv.org/abs/2604.16987">DVAR: Adversarial Multi-Agent Debate for Video Authenticity Detection</a></strong></td>
-<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026</td>
-<td width="64" valign="top">26/04<br><sub>预印本</sub></td>
-<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">GPT‑5.4<br><sub>Training-free</sub></td>
-<td width="220" valign="top">GenVideoKB 检索 + 固定两轮辩论与裁决；评测知识库冻结。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="dvar"></a><strong><a href="https://arxiv.org/abs/2604.16987">DVAR: Adversarial Multi-Agent Debate for Video Authenticity Detection</a></strong><br><sub>GenVideoKB 检索 + 固定两轮辩论与裁决；评测知识库冻结。</sub></td>
+<td width="12%" valign="top">ACM MM 2026<br>26/04<br><sub>预印本</sub></td>
+<td width="24%" valign="top"><code>V</code> · <code>D</code>&nbsp;<code>E</code><br>GPT‑5.4<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="agentfox"></a><strong><a href="https://arxiv.org/abs/2603.23115">AgentFoX: LLM-Driven Agentic Multi-Expert Fusion with Explainability for AI-Generated Image Detection</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/03</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑32B<br>+ GPT‑4o<br><sub>Training-free · 需校准</sub></td>
-<td width="220" valign="top">结合经校准的可靠性档案，融合已采集的专家证据。</td>
-<td width="115" valign="top"><a href="https://github.com/suncore946/AgentFoX">最小推理</a></td>
+<td width="50%" valign="top"><a name="agentfox"></a><strong><a href="https://arxiv.org/abs/2603.23115">AgentFoX: LLM-Driven Agentic Multi-Expert Fusion with Explainability for AI-Generated Image Detection</a></strong><br><sub>结合经校准的可靠性档案，融合已采集的专家证据。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/03</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen3‑32B<br>+ GPT‑4o<br><sub>Training-free · 需校准</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/suncore946/AgentFoX">最小推理</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="evoguard"></a><strong><a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/03</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code></td>
-<td width="180" valign="top">Qwen3‑VL‑4B<br><sub>RL</sub></td>
-<td width="220" valign="top">选择互补检测器 API 或停止；检测工具保持冻结。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="evoguard"></a><strong><a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></strong><br><sub>选择互补检测器 API 或停止；检测工具保持冻结。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/03</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code><br>Qwen3‑VL‑4B<br><sub>RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="forgeryvcr"></a><strong><a href="https://arxiv.org/abs/2602.14098">ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization</a></strong></td>
-<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026<br><sub>口头报告 · 已录用</sub></td>
-<td width="64" valign="top">26/02</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code></td>
-<td width="180" valign="top">Qwen3‑VL‑4B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">依据工具视觉输出继续检查；预测框经 SAM2 转为掩码。</td>
-<td width="115" valign="top"><a href="https://github.com/youqiwong/ForgeryVCR">代码</a><br><a href="https://huggingface.co/youqiwong/ForgeryVCR">权重</a></td>
+<td width="50%" valign="top"><a name="forgeryvcr"></a><strong><a href="https://arxiv.org/abs/2602.14098">ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization</a></strong><br><sub>依据工具视觉输出继续检查；预测框经 SAM2 转为掩码。</sub></td>
+<td width="12%" valign="top">ACM MM 2026<br><sub>口头报告 · 已录用</sub><br>26/02</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code><br>Qwen3‑VL‑4B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/youqiwong/ForgeryVCR">代码</a><br><a href="https://huggingface.co/youqiwong/ForgeryVCR">权重</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="aifo"></a><strong><a href="https://arxiv.org/abs/2511.00181">From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection</a></strong> (AIFo)</td>
-<td width="115" valign="top">arXiv&nbsp;2025<br><sub>预印本</sub></td>
-<td width="64" valign="top">25/10</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">GPT‑4o<br><sub>Training-free</sub></td>
-<td width="220" valign="top">采集证据、推理并辩论，由裁判决定终止。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="aifo"></a><strong><a href="https://arxiv.org/abs/2511.00181">From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection</a></strong> (AIFo)<br><sub>采集证据、推理并辩论，由裁判决定终止。</sub></td>
+<td width="12%" valign="top">arXiv 2025<br><sub>预印本</sub><br>25/10</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>GPT‑4o<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 </tbody>
 </table>
@@ -257,33 +194,24 @@
 <table>
 <thead>
 <tr>
-<th width="400" align="left">论文</th>
-<th width="115" align="left">发表</th>
-<th width="64" align="left">日期</th>
-<th width="70" align="left">标签</th>
-<th width="180" align="left">模型与训练</th>
-<th width="220" align="left">流程说明</th>
-<th width="115" align="left">开放资源</th>
+<th width="50%" align="left">论文与流程</th>
+<th width="12%" align="left">发表 / 日期</th>
+<th width="24%" align="left">标签 · 模型 · 训练</th>
+<th width="14%" align="left">资源</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="400" valign="top"><a name="qwen-langgraph"></a><strong><a href="https://link.springer.com/article/10.1007/s10791-026-10710-z">Performance evaluation and interpretability of a Qwen LangGraph agent for AI written and AI rewritten text detection</a></strong></td>
-<td width="115" valign="top">Discover<br>Computing&nbsp;2026</td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>T</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑1.5B<br><sub>工具经训练</sub></td>
-<td width="220" valign="top">融合 + 按需调用控制器：选择工具、停止或转人工（≤2 步，≤1 次专用模型调用）。</td>
-<td width="115" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">作者资源</a></td>
+<td width="50%" valign="top"><a name="qwen-langgraph"></a><strong><a href="https://link.springer.com/article/10.1007/s10791-026-10710-z">Performance evaluation and interpretability of a Qwen LangGraph agent for AI written and AI rewritten text detection</a></strong><br><sub>融合 + 按需调用控制器：选择工具、停止或转人工（≤2 步，≤1 次专用模型调用）。</sub></td>
+<td width="12%" valign="top">Discover<br>Computing 2026<br>26/10</td>
+<td width="24%" valign="top"><code>T</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑1.5B<br><sub>工具经训练</sub></td>
+<td width="14%" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">作者资源</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="aigt-agent"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.272/">Beyond Text-Intrinsic Features: An Agentic Framework for Evidence-Based AI-Generated Text Detection</a></strong> (AIGT-Agent)</td>
-<td width="115" valign="top">Findings&nbsp;EMNLP<br>2026</td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>T</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">GPT‑5‑mini</td>
-<td width="220" valign="top">检测与搜索模块分别执行；固定先精确后模糊搜索，再聚合网页证据。</td>
-<td width="115" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">代码</a><br><a href="https://github.com/TrustAIRLab/AIGT-Agent/tree/main/data/benchmark_4k">基准</a></td>
+<td width="50%" valign="top"><a name="aigt-agent"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.272/">Beyond Text-Intrinsic Features: An Agentic Framework for Evidence-Based AI-Generated Text Detection</a></strong> (AIGT-Agent)<br><sub>检测与搜索模块分别执行；固定先精确后模糊搜索，再聚合网页证据。</sub></td>
+<td width="12%" valign="top">Findings EMNLP<br>2026<br>26/10</td>
+<td width="24%" valign="top"><code>T</code> · <code>D</code>&nbsp;<code>E</code><br>GPT‑5‑mini</td>
+<td width="14%" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">代码</a><br><a href="https://github.com/TrustAIRLab/AIGT-Agent/tree/main/data/benchmark_4k">基准</a></td>
 </tr>
 </tbody>
 </table>
@@ -301,78 +229,54 @@
 <table>
 <thead>
 <tr>
-<th width="400" align="left">论文</th>
-<th width="115" align="left">发表</th>
-<th width="64" align="left">日期</th>
-<th width="70" align="left">标签</th>
-<th width="180" align="left">模型与训练</th>
-<th width="220" align="left">流程说明</th>
-<th width="115" align="left">开放资源</th>
+<th width="50%" align="left">论文与流程</th>
+<th width="12%" align="left">发表 / 日期</th>
+<th width="24%" align="left">标签 · 模型 · 训练</th>
+<th width="14%" align="left">资源</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="400" valign="top"><a name="falcon"></a><strong><a href="https://doi.org/10.1016/j.patcog.2026.115240">LLM as a forensic reasoner: Expert-guided video deepfake detection across modalities</a></strong> (FALCON)</td>
-<td width="115" valign="top">Pattern Recognition<br>2026<br><sub>期刊预校样</sub></td>
-<td width="64" valign="top">26/10<br><sub>在线 10-29</sub></td>
-<td width="70" valign="top"><code>A+V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top"><sub>三阶段人在回路训练</sub></td>
-<td width="220" valign="top">专用专家提取符号化证据，交由 LLM 进行取证推理。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="falcon"></a><strong><a href="https://doi.org/10.1016/j.patcog.2026.115240">LLM as a forensic reasoner: Expert-guided video deepfake detection across modalities</a></strong> (FALCON)<br><sub>专用专家提取符号化证据，交由 LLM 进行取证推理。</sub></td>
+<td width="12%" valign="top">Pattern Recognition<br>2026<br><sub>期刊预校样</sub><br>26/10<br><sub>在线 10-29</sub></td>
+<td width="24%" valign="top"><code>A+V</code> · <code>D</code>&nbsp;<code>E</code><br><sub>三阶段人在回路训练</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="adaptive-multi-agent"></a><strong><a href="https://doi.org/10.3390/informatics13100163">A Multi-Agent Framework with Adaptive Orchestration for Explainable Multi-Modal Deepfake Detection</a></strong></td>
-<td width="115" valign="top">Informatics&nbsp;2026</td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>A+V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Llama‑3‑70B<br>+ Gemini‑1.5‑Flash<br><sub>规则编排 · 检测器经训练</sub></td>
-<td width="220" valign="top">固定分歧阈值触发额外检测器，再融合并报告。</td>
-<td width="115" valign="top"><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection">代码</a><br><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection/tree/main/checkpoints">权重</a></td>
+<td width="50%" valign="top"><a name="adaptive-multi-agent"></a><strong><a href="https://doi.org/10.3390/informatics13100163">A Multi-Agent Framework with Adaptive Orchestration for Explainable Multi-Modal Deepfake Detection</a></strong><br><sub>固定分歧阈值触发额外检测器，再融合并报告。</sub></td>
+<td width="12%" valign="top">Informatics 2026<br>26/10</td>
+<td width="24%" valign="top"><code>A+V</code> · <code>D</code>&nbsp;<code>E</code><br>Llama‑3‑70B<br>+ Gemini‑1.5‑Flash<br><sub>规则编排 · 检测器经训练</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection">代码</a><br><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection/tree/main/checkpoints">权重</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="enf-framework"></a><strong><a href="https://arxiv.org/abs/2610.22440">An Agentic ENF Framework for Forensic Video Authentication Against Generative AI</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>A+V</code><br><code>D</code></td>
-<td width="180" valign="top">确定性状态机<br><sub>规则编排 · 检测器经训练</sub></td>
-<td width="220" valign="top">围绕 ENF 与检测证据作确定性状态转换；ENF 鉴真需独立可信参考。</td>
-<td width="115" valign="top"><a href="https://github.com/RyanSolent95/enf-video-forensics">代码</a><br><a href="https://github.com/RyanSolent95/enf-video-forensics/tree/main/outputs">权重</a></td>
+<td width="50%" valign="top"><a name="enf-framework"></a><strong><a href="https://arxiv.org/abs/2610.22440">An Agentic ENF Framework for Forensic Video Authentication Against Generative AI</a></strong><br><sub>围绕 ENF 与检测证据作确定性状态转换；ENF 鉴真需独立可信参考。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/10</td>
+<td width="24%" valign="top"><code>A+V</code> · <code>D</code><br>确定性状态机<br><sub>规则编排 · 检测器经训练</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/RyanSolent95/enf-video-forensics">代码</a><br><a href="https://github.com/RyanSolent95/enf-video-forensics/tree/main/outputs">权重</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="mm-veriagent"></a><strong><a href="https://arxiv.org/abs/2609.30698">MM-VeriAgent: Learning to Use Extensive Tools to Verify Multimodal Misinformation with Reinforcement Learning</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/09<br><sub>v2 26/11</sub></td>
-<td width="70" valign="top"><code>T+I</code><br><code>D</code></td>
-<td width="180" valign="top">Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">选择九个工具之一或停止（≤3 轮）；当前样例固定参数。面向包含 AIGC 的广义图文虚假信息。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="mm-veriagent"></a><strong><a href="https://arxiv.org/abs/2609.30698">MM-VeriAgent: Learning to Use Extensive Tools to Verify Multimodal Misinformation with Reinforcement Learning</a></strong><br><sub>选择九个工具之一或停止（≤3 轮）；当前样例固定参数。面向包含 AIGC 的广义图文虚假信息。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/09<br><sub>v2 26/11</sub></td>
+<td width="24%" valign="top"><code>T+I</code> · <code>D</code><br>Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="omnivl-guard-pro"></a><strong><a href="https://arxiv.org/abs/2605.16962">OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>预印本</sub></td>
-<td width="64" valign="top">26/05</td>
-<td width="70" valign="top"><code>T+I</code>&nbsp;/&nbsp;<code>T+V</code><br><code>D</code>&nbsp;<code>L</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">依据观测或错误选择检索／裁剪／视觉工具。</td>
-<td width="115" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">项目</a></td>
+<td width="50%" valign="top"><a name="omnivl-guard-pro"></a><strong><a href="https://arxiv.org/abs/2605.16962">OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics</a></strong><br><sub>依据观测或错误选择检索／裁剪／视觉工具。</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>预印本</sub><br>26/05</td>
+<td width="24%" valign="top"><code>T+I</code>&nbsp;/&nbsp;<code>T+V</code> · <code>D</code>&nbsp;<code>L</code><br>Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">项目</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="fakehunter"></a><strong><a href="https://arxiv.org/abs/2508.14581">Memory-Anchored Multimodal Reasoning for Explainable Video Forensics</a></strong> (FakeHunter)</td>
-<td width="115" valign="top">arXiv&nbsp;2025<br><sub>预印本</sub></td>
-<td width="64" valign="top">25/08</td>
-<td width="70" valign="top"><code>A+V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑Omni‑7B<br><sub>备选 MiniCPM‑o‑2_6</sub><br><sub>K-means 记忆</sub></td>
-<td width="220" valign="top">检索记忆；低置信度触发视觉／音频复核。</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="fakehunter"></a><strong><a href="https://arxiv.org/abs/2508.14581">Memory-Anchored Multimodal Reasoning for Explainable Video Forensics</a></strong> (FakeHunter)<br><sub>检索记忆；低置信度触发视觉／音频复核。</sub></td>
+<td width="12%" valign="top">arXiv 2025<br><sub>预印本</sub><br>25/08</td>
+<td width="24%" valign="top"><code>A+V</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑Omni‑7B<br><sub>备选 MiniCPM‑o‑2_6</sub><br><sub>K-means 记忆</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="t2agent"></a><strong><a href="https://arxiv.org/abs/2505.19768">T²Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search</a></strong></td>
-<td width="115" valign="top">AAAI&nbsp;2026</td>
-<td width="64" valign="top">25/05<br><sub>预印本</sub></td>
-<td width="70" valign="top"><code>T+I</code><br><code>D</code></td>
-<td width="180" valign="top">GPT‑4o<br><sub>Training-free</sub></td>
-<td width="220" valign="top">MCTS 探索工具／证据路径；v2 加入贪心工具子集选择。面向包含 AIGC 的广义图文虚假信息。</td>
-<td width="115" valign="top"><a href="https://github.com/cuixing100876/T2Agent">代码<br><sub>部分缓存</sub></a></td>
+<td width="50%" valign="top"><a name="t2agent"></a><strong><a href="https://arxiv.org/abs/2505.19768">T²Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search</a></strong><br><sub>MCTS 探索工具／证据路径；v2 加入贪心工具子集选择。面向包含 AIGC 的广义图文虚假信息。</sub></td>
+<td width="12%" valign="top">AAAI 2026<br>25/05<br><sub>预印本</sub></td>
+<td width="24%" valign="top"><code>T+I</code> · <code>D</code><br>GPT‑4o<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/cuixing100876/T2Agent">代码<br><sub>部分缓存</sub></a></td>
 </tr>
 </tbody>
 </table>

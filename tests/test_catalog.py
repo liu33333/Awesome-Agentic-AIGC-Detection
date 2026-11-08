@@ -38,14 +38,16 @@ class CatalogTests(unittest.TestCase):
                 with self.subTest(file=filename, modality=modality):
                     self.assertEqual(section.count('<table>'), 1)
                     self.assertFalse(re.search(r'^###\s', section, re.M))
-                    self.assertEqual(section.count('<th '), 7)
+                    self.assertEqual(section.count('<th '), 4)
+                    self.assertEqual(section.count('<th width="50%"'), 1)
                     self.assertTrue(rows)
                     dates = []
                     for key, cells in rows:
                         all_keys.append(key)
-                        self.assertEqual(len(cells), 7, key)
-                        self.assertTrue(visible(cells[5]), key)
-                        dates.append(re.search(r'\d{2}/\d{2}', cells[2])[0])
+                        self.assertEqual(len(cells), 4, key)
+                        self.assertRegex(cells[0], r'</strong>.*?<br><sub>.+</sub>$', key)
+                        self.assertNotIn('&nbsp;', cells[1], key)
+                        dates.append(re.search(r'\d{2}/\d{2}', cells[1])[0])
                     self.assertEqual(dates, sorted(dates, reverse=True))
             self.assertEqual(len(all_keys), len(set(all_keys)))
 
@@ -57,13 +59,14 @@ class CatalogTests(unittest.TestCase):
             self.assertEqual([k for k, _ in en_rows], [k for k, _ in cn_rows])
             for (key, a), (_, b) in zip(en_rows, cn_rows):
                 with self.subTest(paper=key):
-                    self.assertEqual(visible(a[0]), visible(b[0]))
-                    self.assertEqual(re.findall(r'\d{2}/\d{2}', a[2]),
-                                     re.findall(r'\d{2}/\d{2}', b[2]))
-                    self.assertEqual(re.findall(r'<code>(.*?)</code>', a[3]),
-                                     re.findall(r'<code>(.*?)</code>', b[3]))
-                    self.assertEqual(re.findall(r'href="([^"]+)"', a[6]),
-                                     re.findall(r'href="([^"]+)"', b[6]))
+                    self.assertEqual(visible(a[0].split('<br><sub>', 1)[0]),
+                                     visible(b[0].split('<br><sub>', 1)[0]))
+                    self.assertEqual(re.findall(r'\d{2}/\d{2}', a[1]),
+                                     re.findall(r'\d{2}/\d{2}', b[1]))
+                    self.assertEqual(re.findall(r'<code>(.*?)</code>', a[2]),
+                                     re.findall(r'<code>(.*?)</code>', b[2]))
+                    self.assertEqual(re.findall(r'href="([^"]+)"', a[3]),
+                                     re.findall(r'href="([^"]+)"', b[3]))
         external = lambda s: set(re.findall(r'https?://[^\s<>"\)]+', s))
         self.assertEqual(external(en_text), external(cn_text))
 
@@ -92,7 +95,7 @@ class CatalogTests(unittest.TestCase):
             _, groups = catalog(filename)
             for _, rows in groups.values():
                 for key, cells in rows:
-                    resource = cells[6]
+                    resource = cells[3]
                     self.assertNotEqual(visible(resource), '—', key)
                     self.assertFalse(re.search(r'<(?:sub|small|strong|b)>\s*(?:\+\s*|＋)?(?:Weights|权重)', resource, re.I), key)
                     if re.search(r'>Weights</a>|>权重</a>', resource):

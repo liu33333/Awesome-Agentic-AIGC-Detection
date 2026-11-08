@@ -36,33 +36,24 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 <table>
 <thead>
 <tr>
-<th width="400" align="left">Paper</th>
-<th width="115" align="left">Venue</th>
-<th width="64" align="left">Date</th>
-<th width="70" align="left">Tags</th>
-<th width="180" align="left">Model / Training</th>
-<th width="220" align="left">Workflow notes</th>
-<th width="115" align="left">Open resources</th>
+<th width="50%" align="left">Paper / Workflow</th>
+<th width="12%" align="left">Venue / Date</th>
+<th width="24%" align="left">Tags · Model · Training</th>
+<th width="14%" align="left">Resources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="400" valign="top"><a name="tooldf"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.842/">ToolDF: Tool-Integrated Reasoning for Mixed-Authenticity Audio Deepfake Detection</a></strong></td>
-<td width="115" valign="top">Findings&nbsp;EMNLP<br>2026</td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>A</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑Omni‑3B<br><sub>LoRA SFT</sub></td>
-<td width="220" valign="top">Select separation / specialist tools, then aggregate verdicts.</td>
-<td width="115" valign="top"><a href="https://github.com/rlataewoo/tooldf">Code</a></td>
+<td width="50%" valign="top"><a name="tooldf"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.842/">ToolDF: Tool-Integrated Reasoning for Mixed-Authenticity Audio Deepfake Detection</a></strong><br><sub>Select separation / specialist tools, then aggregate verdicts.</sub></td>
+<td width="12%" valign="top">Findings EMNLP<br>2026<br>26/10</td>
+<td width="24%" valign="top"><code>A</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen2.5‑Omni‑3B<br><sub>LoRA SFT</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/rlataewoo/tooldf">Code</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="sear"></a><strong><a href="https://arxiv.org/abs/2609.39847">SEAR: Spoofing Evidence-Grounded Audio Reasoning Benchmark for Audio Language Models</a></strong> (BAEA)</td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>A</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑Omni‑7B<br><sub>Training-free</sub></td>
-<td width="220" valign="top">BAEA-Adaptive selects acoustic feature groups within a budget; deterministic BAEA-Fixed performs better in the paper.</td>
-<td width="115" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">Code</a><br><a href="https://huggingface.co/datasets/SEAR-benchmark/SEAR">Annotations</a><br><sub>Raw audio separate</sub></td>
+<td width="50%" valign="top"><a name="sear"></a><strong><a href="https://arxiv.org/abs/2609.39847">SEAR: Spoofing Evidence-Grounded Audio Reasoning Benchmark for Audio Language Models</a></strong> (BAEA)<br><sub>BAEA-Adaptive selects acoustic feature groups within a budget; deterministic BAEA-Fixed performs better in the paper.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/09</td>
+<td width="24%" valign="top"><code>A</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑Omni‑7B<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/SEAR-benchmark/SEAR">Code</a><br><a href="https://huggingface.co/datasets/SEAR-benchmark/SEAR">Annotations</a><br><sub>Raw audio separate</sub></td>
 </tr>
 </tbody>
 </table>
@@ -79,168 +70,114 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 <table>
 <thead>
 <tr>
-<th width="400" align="left">Paper</th>
-<th width="115" align="left">Venue</th>
-<th width="64" align="left">Date</th>
-<th width="70" align="left">Tags</th>
-<th width="180" align="left">Model / Training</th>
-<th width="220" align="left">Workflow notes</th>
-<th width="115" align="left">Open resources</th>
+<th width="50%" align="left">Paper / Workflow</th>
+<th width="12%" align="left">Venue / Date</th>
+<th width="24%" align="left">Tags · Model · Training</th>
+<th width="14%" align="left">Resources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="400" valign="top"><a name="atar"></a><strong><a href="https://arxiv.org/abs/2609.39066">Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection</a></strong> (ATAR)</td>
-<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026<br><sub>Oral · accepted</sub></td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Choose the next crop / forensic tool or stop; Grounded-SAM produces masks.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="atar"></a><strong><a href="https://arxiv.org/abs/2609.39066">Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection</a></strong> (ATAR)<br><sub>Choose the next crop / forensic tool or stop; Grounded-SAM produces masks.</sub></td>
+<td width="12%" valign="top">ACM MM 2026<br><sub>Oral · accepted</sub><br>26/09</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="forenagent"></a><strong><a href="https://arxiv.org/abs/2512.16300">Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection</a></strong> (ForenAgent)</td>
-<td width="115" valign="top">ECCV&nbsp;2026</td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Generate processing code and use 12 forensic tools; revise operations from feedback.</td>
-<td width="115" valign="top"><a href="https://github.com/zfr00/ForenAgent">Toolkit</a></td>
+<td width="50%" valign="top"><a name="forenagent"></a><strong><a href="https://arxiv.org/abs/2512.16300">Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection</a></strong> (ForenAgent)<br><sub>Generate processing code and use 12 forensic tools; revise operations from feedback.</sub></td>
+<td width="12%" valign="top">ECCV 2026<br>26/09</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/zfr00/ForenAgent">Toolkit</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="safeguard"></a><strong><a href="https://arxiv.org/abs/2607.03069">SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection</a></strong></td>
-<td width="115" valign="top">ECCV&nbsp;2026</td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">GPT‑4o<br>+ Gemini‑2.5‑Pro<br><sub>Training-free · tools tuned</sub></td>
-<td width="220" valign="top">Perceptual solver + verifier revise hypotheses and reacquire evidence (≤3 cycles).</td>
-<td width="115" valign="top"><a href="https://github.com/williamw99/SafeGuard">Project</a></td>
+<td width="50%" valign="top"><a name="safeguard"></a><strong><a href="https://arxiv.org/abs/2607.03069">SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection</a></strong><br><sub>Perceptual solver + verifier revise hypotheses and reacquire evidence (≤3 cycles).</sub></td>
+<td width="12%" valign="top">ECCV 2026<br>26/09</td>
+<td width="24%" valign="top"><code>V</code> · <code>D</code>&nbsp;<code>E</code><br>GPT‑4o<br>+ Gemini‑2.5‑Pro<br><sub>Training-free · tools tuned</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/williamw99/SafeGuard">Project</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="fact"></a><strong><a href="https://arxiv.org/abs/2609.05876">FACT: A Forensic Agent with Compiled Tool-Use Trajectories for AI-Generated Image Detection</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Select among five experts and eight probes, or stop; GPT-5.1 is a training-only teacher.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="fact"></a><strong><a href="https://arxiv.org/abs/2609.05876">FACT: A Forensic Agent with Compiled Tool-Use Trajectories for AI-Generated Image Detection</a></strong><br><sub>Select among five experts and eight probes, or stop; GPT-5.1 is a training-only teacher.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/09</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="dissecting-agentic-forensics"></a><strong><a href="https://arxiv.org/abs/2609.24359">Dissecting Agentic Forensics: The Role of Triage, Prompting, and Evidence Arbitration in Open-World Fake Image Detection</a></strong></td>
-<td width="115" valign="top">ECCV&nbsp;2026<br><sub>AI4MFDD Workshop</sub></td>
-<td width="64" valign="top">26/09</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Gemma‑4‑26B‑A4B‑it<br>+ GPT‑5<br><sub>Training-free · score calibration</sub></td>
-<td width="220" valign="top">Seven preset detectors → auditors → judge; the listed models are the hybrid configuration.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="dissecting-agentic-forensics"></a><strong><a href="https://arxiv.org/abs/2609.24359">Dissecting Agentic Forensics: The Role of Triage, Prompting, and Evidence Arbitration in Open-World Fake Image Detection</a></strong><br><sub>Seven preset detectors → auditors → judge; the listed models are the hybrid configuration.</sub></td>
+<td width="12%" valign="top">ECCV 2026<br><sub>AI4MFDD Workshop</sub><br>26/09</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Gemma‑4‑26B‑A4B‑it<br>+ GPT‑5<br><sub>Training-free · score calibration</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="defake-o3"></a><strong><a href="https://arxiv.org/abs/2608.16259">Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection</a></strong></td>
-<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026<br><sub>accepted</sub></td>
-<td width="64" valign="top">26/08</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Inspect further crops or give a verdict; the evidence verifier is training-only.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="defake-o3"></a><strong><a href="https://arxiv.org/abs/2608.16259">Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection</a></strong><br><sub>Inspect further crops or give a verdict; the evidence verifier is training-only.</sub></td>
+<td width="12%" valign="top">ACM MM 2026<br><sub>accepted</sub><br>26/08</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="pate-forensics"></a><strong><a href="https://arxiv.org/abs/2608.18573">PATE-Forensics: Perception-as-Tool for Explainable Deepfake Forensics with General-Purpose MLLMs</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>DDL-X challenge report</sub></td>
-<td width="64" valign="top">26/08</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3.5‑Flash<br><sub>Training-free · tool trained</sub></td>
-<td width="220" valign="top">Fixed perception → explanation pipeline.</td>
-<td width="115" valign="top"><a href="https://github.com/yqli00000/CLASP">Code<br><sub>now CLASP</sub></a></td>
+<td width="50%" valign="top"><a name="pate-forensics"></a><strong><a href="https://arxiv.org/abs/2608.18573">PATE-Forensics: Perception-as-Tool for Explainable Deepfake Forensics with General-Purpose MLLMs</a></strong><br><sub>Fixed perception → explanation pipeline.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>DDL-X challenge report</sub><br>26/08</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen3.5‑Flash<br><sub>Training-free · tool trained</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/yqli00000/CLASP">Code<br><sub>now CLASP</sub></a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="argus"></a><strong><a href="https://arxiv.org/abs/2608.06865">Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection</a></strong> (ARGUS)</td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/08</td>
-<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Four fixed observers (texture / lighting / motion / physics) → judge.</td>
-<td width="115" valign="top"><a href="https://github.com/XavierJiezou/ARGUS">Code</a><br><a href="https://huggingface.co/XavierJiezou/argus-models">Weights</a></td>
+<td width="50%" valign="top"><a name="argus"></a><strong><a href="https://arxiv.org/abs/2608.06865">Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection</a></strong> (ARGUS)<br><sub>Four fixed observers (texture / lighting / motion / physics) → judge.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/08</td>
+<td width="24%" valign="top"><code>V</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/XavierJiezou/ARGUS">Code</a><br><a href="https://huggingface.co/XavierJiezou/argus-models">Weights</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="hermes"></a><strong><a href="https://proceedings.mlr.press/v306/li26be.html">Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection</a></strong></td>
-<td width="115" valign="top">ICML&nbsp;2026</td>
-<td width="64" valign="top">26/07</td>
-<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br>+ ChatGPT‑5<br><sub>Training-free</sub></td>
-<td width="220" valign="top">Planner, reasoner and deliberation roles update a temporal evidence graph (≤3 rounds).</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="hermes"></a><strong><a href="https://proceedings.mlr.press/v306/li26be.html">Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection</a></strong><br><sub>Planner, reasoner and deliberation roles update a temporal evidence graph (≤3 rounds).</sub></td>
+<td width="12%" valign="top">ICML 2026<br>26/07</td>
+<td width="24%" valign="top"><code>V</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br>+ ChatGPT‑5<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="unishield"></a><strong><a href="https://arxiv.org/abs/2510.03161">UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization</a></strong></td>
-<td width="115" valign="top">CVPR&nbsp;Findings<br>2026</td>
-<td width="64" valign="top">26/06</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑VL<br>+ GPT‑4o<br><sub>RL (router) · tools tuned</sub></td>
-<td width="220" valign="top">Route each image to one detector, then report.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="unishield"></a><strong><a href="https://arxiv.org/abs/2510.03161">UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization</a></strong><br><sub>Route each image to one detector, then report.</sub></td>
+<td width="12%" valign="top">CVPR Findings<br>2026<br>26/06</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code>&nbsp;<code>E</code><br>Qwen2.5‑VL<br>+ GPT‑4o<br><sub>RL (router) · tools tuned</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="foreagent"></a><strong><a href="https://arxiv.org/abs/2606.26552">Perception, Verdict, and Evolution: Hindsight-Driven Self-Refining Forensics Agent for AI-Generated Image Detection</a></strong> (ForeAgent)</td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/06</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT</sub></td>
-<td width="220" valign="top">Perception → verdict at inference; self-refinement happens during training.</td>
-<td width="115" valign="top"><a href="https://huggingface.co/Shimin/qwen3_vl_8b_foreagent">Weights</a></td>
+<td width="50%" valign="top"><a name="foreagent"></a><strong><a href="https://arxiv.org/abs/2606.26552">Perception, Verdict, and Evolution: Hindsight-Driven Self-Refining Forensics Agent for AI-Generated Image Detection</a></strong> (ForeAgent)<br><sub>Perception → verdict at inference; self-refinement happens during training.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/06</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen3‑VL‑8B<br><sub>SFT</sub></td>
+<td width="14%" valign="top"><a href="https://huggingface.co/Shimin/qwen3_vl_8b_foreagent">Weights</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="vrag-dfd"></a><strong><a href="https://arxiv.org/abs/2604.13660">VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection</a></strong></td>
-<td width="115" valign="top">CVPR&nbsp;Findings<br>2026</td>
-<td width="64" valign="top">26/06</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">MLLM<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Retrieve evidence, then cross-verify it.</td>
-<td width="115" valign="top"><a href="https://github.com/abigcatcat/VRAG-DFD">Code</a><br><a href="https://huggingface.co/abigcatcat/VRAG-DFD">Weights</a></td>
+<td width="50%" valign="top"><a name="vrag-dfd"></a><strong><a href="https://arxiv.org/abs/2604.13660">VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection</a></strong><br><sub>Retrieve evidence, then cross-verify it.</sub></td>
+<td width="12%" valign="top">CVPR Findings<br>2026<br>26/06</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>MLLM<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/abigcatcat/VRAG-DFD">Code</a><br><a href="https://huggingface.co/abigcatcat/VRAG-DFD">Weights</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="dvar"></a><strong><a href="https://arxiv.org/abs/2604.16987">DVAR: Adversarial Multi-Agent Debate for Video Authenticity Detection</a></strong></td>
-<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026</td>
-<td width="64" valign="top">26/04<br><sub>preprint</sub></td>
-<td width="70" valign="top"><code>V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">GPT‑5.4<br><sub>Training-free</sub></td>
-<td width="220" valign="top">GenVideoKB retrieval + a fixed two-round debate and arbiter; evaluation KB is frozen.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="dvar"></a><strong><a href="https://arxiv.org/abs/2604.16987">DVAR: Adversarial Multi-Agent Debate for Video Authenticity Detection</a></strong><br><sub>GenVideoKB retrieval + a fixed two-round debate and arbiter; evaluation KB is frozen.</sub></td>
+<td width="12%" valign="top">ACM MM 2026<br>26/04<br><sub>preprint</sub></td>
+<td width="24%" valign="top"><code>V</code> · <code>D</code>&nbsp;<code>E</code><br>GPT‑5.4<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="agentfox"></a><strong><a href="https://arxiv.org/abs/2603.23115">AgentFoX: LLM-Driven Agentic Multi-Expert Fusion with Explainability for AI-Generated Image Detection</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/03</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen3‑32B<br>+ GPT‑4o<br><sub>Training-free · calibration</sub></td>
-<td width="220" valign="top">Fuse collected expert evidence using calibrated reliability profiles.</td>
-<td width="115" valign="top"><a href="https://github.com/suncore946/AgentFoX">Minimal</a></td>
+<td width="50%" valign="top"><a name="agentfox"></a><strong><a href="https://arxiv.org/abs/2603.23115">AgentFoX: LLM-Driven Agentic Multi-Expert Fusion with Explainability for AI-Generated Image Detection</a></strong><br><sub>Fuse collected expert evidence using calibrated reliability profiles.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/03</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen3‑32B<br>+ GPT‑4o<br><sub>Training-free · calibration</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/suncore946/AgentFoX">Minimal</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="evoguard"></a><strong><a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/03</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code></td>
-<td width="180" valign="top">Qwen3‑VL‑4B<br><sub>RL</sub></td>
-<td width="220" valign="top">Select complementary detector APIs or stop; detector tools remain frozen.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="evoguard"></a><strong><a href="https://arxiv.org/abs/2603.17343">EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection</a></strong><br><sub>Select complementary detector APIs or stop; detector tools remain frozen.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/03</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code><br>Qwen3‑VL‑4B<br><sub>RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="forgeryvcr"></a><strong><a href="https://arxiv.org/abs/2602.14098">ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization</a></strong></td>
-<td width="115" valign="top">ACM&nbsp;MM&nbsp;2026<br><sub>Oral · accepted</sub></td>
-<td width="64" valign="top">26/02</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>L</code></td>
-<td width="180" valign="top">Qwen3‑VL‑4B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Use visual tool outputs for further inspection; boxes become SAM2 masks.</td>
-<td width="115" valign="top"><a href="https://github.com/youqiwong/ForgeryVCR">Code</a><br><a href="https://huggingface.co/youqiwong/ForgeryVCR">Weights</a></td>
+<td width="50%" valign="top"><a name="forgeryvcr"></a><strong><a href="https://arxiv.org/abs/2602.14098">ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization</a></strong><br><sub>Use visual tool outputs for further inspection; boxes become SAM2 masks.</sub></td>
+<td width="12%" valign="top">ACM MM 2026<br><sub>Oral · accepted</sub><br>26/02</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>L</code><br>Qwen3‑VL‑4B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/youqiwong/ForgeryVCR">Code</a><br><a href="https://huggingface.co/youqiwong/ForgeryVCR">Weights</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="aifo"></a><strong><a href="https://arxiv.org/abs/2511.00181">From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection</a></strong> (AIFo)</td>
-<td width="115" valign="top">arXiv&nbsp;2025<br><sub>preprint</sub></td>
-<td width="64" valign="top">25/10</td>
-<td width="70" valign="top"><code>I</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">GPT‑4o<br><sub>Training-free</sub></td>
-<td width="220" valign="top">Gather evidence, reason and debate; a judge decides when to stop.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="aifo"></a><strong><a href="https://arxiv.org/abs/2511.00181">From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection</a></strong> (AIFo)<br><sub>Gather evidence, reason and debate; a judge decides when to stop.</sub></td>
+<td width="12%" valign="top">arXiv 2025<br><sub>preprint</sub><br>25/10</td>
+<td width="24%" valign="top"><code>I</code> · <code>D</code>&nbsp;<code>E</code><br>GPT‑4o<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 </tbody>
 </table>
@@ -257,33 +194,24 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 <table>
 <thead>
 <tr>
-<th width="400" align="left">Paper</th>
-<th width="115" align="left">Venue</th>
-<th width="64" align="left">Date</th>
-<th width="70" align="left">Tags</th>
-<th width="180" align="left">Model / Training</th>
-<th width="220" align="left">Workflow notes</th>
-<th width="115" align="left">Open resources</th>
+<th width="50%" align="left">Paper / Workflow</th>
+<th width="12%" align="left">Venue / Date</th>
+<th width="24%" align="left">Tags · Model · Training</th>
+<th width="14%" align="left">Resources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="400" valign="top"><a name="qwen-langgraph"></a><strong><a href="https://link.springer.com/article/10.1007/s10791-026-10710-z">Performance evaluation and interpretability of a Qwen LangGraph agent for AI written and AI rewritten text detection</a></strong></td>
-<td width="115" valign="top">Discover<br>Computing&nbsp;2026</td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>T</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑1.5B<br><sub>Tools trained</sub></td>
-<td width="220" valign="top">Fusion + selective controller: choose tools, stop or abstain (≤2 steps; ≤1 specialist call).</td>
-<td width="115" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">Author resources</a></td>
+<td width="50%" valign="top"><a name="qwen-langgraph"></a><strong><a href="https://link.springer.com/article/10.1007/s10791-026-10710-z">Performance evaluation and interpretability of a Qwen LangGraph agent for AI written and AI rewritten text detection</a></strong><br><sub>Fusion + selective controller: choose tools, stop or abstain (≤2 steps; ≤1 specialist call).</sub></td>
+<td width="12%" valign="top">Discover<br>Computing 2026<br>26/10</td>
+<td width="24%" valign="top"><code>T</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑1.5B<br><sub>Tools trained</sub></td>
+<td width="14%" valign="top"><a href="https://drive.google.com/drive/folders/14wU4r0-uRirkJ9aP3xI1lj2yHfWkj7DQ">Author resources</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="aigt-agent"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.272/">Beyond Text-Intrinsic Features: An Agentic Framework for Evidence-Based AI-Generated Text Detection</a></strong> (AIGT-Agent)</td>
-<td width="115" valign="top">Findings&nbsp;EMNLP<br>2026</td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>T</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">GPT‑5‑mini</td>
-<td width="220" valign="top">Separate detection and search modules; fixed exact-then-fuzzy search and webpage-evidence aggregation.</td>
-<td width="115" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">Code</a><br><a href="https://github.com/TrustAIRLab/AIGT-Agent/tree/main/data/benchmark_4k">Benchmark</a></td>
+<td width="50%" valign="top"><a name="aigt-agent"></a><strong><a href="https://aclanthology.org/2026.findings-emnlp.272/">Beyond Text-Intrinsic Features: An Agentic Framework for Evidence-Based AI-Generated Text Detection</a></strong> (AIGT-Agent)<br><sub>Separate detection and search modules; fixed exact-then-fuzzy search and webpage-evidence aggregation.</sub></td>
+<td width="12%" valign="top">Findings EMNLP<br>2026<br>26/10</td>
+<td width="24%" valign="top"><code>T</code> · <code>D</code>&nbsp;<code>E</code><br>GPT‑5‑mini</td>
+<td width="14%" valign="top"><a href="https://github.com/TrustAIRLab/AIGT-Agent">Code</a><br><a href="https://github.com/TrustAIRLab/AIGT-Agent/tree/main/data/benchmark_4k">Benchmark</a></td>
 </tr>
 </tbody>
 </table>
@@ -301,78 +229,54 @@ Input: <code>I</code> Image · <code>V</code> Video · <code>A</code> Audio · <
 <table>
 <thead>
 <tr>
-<th width="400" align="left">Paper</th>
-<th width="115" align="left">Venue</th>
-<th width="64" align="left">Date</th>
-<th width="70" align="left">Tags</th>
-<th width="180" align="left">Model / Training</th>
-<th width="220" align="left">Workflow notes</th>
-<th width="115" align="left">Open resources</th>
+<th width="50%" align="left">Paper / Workflow</th>
+<th width="12%" align="left">Venue / Date</th>
+<th width="24%" align="left">Tags · Model · Training</th>
+<th width="14%" align="left">Resources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="400" valign="top"><a name="falcon"></a><strong><a href="https://doi.org/10.1016/j.patcog.2026.115240">LLM as a forensic reasoner: Expert-guided video deepfake detection across modalities</a></strong> (FALCON)</td>
-<td width="115" valign="top">Pattern Recognition<br>2026<br><sub>journal pre-proof</sub></td>
-<td width="64" valign="top">26/10<br><sub>online 10-29</sub></td>
-<td width="70" valign="top"><code>A+V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top"><sub>Three-stage human-in-the-loop training</sub></td>
-<td width="220" valign="top">Specialist experts extract symbolic evidence for LLM forensic reasoning.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="falcon"></a><strong><a href="https://doi.org/10.1016/j.patcog.2026.115240">LLM as a forensic reasoner: Expert-guided video deepfake detection across modalities</a></strong> (FALCON)<br><sub>Specialist experts extract symbolic evidence for LLM forensic reasoning.</sub></td>
+<td width="12%" valign="top">Pattern Recognition<br>2026<br><sub>journal pre-proof</sub><br>26/10<br><sub>online 10-29</sub></td>
+<td width="24%" valign="top"><code>A+V</code> · <code>D</code>&nbsp;<code>E</code><br><sub>Three-stage human-in-the-loop training</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="adaptive-multi-agent"></a><strong><a href="https://doi.org/10.3390/informatics13100163">A Multi-Agent Framework with Adaptive Orchestration for Explainable Multi-Modal Deepfake Detection</a></strong></td>
-<td width="115" valign="top">Informatics&nbsp;2026</td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>A+V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Llama‑3‑70B<br>+ Gemini‑1.5‑Flash<br><sub>Rule-based · detectors trained</sub></td>
-<td width="220" valign="top">Fixed disagreement threshold activates extra detectors, then fusion and reporting.</td>
-<td width="115" valign="top"><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection">Code</a><br><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection/tree/main/checkpoints">Weights</a></td>
+<td width="50%" valign="top"><a name="adaptive-multi-agent"></a><strong><a href="https://doi.org/10.3390/informatics13100163">A Multi-Agent Framework with Adaptive Orchestration for Explainable Multi-Modal Deepfake Detection</a></strong><br><sub>Fixed disagreement threshold activates extra detectors, then fusion and reporting.</sub></td>
+<td width="12%" valign="top">Informatics 2026<br>26/10</td>
+<td width="24%" valign="top"><code>A+V</code> · <code>D</code>&nbsp;<code>E</code><br>Llama‑3‑70B<br>+ Gemini‑1.5‑Flash<br><sub>Rule-based · detectors trained</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection">Code</a><br><a href="https://github.com/saoirsebarry/multiagent-deepfake-detection/tree/main/checkpoints">Weights</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="enf-framework"></a><strong><a href="https://arxiv.org/abs/2610.22440">An Agentic ENF Framework for Forensic Video Authentication Against Generative AI</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/10</td>
-<td width="70" valign="top"><code>A+V</code><br><code>D</code></td>
-<td width="180" valign="top">Deterministic state machine<br><sub>Rule-based · detectors trained</sub></td>
-<td width="220" valign="top">Deterministic state transitions over ENF and detector evidence; ENF authentication needs an independent trusted reference.</td>
-<td width="115" valign="top"><a href="https://github.com/RyanSolent95/enf-video-forensics">Code</a><br><a href="https://github.com/RyanSolent95/enf-video-forensics/tree/main/outputs">Weights</a></td>
+<td width="50%" valign="top"><a name="enf-framework"></a><strong><a href="https://arxiv.org/abs/2610.22440">An Agentic ENF Framework for Forensic Video Authentication Against Generative AI</a></strong><br><sub>Deterministic state transitions over ENF and detector evidence; ENF authentication needs an independent trusted reference.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/10</td>
+<td width="24%" valign="top"><code>A+V</code> · <code>D</code><br>Deterministic state machine<br><sub>Rule-based · detectors trained</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/RyanSolent95/enf-video-forensics">Code</a><br><a href="https://github.com/RyanSolent95/enf-video-forensics/tree/main/outputs">Weights</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="mm-veriagent"></a><strong><a href="https://arxiv.org/abs/2609.30698">MM-VeriAgent: Learning to Use Extensive Tools to Verify Multimodal Misinformation with Reinforcement Learning</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/09<br><sub>v2 26/11</sub></td>
-<td width="70" valign="top"><code>T+I</code><br><code>D</code></td>
-<td width="180" valign="top">Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Choose among nine tools or stop (≤3 rounds); parameters fixed in current sample. Broader image–text misinformation, including AIGC.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="mm-veriagent"></a><strong><a href="https://arxiv.org/abs/2609.30698">MM-VeriAgent: Learning to Use Extensive Tools to Verify Multimodal Misinformation with Reinforcement Learning</a></strong><br><sub>Choose among nine tools or stop (≤3 rounds); parameters fixed in current sample. Broader image–text misinformation, including AIGC.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/09<br><sub>v2 26/11</sub></td>
+<td width="24%" valign="top"><code>T+I</code> · <code>D</code><br>Qwen2.5‑VL‑7B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="omnivl-guard-pro"></a><strong><a href="https://arxiv.org/abs/2605.16962">OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics</a></strong></td>
-<td width="115" valign="top">arXiv&nbsp;2026<br><sub>preprint</sub></td>
-<td width="64" valign="top">26/05</td>
-<td width="70" valign="top"><code>T+I</code>&nbsp;/&nbsp;<code>T+V</code><br><code>D</code>&nbsp;<code>L</code></td>
-<td width="180" valign="top">Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
-<td width="220" valign="top">Select search / crop / vision tools from observations or errors.</td>
-<td width="115" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">Project</a></td>
+<td width="50%" valign="top"><a name="omnivl-guard-pro"></a><strong><a href="https://arxiv.org/abs/2605.16962">OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics</a></strong><br><sub>Select search / crop / vision tools from observations or errors.</sub></td>
+<td width="12%" valign="top">arXiv 2026<br><sub>preprint</sub><br>26/05</td>
+<td width="24%" valign="top"><code>T+I</code>&nbsp;/&nbsp;<code>T+V</code> · <code>D</code>&nbsp;<code>L</code><br>Qwen3‑VL‑8B<br><sub>SFT + RL</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/shen8424/OmniVL-Guard-Pro">Project</a></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="fakehunter"></a><strong><a href="https://arxiv.org/abs/2508.14581">Memory-Anchored Multimodal Reasoning for Explainable Video Forensics</a></strong> (FakeHunter)</td>
-<td width="115" valign="top">arXiv&nbsp;2025<br><sub>preprint</sub></td>
-<td width="64" valign="top">25/08</td>
-<td width="70" valign="top"><code>A+V</code><br><code>D</code>&nbsp;<code>E</code></td>
-<td width="180" valign="top">Qwen2.5‑Omni‑7B<br><sub>alt. MiniCPM‑o‑2_6</sub><br><sub>K-means memory</sub></td>
-<td width="220" valign="top">Retrieve memory; low confidence triggers visual / audio inspection.</td>
-<td width="115" valign="top"></td>
+<td width="50%" valign="top"><a name="fakehunter"></a><strong><a href="https://arxiv.org/abs/2508.14581">Memory-Anchored Multimodal Reasoning for Explainable Video Forensics</a></strong> (FakeHunter)<br><sub>Retrieve memory; low confidence triggers visual / audio inspection.</sub></td>
+<td width="12%" valign="top">arXiv 2025<br><sub>preprint</sub><br>25/08</td>
+<td width="24%" valign="top"><code>A+V</code> · <code>D</code>&nbsp;<code>E</code><br>Qwen2.5‑Omni‑7B<br><sub>alt. MiniCPM‑o‑2_6</sub><br><sub>K-means memory</sub></td>
+<td width="14%" valign="top"></td>
 </tr>
 <tr>
-<td width="400" valign="top"><a name="t2agent"></a><strong><a href="https://arxiv.org/abs/2505.19768">T²Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search</a></strong></td>
-<td width="115" valign="top">AAAI&nbsp;2026</td>
-<td width="64" valign="top">25/05<br><sub>preprint</sub></td>
-<td width="70" valign="top"><code>T+I</code><br><code>D</code></td>
-<td width="180" valign="top">GPT‑4o<br><sub>Training-free</sub></td>
-<td width="220" valign="top">MCTS explores tool / evidence paths; v2 adds greedy tool-subset selection. Broader image–text misinformation, including AIGC.</td>
-<td width="115" valign="top"><a href="https://github.com/cuixing100876/T2Agent">Code<br><sub>partly cached</sub></a></td>
+<td width="50%" valign="top"><a name="t2agent"></a><strong><a href="https://arxiv.org/abs/2505.19768">T²Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search</a></strong><br><sub>MCTS explores tool / evidence paths; v2 adds greedy tool-subset selection. Broader image–text misinformation, including AIGC.</sub></td>
+<td width="12%" valign="top">AAAI 2026<br>25/05<br><sub>preprint</sub></td>
+<td width="24%" valign="top"><code>T+I</code> · <code>D</code><br>GPT‑4o<br><sub>Training-free</sub></td>
+<td width="14%" valign="top"><a href="https://github.com/cuixing100876/T2Agent">Code<br><sub>partly cached</sub></a></td>
 </tr>
 </tbody>
 </table>
