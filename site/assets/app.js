@@ -1,11 +1,11 @@
-/* Progressive enhancement: all paper content is generated from README at build time. */
+/* Progressive enhancement: paper content is generated from README and source-linked abstract data at build time. */
 'use strict';
 (() => {
   const $ = (id) => document.getElementById(id);
   const list = $('paper-list');
   const cards = Array.from(list.querySelectorAll('.paper-card'));
   const search = $('search');
-  const task = $('task-filter');
+  const taskButtons = Array.from(document.querySelectorAll('.task-button'));
   const training = $('training-filter');
   const sort = $('sort');
   const buttons = Array.from(document.querySelectorAll('.modality-button'));
@@ -21,6 +21,8 @@
   const params = new URLSearchParams(window.location.search);
   let modality = params.get('modality') || 'all';
   if (!buttons.some(b => b.dataset.modality === modality)) modality = 'all';
+  let task = params.get('task') || 'all';
+  if (!taskButtons.some(b => b.dataset.task === task)) task = 'all';
   const normalize = (value) => value.normalize('NFKC').toLocaleLowerCase().replace(/[\u2010-\u2015]/g, '-');
   cards.forEach(card => { card.searchText = normalize(card.dataset.search); });
   function restore(select, key) {
@@ -28,7 +30,7 @@
     if (Array.from(select.options).some(option => option.value === value)) select.value = value;
   }
   search.value = params.get('q') || '';
-  restore(task, 'task'); restore(training, 'training'); restore(sort, 'sort');
+  restore(training, 'training'); restore(sort, 'sort');
   function update() {
     const terms = normalize(search.value).trim().split(/\s+/).filter(Boolean);
     let count = 0;
@@ -39,22 +41,23 @@
     });
     for (const card of ordered) {
       card.hidden = !((modality === 'all' || card.dataset.modality === modality)
-        && (task.value === 'all' || card.dataset.tasks.split(' ').includes(task.value))
+        && (task === 'all' || card.dataset.tasks.split(' ').includes(task))
         && (training.value === 'all' || card.dataset.training.split(' ').includes(training.value))
         && terms.every(term => card.searchText.includes(term)));
       if (!card.hidden) count++;
       list.append(card);
     }
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.modality === modality)));
+    taskButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.task === task)));
     $('result-count').textContent = `${count} / ${cards.length} ${document.body.dataset.resultLabel}`;
     $('empty-state').hidden = count !== 0;
-    const filterCount = Number(modality !== 'all') + Number(task.value !== 'all') + Number(training.value !== 'all');
+    const filterCount = Number(modality !== 'all') + Number(task !== 'all') + Number(training.value !== 'all');
     $('active-filter-count').textContent = String(filterCount);
     $('active-filter-count').hidden = filterCount === 0;
     const query = new URLSearchParams();
     if (search.value.trim()) query.set('q', search.value.trim());
     if (modality !== 'all') query.set('modality', modality);
-    if (task.value !== 'all') query.set('task', task.value);
+    if (task !== 'all') query.set('task', task);
     if (training.value !== 'all') query.set('training', training.value);
     if (sort.value !== 'catalog') query.set('sort', sort.value);
     const queryString = query.toString();
@@ -67,11 +70,12 @@
     language.href = target.href;
   }
   function reset() {
-    modality = 'all'; search.value = ''; task.value = 'all'; training.value = 'all'; sort.value = 'catalog'; update();
+    modality = 'all'; search.value = ''; task = 'all'; training.value = 'all'; sort.value = 'catalog'; update();
   }
   search.addEventListener('input', update);
-  [task, training, sort].forEach(control => control.addEventListener('change', update));
+  [training, sort].forEach(control => control.addEventListener('change', update));
   buttons.forEach(button => button.addEventListener('click', () => { modality = button.dataset.modality; update(); }));
+  taskButtons.forEach(button => button.addEventListener('click', () => { task = button.dataset.task; update(); }));
   $('reset-filters').addEventListener('click', reset);
   $('empty-reset').addEventListener('click', () => {
     reset();

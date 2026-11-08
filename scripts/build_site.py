@@ -2,8 +2,8 @@
 """Build the public catalogue from the bilingual READMEs. Standard library only.
 
 README tables are the source of titles, models, workflows, labels, and links.
-The existing catalog-order.json supplies ordering only. No paper data is
-hand-maintained in site/. The build fails rather than silently losing a row.
+The catalog-order.json supplies ordering; abstracts.json supplies source-backed
+bilingual abstract summaries. No paper data is hand-maintained in site/. The build fails rather than silently losing a row.
 """
 import argparse
 from collections import Counter
@@ -27,7 +27,7 @@ LABELS = {
         'browse': 'Explore papers', 'comparison': 'Technical comparison', 'repo': 'GitHub repository',
         'papers': 'Papers', 'modalities': 'Modalities', 'tasks': 'Tasks', 'collection': 'The research library',
         'subtitle': 'Browse papers', 'search': 'Search papers',
-        'placeholder': 'Search titles or models…', 'filter': 'Filters', 'show_results': 'Show papers',
+        'placeholder': 'Search titles, models or abstracts…', 'filter': 'Filters', 'show_results': 'Show papers',
         'modality': 'Input modality', 'all': 'All modalities', 'audio': 'Audio', 'visual': 'Visual', 'text': 'Text', 'cross-modal': 'Cross-modal',
         'visual_hint': 'Images & videos', 'task': 'Task', 'training': 'Agent training',
         'all_tasks': 'All tasks', 'all_training': 'All training', 'D': 'Detection', 'L': 'Localization', 'E': 'Explanation',
@@ -39,14 +39,17 @@ LABELS = {
         'notes': 'How to read this collection', 'scope_title': 'Scope, not a leaderboard',
         'scope': 'The collection includes agentic forensic methods and related tool-grounded or rule-orchestrated workflows. Inclusion does not imply equal autonomy or evaluation settings.',
         'order_title': 'A consistent reading order', 'order': 'Within each modality, papers follow conference opening dates, first arXiv releases or first online journal publication. Dates are used for sorting, not repeated beside venues.',
-        'source_title': 'One source, always in sync', 'source_text': 'Every paper, model, workflow and resource link is generated from the repository README. Updating the source rebuilds this website automatically.',
+        'source_title': 'Source-backed, always in sync', 'source_text': 'Paper metadata comes from the README; bilingual abstract summaries come from a source-linked data file. Both are checked against the same paper IDs and rebuild this website automatically.',
         'resources': 'Keep exploring', 'survey': 'Related surveys', 'survey_hint': 'Agent foundations, detection and evaluation.',
         'resources_title': 'Models & benchmarks', 'resources_hint': 'Forensic models, datasets and evaluation resources.',
         'compare_hint': 'Compare inference setups, tool use and agent workflows.', 'contribute': 'Suggest a paper or correction',
-        'footer': 'A community reading list for evidence-guided media forensics.', 'sync': 'Generated from README',
+        'footer': 'A community reading list for evidence-guided media forensics.', 'sync': 'Synced with repository',
         'diagram': 'Conceptual illustration of media signals, forensic tools and an evidence trail. Not a detector result.',
         'legend': 'Input tags: I image · V video · A audio · T text', 'skip': 'Skip to papers',
-        'nojs': 'All papers are readable below. Enable JavaScript to use search and filters.',
+        'nojs': 'All papers and expandable abstract summaries are readable below. Enable JavaScript to use search and filters.',
+        'abstract': 'Abstract summary', 'expand': 'Expand', 'collapse': 'Collapse',
+        'abstract_note': 'Paraphrased from the original abstract, not a verbatim quotation.', 'abstract_source': 'Read original abstract',
+        'abstract_unavailable': 'The original abstract could not be verified yet.',
     },
     'zh': {
         'lang': 'zh-CN', 'other_lang': 'English', 'other_url': '../',
@@ -55,7 +58,7 @@ LABELS = {
         'browse': '浏览论文', 'comparison': '技术对比', 'repo': 'GitHub 仓库',
         'papers': '篇论文', 'modalities': '种输入模态', 'tasks': '类任务', 'collection': '论文目录',
         'subtitle': '浏览论文', 'search': '搜索论文',
-        'placeholder': '搜索标题或模型…', 'filter': '筛选论文', 'show_results': '查看论文',
+        'placeholder': '搜索标题、模型或摘要…', 'filter': '筛选论文', 'show_results': '查看论文',
         'modality': '输入模态', 'all': '全部模态', 'audio': '音频', 'visual': '视觉', 'text': '文本', 'cross-modal': '跨模态',
         'visual_hint': '图像与视频', 'task': '任务', 'training': '智能体训练',
         'all_tasks': '全部任务', 'all_training': '全部训练方式', 'D': '检测', 'L': '定位', 'E': '解释',
@@ -67,14 +70,17 @@ LABELS = {
         'notes': '阅读说明', 'scope_title': '文献目录，而非排行榜',
         'scope': '收录智能体鉴伪方法，也包含相关的工具增强与规则编排流程。收录不代表各方法具有相同自主性或评测设置。',
         'order_title': '清晰一致的阅读顺序', 'order': '各模态内按会议开幕日、首次 arXiv 发布日或期刊首次在线发表日排序。日期仅用于排序，不在发表信息旁重复展示。',
-        'source_title': '同一份来源，自动同步', 'source_text': '每篇论文、模型、工作流程与资源链接均由仓库 README 自动生成。更新来源后，网站会自动重新构建。',
+        'source_title': '来源可查，自动同步', 'source_text': '论文信息来自 README；双语摘要概述来自附有原文链接的数据文件。两者使用同一组论文标识校验，更新后网站自动重新构建。',
         'resources': '继续探索', 'survey': '相关综述', 'survey_hint': '智能体基础、内容检测与评测综述。',
         'resources_title': '模型与基准', 'resources_hint': '专用取证模型、数据集及评测资源。',
         'compare_hint': '比较推理配置、工具使用与智能体工作流程。', 'contribute': '推荐论文或提交更正',
-        'footer': '面向证据驱动媒体鉴伪的开放阅读清单。', 'sync': '由 README 自动生成',
+        'footer': '面向证据驱动媒体鉴伪的开放阅读清单。', 'sync': '与仓库自动同步',
         'diagram': '媒体信号、取证工具与证据链的概念示意图，并非实际检测结果。',
         'legend': '输入标签：I 图像 · V 视频 · A 音频 · T 文本', 'skip': '跳转到论文',
-        'nojs': '以下全部论文无需 JavaScript 即可阅读。搜索与筛选需要启用 JavaScript。',
+        'nojs': '以下论文与可折叠摘要概述无需 JavaScript 即可阅读。搜索与筛选需要启用 JavaScript。',
+        'abstract': '摘要概述', 'expand': '展开', 'collapse': '收起',
+        'abstract_note': '根据原文摘要整理，并非原文引用。', 'abstract_source': '阅读原文摘要',
+        'abstract_unavailable': '暂未核实原文摘要。',
     },
 }
 
@@ -155,6 +161,22 @@ def load_catalog(root=ROOT):
     order = {p['id']: p for p in ordering}
     if len(order) != len(ordering) or set(keys) != set(order):
         raise ValueError('README and catalog-order.json paper ids differ')
+    abstract_source = (root / 'data/abstracts.json').read_text(encoding='utf-8')
+    abstract_records = json.loads(abstract_source)['papers']
+    abstracts = {p['id']: p for p in abstract_records}
+    if len(abstracts) != len(abstract_records) or set(keys) != set(abstracts):
+        raise ValueError('README and abstracts.json paper ids differ')
+    for key, abstract in abstracts.items():
+        safe_url(abstract['source_url'])
+        date.fromisoformat(abstract['verified_on'])
+        if not abstract.get('source_title', '').strip():
+            raise ValueError(f'{key}: missing abstract source title')
+        if abstract.get('status') not in ('verified', 'unavailable'):
+            raise ValueError(f'{key}: invalid abstract verification status')
+        for lang in ('en', 'zh'):
+            field = lang if abstract['status'] == 'verified' else f'reason_{lang}'
+            if not isinstance(abstract.get(field), str) or not abstract[field].strip():
+                raise ValueError(f'{key}: missing bilingual abstract text or unavailable reason ({lang})')
     for index, (en, zh) in enumerate(zip(parsed['en'], parsed['zh'])):
         for field in ('title', 'url', 'inputs', 'tasks'):
             if en[field] != zh[field]:
@@ -162,10 +184,14 @@ def load_catalog(root=ROOT):
         if [r['url'] for r in en['resources']] != [r['url'] for r in zh['resources']]:
             raise ValueError(f'{en["id"]}: bilingual resource links differ')
         date.fromisoformat(order[en['id']]['date'])
-        for paper in (en, zh):
+        for lang, paper in (('en', en), ('zh', zh)):
+            abstract = abstracts[paper['id']]
+            paper['abstract'] = {key: abstract[key] for key in ('source_url', 'source_title', 'verified_on', 'status')}
+            paper['abstract']['summary'] = abstract[lang] if abstract['status'] == 'verified' else ''
+            paper['abstract']['unavailable_reason'] = abstract.get(f'reason_{lang}', '')
             paper.update({'sort_date': order[en['id']]['date'], 'sort_basis': order[en['id']]['basis'],
                           'order': index, 'training_tags': training_tags(en['training'])})
-    digest = hashlib.sha256(('\n'.join(sources.values()) + order_source).encode()).hexdigest()
+    digest = hashlib.sha256(('\n'.join(sources.values()) + order_source + abstract_source).encode()).hexdigest()
     return {'papers': parsed, 'source_sha256': digest, 'count': len(keys)}
 
 
@@ -175,7 +201,7 @@ def escape(value):
 
 def card(paper, labels, readme):
     e = escape
-    searchable = ' '.join([paper['id'], paper['title'], paper['venue'], paper['model'], paper['training'], paper['workflow'], paper['modality'], labels[paper['modality']], *paper['inputs'], *(labels[t] for t in paper['tasks'])])
+    searchable = ' '.join([paper['id'], paper['title'], paper['venue'], paper['model'], paper['training'], paper['workflow'], paper['abstract']['summary'], paper['modality'], labels[paper['modality']], *paper['inputs'], *(labels[t] for t in paper['tasks'])])
     task_tags = ''.join(f'<span class="task-tag">{labels[t]}</span>' for t in paper['tasks'])
     input_tags = ' / '.join(paper['inputs'])
     model = f'<p class="model">{e(paper["model"])}</p>' if paper['model'] else ''
@@ -183,11 +209,16 @@ def card(paper, labels, readme):
     modelblock = f'<div class="paper-model"><span class="field-label">{labels["model"]}</span>{model}{training}</div>' if model or training else ''
     resource_links = ''.join(f'<a href="{e(r["url"])}">{e(r["label"])}</a>' for r in paper['resources'])
     resource_note = f'<span class="resource-note">{e(paper["resource_note"])}</span>' if paper['resource_note'] else ''
+    abstract = paper['abstract']
+    abstract_text = abstract['summary'] if abstract['status'] == 'verified' else f"{labels['abstract_unavailable']} {abstract['unavailable_reason']}"
+    abstract_note = f'<span>{labels["abstract_note"]}</span>' if abstract['status'] == 'verified' else ''
+    abstract_block = f'''<details class="paper-abstract"><summary><span>{labels['abstract']}</span><span class="abstract-action" aria-hidden="true"><span class="expand-label">{labels['expand']}</span><span class="collapse-label">{labels['collapse']}</span><svg viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></span></summary><div class="abstract-content"><p>{e(abstract_text)}</p><div class="abstract-attribution">{abstract_note}<a href="{e(abstract['source_url'])}" title="{e(abstract['source_title'])}">{labels['abstract_source']} ↗</a></div></div></details>'''
     return f'''<article class="paper-card" id="{e(paper['id'])}" data-modality="{paper['modality']}" data-tasks="{' '.join(paper['tasks'])}" data-training="{' '.join(paper['training_tags'])}" data-order="{paper['order']}" data-date="{paper['sort_date']}" data-title="{e(paper['title'])}" data-search="{e(searchable)}">
       <div class="paper-topline"><span class="modality-mark {paper['modality']}">{labels[paper['modality']]}</span><span class="venue">{e(paper['venue'])}</span></div>
       <h3><a href="{e(paper['url'])}">{e(paper['title'])}</a></h3>
       <div class="paper-tags"><span class="input-tag" title="{e(labels['legend'])}">{e(input_tags)}</span><span class="tag-divider" aria-hidden="true"></span>{task_tags}</div>
       <div class="paper-details">{modelblock}<div class="paper-workflow"><span class="field-label">{labels['workflow']}</span><p>{e(paper['workflow'])}</p></div></div>
+      {abstract_block}
       <div class="paper-links"><a class="paper-link" href="{e(paper['url'])}">{labels['paper']} <span aria-hidden="true">↗</span></a>{resource_links}{resource_note}<a class="source-link" href="{REPO}/blob/main/{readme}#{paper['id']}" aria-label="{labels['source']}: {e(paper['title'])}">↗ <span>{labels['source']}</span></a></div>
     </article>'''
 
@@ -201,9 +232,9 @@ def render(catalog, lang):
     comparison = 'COMPARISON_CN.md' if lang == 'zh' else 'COMPARISON.md'
     readme_url = f'{REPO}/blob/main/{readme}'
     comparison_url = f'{REPO}/blob/main/docs/{comparison}'
-    filters = ''.join(f'<button type="button" class="modality-button" data-modality="{g}" aria-pressed="false"><span>{l[g]}</span><span class="filter-count">{counts[g]}</span></button>' for g in GROUPS)
+    filters = ''.join(f'<button type="button" class="filter-button modality-button" data-modality="{g}" aria-pressed="false"><span>{l[g]}</span><span class="filter-count">{counts[g]}</span></button>' for g in GROUPS)
     cards = '\n'.join(card(p, l, readme) for p in papers)
-    tasks = ''.join(f'<option value="{t}">{l[t]}</option>' for t in ('D', 'L', 'E'))
+    tasks = ''.join(f'<button type="button" class="filter-button task-button" data-task="{t}" aria-pressed="false"><span>{l[t]}</span><span class="filter-count">{sum(t in p["tasks"] for p in papers)}</span></button>' for t in ('D', 'L', 'E'))
     training = ''.join(f'<option value="{t}">{l[t]}</option>' for t in ('training-free', 'sft', 'rl', 'other'))
     asset_version = lambda name: hashlib.sha256((ROOT / 'site/assets' / name).read_bytes()).hexdigest()[:12]
     page = f'''<!doctype html>
@@ -235,8 +266,8 @@ def render(catalog, lang):
       <button type="button" id="toggle-filters" class="filter-toggle" aria-expanded="false" aria-controls="filter-controls"><svg aria-hidden="true" viewBox="0 0 20 20"><path d="M3 5h14M5 10h10M7 15h6"/></svg>{l['filter']}<span id="active-filter-count" hidden>0</span><span class="toggle-chevron" aria-hidden="true">⌄</span></button>
       <div class="filter-sticky" id="filter-controls">
       <div class="filter-heading"><h2>{l['filter']}</h2><button type="button" class="reset-button" id="reset-filters">{l['reset']}</button></div>
-      <fieldset class="modality-fieldset"><legend>{l['modality']}</legend><button type="button" class="modality-button" data-modality="all" aria-pressed="true"><span>{l['all']}</span><span class="filter-count">{len(papers)}</span></button>{filters}</fieldset>
-      <div class="select-filter"><label class="select-label" for="task-filter">{l['task']}</label><select id="task-filter"><option value="all">{l['all_tasks']}</option>{tasks}</select></div>
+      <fieldset class="filter-fieldset modality-fieldset"><legend>{l['modality']}</legend><button type="button" class="filter-button modality-button" data-modality="all" aria-pressed="true"><span>{l['all']}</span><span class="filter-count">{len(papers)}</span></button>{filters}</fieldset>
+      <fieldset class="filter-fieldset task-fieldset"><legend>{l['task']}</legend><button type="button" class="filter-button task-button" data-task="all" aria-pressed="true"><span>{l['all_tasks']}</span><span class="filter-count">{len(papers)}</span></button>{tasks}</fieldset>
       <div class="select-filter"><label class="select-label" for="training-filter">{l['training']}</label><select id="training-filter"><option value="all">{l['all_training']}</option>{training}</select></div>
       <p class="filter-note">{l['training_note']}</p><p class="filter-legend">{l['legend']}</p>
       <a class="comparison-link" href="{comparison_url}">{l['comparison']} <span aria-hidden="true">↗</span></a>

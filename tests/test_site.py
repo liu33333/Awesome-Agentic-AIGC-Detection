@@ -113,6 +113,7 @@ class WebsiteTests(unittest.TestCase):
     def test_script_and_markup_are_escaped(self):
         catalog=copy.deepcopy(self.catalog)
         catalog['papers']['en'][0]['title']='<script>alert("x")</script>'
+        catalog['papers']['en'][0]['abstract']['summary']='<script>alert("abstract")</script>'
         page=site.render(catalog, 'en')
         self.assertNotIn('<script>alert', page)
         self.assertIn('&lt;script&gt;', page)
@@ -123,7 +124,7 @@ class WebsiteTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
             (root/'data').mkdir()
-            for name in ('README.md', 'README_CN.md', 'data/catalog-order.json'):
+            for name in ('README.md', 'README_CN.md', 'data/catalog-order.json', 'data/abstracts.json'):
                 (root/name).write_bytes((ROOT/name).read_bytes())
             original=site.load_catalog(root)
             readme=root/'README.md'
@@ -142,6 +143,71 @@ class WebsiteTests(unittest.TestCase):
             order['papers'].pop()
             (root/'data/catalog-order.json').write_text(json.dumps(order))
             with self.assertRaises(ValueError): site.load_catalog(root)
+
+    def copy_sources(self, root):
+        (root/'data').mkdir()
+        for name in ('README.md', 'README_CN.md', 'data/catalog-order.json', 'data/abstracts.json'):
+            (root/name).write_bytes((ROOT/name).read_bytes())
+
+    def test_abstracts_are_complete_native_collapsible_and_source_linked(self):
+        for lang in ('en', 'zh'):
+            page = site.render(self.catalog, lang)
+            self.assertEqual(page.count('<details class="paper-abstract">'), self.catalog['count'])
+            self.assertNotIn('<details class="paper-abstract" open', page)
+            self.assertIn(site.LABELS[lang]['abstract_note'], page)
+            for paper in self.catalog['papers'][lang]:
+                self.assertEqual(paper['abstract']['status'], 'verified')
+                self.assertIn(site.escape(paper['abstract']['summary']), page)
+                self.assertIn(site.escape(paper['abstract']['source_url']), page)
+                self.assertGreater(len(paper['abstract']['summary']), 100)
+
+    def test_task_controls_match_modality_buttons_instead_of_dropdown(self):
+        for lang in ('en', 'zh'):
+            page = site.render(self.catalog, lang)
+            self.assertNotIn('id="task-filter"', page)
+            self.assertEqual(page.count('class="filter-button task-button"'), 4)
+            self.assertIn('class="filter-fieldset task-fieldset"', page)
+            for value in ('all', 'D', 'L', 'E'):
+                self.assertIn(f'data-task="{value}"', page)
+
+    def test_abstract_source_changes_rebuild_content_and_fingerprint(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); self.copy_sources(root)
+            path=root/'data/abstracts.json'
+            data=json.loads(path.read_text())
+            data['papers'][0]['en']='A changed source-backed abstract summary.'
+            path.write_text(json.dumps(data))
+            changed=site.load_catalog(root)
+            self.assertNotEqual(self.catalog['source_sha256'], changed['source_sha256'])
+            self.assertIn('A changed source-backed abstract summary.', site.render(changed, 'en'))
+
+    def test_abstract_records_fail_on_missing_duplicate_or_invalid_data(self):
+        for mutation in ('missing', 'duplicate', 'translation', 'source', 'date', 'status'):
+            with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp); self.copy_sources(root)
+                path=root/'data/abstracts.json'
+                data=json.loads(path.read_text())
+                if mutation == 'missing': data['papers'].pop()
+                if mutation == 'duplicate': data['papers'].append(data['papers'][0])
+                if mutation == 'translation': data['papers'][0]['zh']=''
+                if mutation == 'source': data['papers'][0]['source_url']='javascript:alert(1)'
+                if mutation == 'date': data['papers'][0]['verified_on']='not-a-date'
+                if mutation == 'status': data['papers'][0]['status']='assumed'
+                path.write_text(json.dumps(data))
+                with self.assertRaises(ValueError): site.load_catalog(root)
+
+    def test_unavailable_abstracts_are_explicit_not_silently_missing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); self.copy_sources(root)
+            path=root/'data/abstracts.json'
+            data=json.loads(path.read_text())
+            data['papers'][0].update(status='unavailable', en='', zh='', reason_en='Source could not be reached.', reason_zh='无法访问来源。')
+            path.write_text(json.dumps(data))
+            catalog=site.load_catalog(root)
+            for lang in ('en', 'zh'):
+                page=site.render(catalog, lang)
+                self.assertIn(site.LABELS[lang]['abstract_unavailable'], page)
+                self.assertEqual(page.count('<details class="paper-abstract">'), self.catalog['count'])
 
     def test_all_outbound_paper_resources_are_from_readme(self):
         for lang, file in [('en','README.md'), ('zh','README_CN.md')]:

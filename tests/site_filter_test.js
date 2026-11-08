@@ -18,29 +18,33 @@ function start(query = '', lang = 'en') {
   }
   const cards = fixture.papers[lang].map(p => new Element({
     modality: p.modality, tasks: p.tasks.join(' '), training: p.training_tags.join(' '), order: String(p.order), date: p.sort_date, title: p.title,
-    search: [p.id,p.title,p.venue,p.model,p.training,p.workflow,p.modality].join(' ')
+    search: [p.id,p.title,p.venue,p.model,p.training,p.workflow,p.abstract.summary,p.modality].join(' ')
   }));
-  const ids = Object.fromEntries(['paper-list','search','task-filter','training-filter','sort','result-count','empty-state','reset-filters','empty-reset','filter-panel','toggle-filters','apply-filters','active-filter-count'].map(id => [id,new Element()]));
+  const ids = Object.fromEntries(['paper-list','search','training-filter','sort','result-count','empty-state','reset-filters','empty-reset','filter-panel','toggle-filters','apply-filters','active-filter-count'].map(id => [id,new Element()]));
   ids.search.tagName = 'INPUT';
-  for (const [key,values] of Object.entries({'task-filter':['all','D','L','E'],'training-filter':['all','training-free','sft','rl','other'],'sort':['catalog','newest','az']})) {
+  for (const [key,values] of Object.entries({'training-filter':['all','training-free','sft','rl','other'],'sort':['catalog','newest','az']})) {
     ids[key].options = values.map(value=>({value})); ids[key].value = values[0];
   }
   const list = ids['paper-list']; list.children = [...cards]; list.querySelectorAll = () => cards;
   list.append = c => { list.children = list.children.filter(x=>x!==c); list.children.push(c); };
   const buttons = ['all','audio','visual','text','cross-modal'].map(modality=>new Element({modality}));
+  const taskButtons = ['all','D','L','E'].map(task=>new Element({task}));
   const language = new Element(); language.attributes.href = lang==='en' ? 'zh/' : '../';
-  const doc = {getElementById:id=>ids[id], querySelectorAll:()=>buttons, querySelector:()=>language, body:{dataset:{resultLabel:'papers'}}, activeElement:new Element(), events:{}, addEventListener(name,fn){this.events[name]=fn;}};
+  const doc = {getElementById:id=>ids[id], querySelectorAll:selector=>selector==='.task-button'?taskButtons:buttons, querySelector:()=>language, body:{dataset:{resultLabel:'papers'}}, activeElement:new Element(), events:{}, addEventListener(name,fn){this.events[name]=fn;}};
   const location = new URL(`https://example.com/project/${lang==='zh'?'zh/':''}${query}`);
   const history = { replaceState(_a,_b,url){ const n=new URL(url,location.href);location.href=n.href; } };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../site/assets/app.js'),'utf8'), {document:doc,window:{location},location,history,URL,URLSearchParams});
-  return {ids,cards,list,buttons,doc,location,language,visible:()=>list.children.filter(c=>!c.hidden), set(id,value){ids[id].value=value;ids[id].events[id==='search'?'input':'change']();}, modality(value){buttons.find(b=>b.dataset.modality===value).events.click();},reset(){ids['reset-filters'].events.click();}};
+  return {ids,cards,list,buttons,taskButtons,doc,location,language,visible:()=>list.children.filter(c=>!c.hidden), set(id,value){ids[id].value=value;ids[id].events[id==='search'?'input':'change']();}, task(value){taskButtons.find(b=>b.dataset.task===value).events.click();}, modality(value){buttons.find(b=>b.dataset.modality===value).events.click();},reset(){ids['reset-filters'].events.click();}};
 }
 const app=start();
 test('initial static catalogue order retained',()=>assert.equal(app.visible().length,fixture.count));
 test('case-insensitive keyword search',()=>{app.set('search','tOoLdF');assert.equal(app.visible()[0].dataset.title.includes('ToolDF'),true);assert.equal(app.visible().length,1);});
 test('multiword model and workflow query',()=>{app.set('search','qwen separation');assert.equal(app.visible().length,1);});
 test('modality filters all groups',()=>{app.reset();for(const group of ['audio','visual','text','cross-modal']){app.modality(group);assert.equal(app.visible().length,fixture.papers.en.filter(p=>p.modality===group).length);}});
-test('modality task and training intersect',()=>{app.reset();app.modality('visual');app.set('task-filter','L');app.set('training-filter','rl');assert.ok(app.visible().length>0);assert.ok(app.visible().every(c=>c.dataset.modality==='visual'&&c.dataset.tasks.includes('L')&&c.dataset.training.includes('rl')));});
+test('modality task and training intersect',()=>{app.reset();app.modality('visual');app.task('L');app.set('training-filter','rl');assert.ok(app.visible().length>0);assert.ok(app.visible().every(c=>c.dataset.modality==='visual'&&c.dataset.tasks.includes('L')&&c.dataset.training.includes('rl')));});
+test('task buttons filter every task with one pressed state',()=>{app.reset();for(const task of ['D','L','E']){app.task(task);assert.equal(app.visible().length,fixture.papers.en.filter(p=>p.tasks.includes(task)).length);assert.equal(app.taskButtons.filter(b=>b.attributes['aria-pressed']==='true').length,1);assert.equal(app.taskButtons.find(b=>b.attributes['aria-pressed']==='true').dataset.task,task);}});
+test('abstract summaries are searchable while collapsed',()=>{app.reset();const p=fixture.papers.en[0];app.set('search',p.abstract.summary.split(/\s+/).slice(0,9).join(' '));assert.ok(app.visible().some(c=>c.dataset.title===p.title));assert.ok(app.visible().length<fixture.count);});
+test('task selection persists in URL and language link',()=>{app.reset();app.task('E');assert.equal(app.location.searchParams.get('task'),'E');assert.equal(new URL(app.language.href).searchParams.get('task'),'E');const deep=start('?task=E');assert.equal(deep.taskButtons.find(b=>b.dataset.task==='E').attributes['aria-pressed'],'true');assert.equal(deep.visible().length,fixture.papers.en.filter(p=>p.tasks.includes('E')).length);app.reset();assert.equal(app.taskButtons.find(b=>b.dataset.task==='all').attributes['aria-pressed'],'true');assert.equal(app.location.searchParams.has('task'),false);});
 test('empty state appears and reset works',()=>{app.set('search','zzzz-nothing-zzzz');assert.equal(app.visible().length,0);assert.equal(app.ids['empty-state'].hidden,false);app.ids['empty-reset'].events.click();assert.equal(app.visible().length,fixture.count);assert.equal(app.ids['empty-state'].hidden,true);assert.equal(app.ids.search.lastScroll.block,'center');});
 test('SFT+RL participates in both filters',()=>{app.set('training-filter','sft');assert.ok(app.visible().some(c=>c.dataset.training==='sft rl'));app.set('training-filter','rl');assert.ok(app.visible().some(c=>c.dataset.training==='sft rl'));});
 test('newest ordering uses source-backed full dates',()=>{app.reset();app.set('sort','newest');const dates=app.visible().map(c=>c.dataset.date);assert.deepEqual(dates,[...dates].sort().reverse());});
@@ -53,5 +57,5 @@ test('invalid URL parameters are ignored safely',()=>{const deep=start('?modalit
 test('Chinese catalogue shares filter behavior',()=>{const zh=start('?modality=cross-modal&task=L&training=rl','zh');assert.ok(zh.visible().length>0);assert.ok(zh.visible().every(c=>c.dataset.modality==='cross-modal'));assert.equal(new URL(zh.language.href).pathname,'/project/');});
 test('slash focuses search, not while editing',()=>{let prevented=false;app.doc.activeElement={tagName:'BODY'};app.doc.events.keydown({key:'/',preventDefault(){prevented=true;}});assert.equal(prevented,true);assert.equal(app.doc.activeElement,app.ids.search);});
 test('Escape clears search',()=>{app.set('search','not-a-paper');app.doc.events.keydown({key:'Escape'});assert.equal(app.ids.search.value,'');assert.ok(app.visible().length>0);});
-test('mobile filters open, close and preserve selections',()=>{app.reset();app.ids['toggle-filters'].events.click();assert.equal(app.ids['toggle-filters'].attributes['aria-expanded'],'true');app.modality('visual');app.set('task-filter','L');assert.equal(app.ids['active-filter-count'].textContent,'2');assert.equal(app.ids['active-filter-count'].hidden,false);app.ids['apply-filters'].events.click();assert.equal(app.ids['filter-panel'].dataset.open,'false');assert.equal(app.ids['toggle-filters'].attributes['aria-expanded'],'false');assert.ok(app.visible().every(c=>c.dataset.modality==='visual'));app.reset();assert.equal(app.ids['active-filter-count'].hidden,true);});
+test('mobile filters open, close and preserve selections',()=>{app.reset();app.ids['toggle-filters'].events.click();assert.equal(app.ids['toggle-filters'].attributes['aria-expanded'],'true');app.modality('visual');app.task('L');assert.equal(app.ids['active-filter-count'].textContent,'2');assert.equal(app.ids['active-filter-count'].hidden,false);app.ids['apply-filters'].events.click();assert.equal(app.ids['filter-panel'].dataset.open,'false');assert.equal(app.ids['toggle-filters'].attributes['aria-expanded'],'false');assert.ok(app.visible().every(c=>c.dataset.modality==='visual'));app.reset();assert.equal(app.ids['active-filter-count'].hidden,true);});
 console.log(`${assertions} filter integration checks passed.`);

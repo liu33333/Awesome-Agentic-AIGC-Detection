@@ -1,0 +1,257 @@
+{
+  "description": "Original bilingual paraphrases of primary-source paper abstracts, not verbatim quotations. Paper identities are synchronized with the bilingual README catalog.",
+  "papers": [
+    {
+      "id": "tooldf",
+      "source_url": "https://aclanthology.org/2026.findings-emnlp.842/",
+      "source_title": "ToolDF: Tool-Integrated Reasoning for Mixed-Authenticity Audio Deepfake Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "ToolDF addresses recordings that mix authentic and fabricated audio across time, overlapping sound sources, or both. Rather than assigning one label without inspecting the mixture, an audio language model coordinates a selective investigation. Training examples teach it to assess the scene, separate sources when useful, consult domain-specific detectors, and combine their findings into an explanation. The paper also introduces a benchmark for these mixture types. Reported experiments favor this adaptive approach over monolithic and fixed-pipeline alternatives, while linking decisions to particular time regions and sound sources.",
+      "zh": "ToolDF 面向真实与伪造内容在时间片段、重叠声源或两者中共同存在的音频。它由音频语言模型协调分析，而非直接给整段录音贴标签。通过工具使用轨迹训练，模型学习判断场景、按需分离声源、调用领域专用检测器，并整合证据形成解释。论文还提出覆盖多类混合情况的基准。实验表明，这种自适应流程优于所比较的单体模型和固定流水线，并能将判断依据定位到具体时段和声源。"
+    },
+    {
+      "id": "sear",
+      "source_url": "https://arxiv.org/abs/2609.39847",
+      "source_title": "SEAR: Spoofing Evidence-Grounded Audio Reasoning Benchmark for Audio Language Models",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "SEAR examines whether audio deepfake explanations are supported by measurable acoustic clues, rather than merely sounding convincing. Its benchmark tests evidence recognition, evidence measurement, authenticity decisions, and forensic explanations. The accompanying BAEA agent adds controlled acoustic analysis tools to a frozen audio language model, using either predetermined or adaptive evidence collection. Evaluations expose a disconnect between fluent rationales and grounded reasoning. The fixed-policy agent improves decisions and explanations in the reported experiments, while deliberately misleading evidence harms both detection and the connection between explanations and observations.",
+      "zh": "SEAR 关注音频深伪解释是否有可测量的声学线索支撑，而非仅仅听起来合理。基准覆盖证据识别、证据量化、真伪判断和取证解释。配套的 BAEA 智能体为冻结的音频语言模型接入受控声学工具，以固定或自适应策略收集证据。评测发现，流畅解释与基于证据的推理之间存在明显差距。实验中的固定策略改善了判断和解释质量，而误导性证据同时损害检测表现与解释的证据一致性。"
+    },
+    {
+      "id": "atar",
+      "source_url": "https://arxiv.org/abs/2609.39066",
+      "source_title": "Agentic Tool-Augmented Reasoning for Explainable Image Forgery Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "ATAR treats image forgery analysis as an investigation in which explanations emerge from gathered evidence. A semantic reasoning branch enlarges suspicious image regions, while an artifact-focused branch calls specialized forensic tools to inspect less visible inconsistencies. The agent learns multi-step tool use through a curriculum combining teacher-generated demonstrations and reinforcement learning, with rewards that evaluate the evidence process. Across manipulation, deepfake, and generated-image tasks, the paper reports improved detection and more grounded explanations, including strong generalization on image-manipulation benchmarks without task-specific testing examples.",
+      "zh": "ATAR 将图像伪造分析视为从证据逐步形成解释的调查过程。语义分支放大可疑区域进行细查，伪迹分支调用专用取证工具检查不易察觉的不一致。模型通过结合教师生成示范与强化学习的课程训练学习多轮工具使用，并由证据过程相关奖励引导。论文在图像篡改、深伪和生成图像任务上报告了检测与解释质量的提升，其中在零样本图像篡改基准上也展示了较强的泛化能力。"
+    },
+    {
+      "id": "defake-o3",
+      "source_url": "https://arxiv.org/abs/2608.16259",
+      "source_title": "Defake-o3: From Speculative Rationales to Verifiable Evidence for Explainable AIGI Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "Defake-o3 seeks to replace vague claims about generated images with evidence that a viewer can inspect. The detector repeatedly magnifies suspicious regions, while a learned verifier rewards explanations supported by localized visual clues and discourages unsupported assertions during reinforcement learning. GroundFake supplies annotated regions, human judgments of evidence validity, and corrected reasoning examples. FakeFrontier tests generalization to recent image generators outside the training distribution. The reported evaluations indicate gains in authenticity classification and explanation quality, with conclusions tied more clearly to specific visible details.",
+      "zh": "Defake-o3 旨在用可供查看的证据替代生成图像检测中的模糊推测。模型反复放大可疑区域，并在强化学习中利用学习得到的验证器奖励有局部视觉线索支持的解释、惩罚无依据的断言。GroundFake 提供区域标注、人工证据有效性判断及修正后的推理示范；FakeFrontier 则评测对训练分布外近期生成器的泛化。实验报告了真伪分类和解释质量的提升，使结论更明确地对应到可见细节。"
+    },
+    {
+      "id": "dvar",
+      "source_url": "https://arxiv.org/abs/2604.16987",
+      "source_title": "DVAR: Adversarial Multi-Agent Debate for Video Authenticity Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "DVAR investigates video authenticity through a structured debate without additional training. One agent argues for a generated origin and another for a natural explanation, with repeated challenges testing how well each account explains suspicious observations. An explanatory-cost criterion inspired by minimum description length favors accounts that require fewer unsupported assumptions. A changing knowledge repository supplies guidance about generator limitations and failure patterns. Experiments report competitive detection against supervised approaches and improved transfer to unfamiliar generators, while the debate provides an inspectable record of how the decision was reached.",
+      "zh": "DVAR 无需额外训练，通过结构化辩论判断视频真伪。一名智能体提出生成来源假说，另一名提出自然机制解释，双方反复质询各自对异常现象的解释能力。基于最小描述长度思想的解释成本准则倾向于需要更少额外假设的推理路径；动态知识库则提供生成器能力边界与失败模式的线索。实验显示其检测表现可与监督方法竞争，并能较好地迁移到未知生成器，同时保留可检查的决策推理记录。"
+    },
+    {
+      "id": "forgeryvcr",
+      "source_url": "https://arxiv.org/abs/2602.14098",
+      "source_title": "ForgeryVCR: Visual-Centric Reasoning via Efficient Forensic Tools in MLLMs for Image Forgery Detection and Localization",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "ForgeryVCR argues that describing subtle pixel-level manipulation traces entirely in words can encourage hallucination. It instead uses forensic tools to turn hidden cues into visual evidence that a multimodal model can inspect. Training first constructs useful tool-use demonstrations and then applies reinforcement learning with rewards for tool utility. The resulting agent chooses among close-up inspection and analyses of compression, noise, and frequency information. Reported experiments show strong forgery detection and localization, with improved robustness and generalization while avoiding unnecessary repeated tool calls.",
+      "zh": "ForgeryVCR 认为，将细微像素级篡改痕迹完全转述为文字容易诱发幻觉，因此利用取证工具把隐藏线索转化为多模态模型可直接检查的视觉证据。训练先构建有价值的工具使用示范，再通过工具效用奖励进行强化学习。智能体据此选择局部放大，或分析压缩、噪声及频域信息。论文报告了较强的伪造检测与定位表现，并在减少冗余工具调用的同时提升鲁棒性和泛化能力。"
+    },
+    {
+      "id": "forenagent",
+      "source_url": "https://arxiv.org/abs/2512.16300",
+      "source_title": "Code-in-the-Loop Forensics: Agentic Tool Use for Image Forgery Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "ForenAgent connects semantic image understanding with low-level forensic analysis by letting a multimodal model write, run, and revise Python tools during an investigation. Its iterative workflow moves from an overall assessment to focused inspection, further probing, and a final judgment that combines the findings. Cold-start training followed by reinforcement fine-tuning develops these interactions, with process rewards reflecting the intended reasoning cycle. The accompanying FABench dataset supports training and evaluation. Experiments demonstrate adaptive tool use and reflective reasoning on difficult forgery-detection examples, suggesting a route toward more flexible forensic agents.",
+      "zh": "ForenAgent 让多模态模型在调查过程中编写、执行和修订 Python 工具，连接语义图像理解与底层取证分析。其循环流程从整体观察进入局部聚焦和反复探查，最后综合证据作出判断。冷启动训练与后续强化微调逐步培养工具交互能力，过程奖励对应这一推理循环。配套的 FABench 数据集用于训练和评测。实验展示了模型在困难伪造检测样例上的自适应工具使用与反思推理能力，为更灵活的通用取证智能体提供了方向。"
+    },
+    {
+      "id": "safeguard",
+      "source_url": "https://arxiv.org/abs/2607.03069",
+      "source_title": "SafeGuard: A Multi-Agent Perception-Reasoning Framework for Social-Risk AI-Generated Video Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "SafeGuard addresses generated videos whose realistic appearance can conceal violations of physical or social expectations. It combines specialized forensic perception with semantic reasoning rather than relying on either alone. A hierarchical component extracts detailed manipulation clues, and a reflective verifier checks whether the interpretation remains consistent with physical plausibility, producing an evidence chain. The paper introduces SafeVid to test structural consistency, plausible behavior, and related social-risk scenarios. Evaluations report improved detection on this benchmark and several existing datasets, supporting the value of combining fine-grained inspection with higher-level reasoning.",
+      "zh": "SafeGuard 面向外观逼真、却可能违反物理规律或社会行为常识的生成视频。框架协同使用专门的取证感知与语义推理，而非只依赖其中一种能力。分层感知模块提取细粒度伪迹，自反式验证器检查解释是否符合物理合理性，并形成证据链。论文提出 SafeVid 基准，评测结构一致性、行为合理性及相关社会风险场景。实验在该基准与多个现有数据集上报告了检测提升，支持细节检查与高层推理结合的价值。"
+    },
+    {
+      "id": "dissecting-agentic-forensics",
+      "source_url": "https://arxiv.org/abs/2609.24359",
+      "source_title": "Dissecting Agentic Forensics: The Role of Triage, Prompting, and Evidence Arbitration in Open-World Fake Image Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "This study asks which parts of an agentic image-forensics workflow actually help when manipulation types and data distributions change. It compares training-free configurations that combine specialist detectors, reliability screening, and a judge that resolves contradictory evidence. Simply merging detector outputs produces many false alarms on real images; screening and better prompts reduce these errors. The judge's reasoning ability has the strongest influence, especially outside the original distribution. Since manipulation recall is already high across the tested configurations, the authors identify appropriate trust in tools and conflict resolution as central remaining challenges.",
+      "zh": "该研究考察图像伪造类型和数据分布变化时，智能体取证流程中的哪些环节真正有效。作者比较了由专用检测器、可靠性筛查和冲突证据裁决组成的免训练配置。简单融合检测结果会对真实图像产生大量误报，而筛查和更好的提示能缓解这一问题。裁决模型的推理能力影响最大，尤其是在分布外情形中。由于各配置的篡改召回率已较高，研究将合理信任工具和解决证据冲突视为尚待解决的核心挑战。"
+    },
+    {
+      "id": "fact",
+      "source_url": "https://arxiv.org/abs/2609.05876",
+      "source_title": "FACT: A Forensic Agent with Compiled Tool-Use Trajectories for AI-Generated Image Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "FACT learns to choose forensic analyses according to the image instead of applying the same detector recipe to every input. The agent selects tools, interprets their outputs, and ends the investigation once the evidence is adequate. Its training pipeline develops an executable forensic skill, converts that skill into tool actions paired with observations, transfers the resulting examples to a smaller agent, and refines decisions with cost-aware reinforcement learning. Across the reported internal and public evaluations, FACT outperforms the compared methods, including tests involving unfamiliar generators, deepfakes, and edited images.",
+      "zh": "FACT 根据待检图像学习选择取证分析方式，而不是对所有输入采用同一套固定检测流程。智能体选择工具、解释输出，并在证据充分时停止调查。训练流程先发展可执行的取证技能，再将其编译为工具动作与观察配对的轨迹，用于训练较小的智能体，最后通过考虑调用成本的强化学习优化决策。在论文报告的内部与公开评测中，FACT 优于所比较的方法，测试范围包括未知生成器、深伪和编辑图像。"
+    },
+    {
+      "id": "pate-forensics",
+      "source_url": "https://arxiv.org/abs/2608.18573",
+      "source_title": "PATE-Forensics: Perception-as-Tool for Explainable Deepfake Forensics with General-Purpose MLLMs",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "PATE-Forensics separates forensic perception from explanation rather than asking one adapted multimodal model to do everything. A DINOv3-based tool combines whole-image, patch, and segment evidence for detection, then turns local cues into maps that guide forgery localization. Its outputs and the original image provide structured context for a general-purpose multimodal model, which writes explanations under prompt constraints without task-specific fine-tuning. The authors report leading performance in the DDL-X explainable-forensics challenge, illustrating how specialized visual analysis can support an otherwise general-purpose explanation model.",
+      "zh": "PATE-Forensics 将取证感知与解释生成分开，而非让单个适配后的多模态模型承担全部任务。其基于 DINOv3 的工具融合整图、图块和分割区域的证据进行检测，并把局部线索转换为分数图，以引导伪造区域定位。原图和工具输出共同构成结构化上下文，通用多模态模型在提示约束下生成解释，无需针对该任务微调。作者报告该方法在 DDL-X 可解释取证挑战中取得领先成绩，展示了专用视觉分析工具与通用解释模型结合的潜力。"
+    },
+    {
+      "id": "argus",
+      "source_url": "https://arxiv.org/abs/2608.06865",
+      "source_title": "Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "This work tackles weak generalization and limited explanatory annotations in deepfake-video detection. It introduces FaceVid-Forensics-100K, covering several face-forgery families and recent generators, with observation descriptions and forensic explanations produced through model aggregation and conflict resolution. Its detection framework assigns separate agents to inspect texture, lighting, motion, and physical plausibility. A judging agent combines their reports into an authenticity decision and explanation. The authors report strong out-of-domain results with small open-source multimodal models, supporting the value of complementary forensic perspectives over single-view analysis.",
+      "zh": "该研究针对深伪视频检测泛化不足、细粒度解释标注有限的问题，提出 FaceVid-Forensics-100K 数据集，覆盖多类人脸伪造方式及较新的生成模型，并通过多模型汇总与冲突消解生成视觉观察描述和取证解释。检测框架让不同智能体分别分析纹理、光照、运动与物理合理性，再由裁决智能体综合报告，输出真实性判断及解释。作者报告由较小开源多模态模型组成的系统在域外测试中表现良好，说明互补的取证视角有助于弥补单一分析方式的局限。"
+    },
+    {
+      "id": "hermes",
+      "source_url": "https://proceedings.mlr.press/v306/li26be.html",
+      "source_title": "Hermes: An Evidence-Driven Agentic Framework for Trustworthy and Explainable AI-Generated Video Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "Hermes addresses hallucinated evidence and inconsistent reasoning in multimodal detection of generated videos. It first retrieves relevant verification knowledge to design a strategy tailored to each video. A structured evidence graph then links reasoning to observable video content, while multiple agents review that graph and reconcile disagreements. The framework combines this process with forensic tools to produce decisions whose supporting evidence can be inspected. Reported experiments show improved detection and auditable explanations, emphasizing evidence management and verification rather than unconstrained model judgments.",
+      "zh": "Hermes 针对多模态生成视频检测中的证据幻觉和推理不稳定问题，先检索相关鉴真知识，为每段视频制定适合的检测策略，再用结构化证据图把推理与可观察的视频内容联系起来。多个智能体审查证据图并处理分歧，结合取证工具形成能够核查依据的判断。作者报告实验显示其检测表现较强，同时能够生成可审计的解释；核心思路是在判断过程中持续组织和验证证据，而非依赖缺乏约束的模型推断。"
+    },
+    {
+      "id": "foreagent",
+      "source_url": "https://arxiv.org/abs/2606.26552",
+      "source_title": "Perception, Verdict, and Evolution: Hindsight-Driven Self-Refining Forensics Agent for AI-Generated Image Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "ForeAgent combines richer forensic perception with a training-time process for improving its own reasoning. Its perception stage collects semantic, spatial, and frequency information, and a multimodal verdict module integrates those cues into an authenticity judgment. During self-refinement, known training labels help the agent revisit failures and weak reasoning paths, regenerate better explanations, and retain samples only after expert quality checks. Fine-tuning on these curated examples updates the model. The authors report improved image-detection performance and more consistent, causally grounded reasoning on their evaluations.",
+      "zh": "ForeAgent 将更丰富的取证感知与训练阶段的自我改进过程结合。感知模块收集语义、空间和频域信息，多模态裁决模块再综合这些线索作出真实性判断。自我精炼时，训练标签作为事后依据，帮助智能体回顾失败案例和较差推理路径、重新生成更好的解释，并通过专家质量筛选保留样本。模型随后利用这些自行整理的数据微调更新。作者在评测中报告了较好的图像检测表现，以及更加一致、具有因果依据的推理。"
+    },
+    {
+      "id": "unishield",
+      "source_url": "https://arxiv.org/abs/2510.03161",
+      "source_title": "UniShield: An Adaptive Multi-Agent Framework for Unified Forgery Image Detection and Localization",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "UniShield aims to make forgery detection and localization work across image editing, manipulated documents, deepfakes, and generated images within one adaptive system. Rather than relying on a detector specialized for only one domain, a perception agent examines the input and selects an appropriate expert model. A detection agent organizes the available specialists and produces interpretable reports from their results. The authors report improvements over both unified baselines and domain-specific approaches, presenting adaptive expert selection as a way to increase practical coverage and scalability.",
+      "zh": "UniShield 希望在同一个自适应系统中处理图像篡改、文档篡改、深伪和生成图像的检测与定位。它不单独依赖某一领域的专用检测器，而是由感知智能体分析输入并选择合适的专家模型，再由检测智能体整合这些专用模型的能力，根据结果生成可解释报告。作者报告该系统优于所比较的统一方法和领域专用方法，强调通过自适应专家选择扩大实际应用覆盖范围，并提高系统的可扩展性。"
+    },
+    {
+      "id": "vrag-dfd",
+      "source_url": "https://arxiv.org/abs/2604.13660",
+      "source_title": "VRAG-DFD: Verifiable Retrieval-Augmentation for MLLM-based Deepfake Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "VRAG-DFD investigates how multimodal deepfake detectors can obtain relevant forensic knowledge while avoiding blind trust in noisy references. It combines retrieval-augmented generation with reinforcement learning, introducing a forensic knowledge database and a reasoning dataset designed to support critical assessment of retrieved evidence. Training proceeds through alignment, supervised fine-tuning, and GRPO optimization so that the model learns both to use external knowledge and to question it. The reported generalization evaluations show competitive detection performance, highlighting retrieval and verification as complementary parts of forensic reasoning.",
+      "zh": "VRAG-DFD 研究多模态深伪检测器如何获取相关取证知识，同时避免盲目信任含噪参考信息。它结合检索增强生成与强化学习，构建取证知识库和推理数据集，以支持模型批判性地评估检索证据。训练依次经过对齐、监督微调和 GRPO 优化，使模型既能利用外部知识，也能审视其可靠性。作者报告该方法在泛化测试中取得有竞争力的检测表现，强调知识检索与证据核验是取证推理中相互补充的环节。"
+    },
+    {
+      "id": "agentfox",
+      "source_url": "https://arxiv.org/abs/2603.23115",
+      "source_title": "AgentFoX: LLM Agent-Guided Fusion with eXplainability for AI-Generated Image Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "AgentFoX addresses disagreements among image-forensics experts when generators or image processing conditions vary. A language-model coordination core directs evidence collection, combines semantic and signal-based findings, and produces an authenticity decision with an auditable report. Expert profiles describe detector reliability, while clustering profiles supply context about the data being examined. Together, these profiles help the system assess conflicting predictions for each input instead of applying a fixed fusion rule. Evaluations across multiple benchmarks report robustness and generalization under varied forensic conditions.",
+      "zh": "AgentFoX 针对生成来源或图像处理条件变化时，不同取证专家预测相互冲突的问题。语言模型协调核心安排证据收集，结合语义与信号层面的发现，输出真实性判断和可审计报告。专家画像描述检测器的可靠性，聚类画像提供待分析数据的背景，两者共同帮助系统针对具体输入评估冲突预测，而非套用固定融合规则。作者通过多个基准的实验报告了该框架在不同取证条件下的鲁棒性和泛化能力。"
+    },
+    {
+      "id": "evoguard",
+      "source_url": "https://arxiv.org/abs/2603.17343",
+      "source_title": "EvoGuard: An Extensible Agentic RL-based Framework for Practical and Evolving AI-Generated Image Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "EvoGuard treats generated-image detection as learning to combine evidence from existing detectors instead of building another standalone classifier. The agent profiles detector capabilities, chooses complementary sources for each image, and revisits uncertain or conflicting outputs over multiple reasoning rounds. GRPO-based reinforcement learning uses binary authenticity labels, avoiding detailed reasoning annotations. The authors report gains over individual detectors and static ensembles, along with reduced imbalance between real and generated examples. They also describe adding new detectors without retraining, making the framework adaptable as detection tools evolve.",
+      "zh": "EvoGuard 将生成图像检测视为学习整合现有检测器证据的过程，而不是再训练一个独立分类器。智能体根据检测器能力画像，为每张图像选择互补的信息来源，并通过多轮推理复核不确定或相互冲突的输出。基于 GRPO 的强化学习只使用真实性二元标签，避免依赖详细推理标注。作者报告其表现优于单个检测器和静态集成，并减轻真实与生成样本之间的预测偏差；系统还支持无需重新训练地接入新检测器，以适应工具不断演进。"
+    },
+    {
+      "id": "aifo",
+      "source_url": "https://arxiv.org/abs/2511.00181",
+      "source_title": "From Evidence to Verdict: An Agent-Based Forensic Framework for AI-Generated Image Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "AIFo frames generated-image detection as a collaborative forensic investigation rather than a single classifier prediction. Without task-specific training, agents gather evidence from reverse image search, metadata, pretrained detectors, and vision-language analysis. A structured debate handles missing or contradictory evidence before the final judgment, while an optional memory component allows information from earlier cases to inform the process. Experiments include both controlled and difficult real-world images. The authors report stronger detection than the tested classifier and vision-language baselines, supporting the usefulness of procedural, multi-source reasoning.",
+      "zh": "AIFo 将生成图像检测组织为协同取证调查，而非单次分类器预测。无需针对任务训练，多个智能体通过反向图像搜索、元数据、预训练检测器和视觉语言分析收集证据。在最终裁决前，结构化辩论用于处理证据不足或相互矛盾的情况，可选记忆模块还允许参考历史案例的信息。实验同时涵盖受控环境和具有挑战性的真实场景图像。作者报告该框架优于所比较的分类器和视觉语言基线，体现了流程化、多来源推理的价值。"
+    },
+    {
+      "id": "aigt-agent",
+      "source_url": "https://aclanthology.org/2026.findings-emnlp.272/",
+      "source_title": "Beyond Text-Intrinsic Features: An Agentic Framework for Evidence-Based AI-Generated Text Detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "AIGT-Agent addresses false alarms that arise when text detectors mistake formal human writing for machine output. An LLM coordinates several detection models and retrieves online material to incorporate evidence beyond the passage itself. Evaluation across multiple real-world sources finds that this combination improves on individual detectors. Search is especially useful when detectors disagree or collectively reach the wrong conclusion, allowing external context to correct their judgments. The paper also examines remaining failures and outlines limitations of evidence-based text provenance detection.",
+      "zh": "AIGT-Agent 针对检测器容易将正式、结构化的人类写作误判为机器文本的问题，让大语言模型协调多个检测模型，并检索网络资料，引入文本本身之外的证据。跨多个真实来源的评测显示，这种组合优于单独的检测器。在线检索尤其有助于纠正检测器意见分歧或共同误判的情况。论文还分析了失败案例，讨论了基于外部证据判断文本来源的局限。"
+    },
+    {
+      "id": "qwen-langgraph",
+      "source_url": "https://link.springer.com/article/10.1007/s10791-026-10710-z",
+      "source_title": "Performance evaluation and interpretability of a Qwen LangGraph agent for AI written and AI rewritten text detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "This study examines a Qwen–LangGraph agent that first distinguishes human from AI text and then separates directly generated passages from AI rewrites. It compares the agent with lexical and transformer classifiers using combined corpora and examples from one rewriting workflow. A transformer performs best on binary provenance discrimination, while the agent leads selected threshold-based rewriting metrics but not ranking metrics. Explanations include linguistic diagnostics, sentence indicators, and tool-routing traces. The authors frame the system as decision support rather than evidence sufficient to establish misconduct.",
+      "zh": "研究评估了一个 Qwen–LangGraph 智能体：先区分人类与 AI 文本，再识别直接生成和 AI 改写。作者使用组合语料及单一改写流程产生的样本，与词汇分类器和 Transformer 模型比较。Transformer 在二元来源判别上表现最好；智能体在部分基于阈值的改写识别指标上领先，但排序指标并不占优。系统提供语言诊断、句子级线索和工具调用轨迹。作者强调其定位是辅助判断，而非认定不当行为的充分证据。"
+    },
+    {
+      "id": "falcon",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S003132032602203X",
+      "source_title": "LLM as a forensic reasoner: Expert-guided video deepfake detection across modalities",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "FALCON treats video deepfake detection as the interpretation of forensic evidence rather than direct classification of raw video. Specialist modules extract compact symbolic clues, and an LLM combines them into an explained judgment. This division supplies domain-specific forensic knowledge while reducing the burden of processing high-dimensional video inside the language model. A human-in-the-loop training process develops and checks reasoning explanations. The authors report strong detection and cross-domain generalization, including on diffusion-generated forgeries, supporting the usefulness of separating expert signal analysis from higher-level reasoning.",
+      "zh": "FALCON 将视频深度伪造检测建模为取证证据的推理，而非直接对原始视频分类。专门模块提取紧凑的符号化线索，再由大语言模型综合形成带解释的判断。这种分工提供了领域取证知识，也降低了语言模型直接处理高维视频的负担。训练流程引入人工参与，生成并验证推理说明。作者报告了较强的检测和跨域泛化表现，包括扩散模型生成的伪造内容，展示了底层信号分析与高层推理分离的价值。"
+    },
+    {
+      "id": "enf-framework",
+      "source_url": "https://arxiv.org/abs/2610.22440",
+      "source_title": "An Agentic ENF Framework for Forensic Video Authentication Against Generative AI",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "This framework investigates electric network frequency traces in audio and video as evidence for recording authentication. It combines shared signal extraction, synthetic-injection training, matching against a reference recording, and an orchestrator that consults costly manipulation detectors only when needed. A key finding is that generated videos can also contain plausible ENF-band flicker, so merely detecting the signal cannot establish authenticity. Verification instead depends on agreement with an independent trusted reference. Experiments assess genuine-recording acceptance, timestamp verification, and the efficiency of selective detector escalation.",
+      "zh": "该框架研究如何利用音频和视频中的电网频率痕迹验证录制真实性。方法结合共享信号提取、合成注入训练、参考记录匹配，以及按需调用高成本篡改检测器的编排机制。重要发现是生成视频同样可能包含看似真实的电网频率闪烁，因此仅发现这种信号不足以证明真实性；验证必须依赖与独立可信参考的一致性。实验考察真实录制的接受情况、时间戳验证能力以及选择性升级检测带来的效率。"
+    },
+    {
+      "id": "adaptive-multi-agent",
+      "source_url": "https://spiral.imperial.ac.uk/entities/publication/4b81d501-cc27-478b-bde1-a847e744d97e",
+      "source_title": "A multi-agent framework with adaptive orchestration for explainable multi-modal deepfake detection",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "The framework separates audiovisual deepfake analysis into specialist agents covering facial and image cues, speaker features, lip synchronization, spatial patterns, and frequency artifacts. When initial agents disagree, an orchestrator requests additional analysis, and a reporting agent combines their explanations. Results show strong within-source performance, but external evaluation exposes weaknesses on video-only manipulation alongside better detection of forged speech. Escalation supplies more evidence and can reduce errors under distribution shifts. The work emphasizes inspectable modality-specific judgments and the ability to address weaknesses by adding suitable specialists.",
+      "zh": "该框架将音视频深度伪造分析分给多个专门智能体，分别检查人脸与图像线索、说话人特征、口型同步、空间模式和频域伪影。初步判断不一致时，编排器启动补充分析，再由报告智能体汇总各自的解释。系统在同来源测试中表现较强，但外部评测揭示了纯视频篡改检测的弱点，相比之下伪造语音检测更好。升级分析可补充证据并减少分布变化下的错误，加入合适的专门模块也有助于改善薄弱环节。"
+    },
+    {
+      "id": "mm-veriagent",
+      "source_url": "https://arxiv.org/abs/2609.30698",
+      "source_title": "MM-VeriAgent: Learning to Use Extensive Tools to Verify Multimodal Misinformation with Reinforcement Learning",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "MM-VeriAgent learns which tools to use when multimodal misinformation combines different kinds of forgery. Its toolkit packages selected text, image, and cross-modal analysis methods behind a common interface. Reinforcement learning trains a vision-language agent to gather useful evidence without explicit tool search during inference. To make training practical, a cache stores precomputed tool responses for reuse across multi-step rollouts. Experiments on MMFakeBench report improved accuracy over the underlying model, while ablations examine the learned tool policy and reductions in online tool execution during training.",
+      "zh": "MM-VeriAgent 面向混合多种伪造来源的多模态错误信息，学习选择合适的验证工具。工具集将筛选出的文本、图像及跨模态分析方法封装为统一接口，再通过强化学习训练视觉语言智能体收集有效证据，无需在推理时显式搜索工具路径。为提高训练效率，系统缓存预先计算的工具响应，供多步训练轨迹重复使用。MMFakeBench 实验显示其准确率优于基础模型；消融实验进一步检验工具策略与缓存减少在线工具执行的作用。"
+    },
+    {
+      "id": "omnivl-guard-pro",
+      "source_url": "https://arxiv.org/abs/2605.16962",
+      "source_title": "OmniVL-Guard Pro: A Tool-Augmented Agent for Omnibus Vision-Language Forensics",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "OmniVL-Guard Pro extends vision-language forensics with external search and fine-grained visual tools, addressing limits of fixed model knowledge and image resolution. Its environment supports event lookup, cropping, anomaly inspection, face detection, frame extraction, and segmentation. A branching trajectory-generation process creates tool-use training examples, followed by reinforcement learning that checks intermediate reasoning rather than rewarding final answers alone. The paper reports competitive results across forensic tasks and generalization without task-specific examples. Its central proposal is to gather additional evidence instead of relying entirely on a self-contained multimodal model.",
+      "zh": "OmniVL-Guard Pro 通过外部搜索和细粒度视觉工具扩展视觉语言取证，缓解模型知识固定、感知分辨率有限的问题。工具环境支持事件检索、裁剪、异常检查、人脸检测、视频抽帧和分割。系统通过分支式轨迹生成构建工具使用训练样本，再使用检查中间推理过程的强化学习，而非只奖励最终答案。论文报告了多项取证任务及零样本泛化的实验表现，核心思路是主动获取额外证据，而非完全依赖模型自身的判断。"
+    },
+    {
+      "id": "t2agent",
+      "source_url": "https://arxiv.org/abs/2505.19768",
+      "source_title": "T^2Agent A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "T²Agent investigates misinformation assembled from multiple forgery sources using an expandable toolkit and Monte Carlo tree search. A greedy selector first narrows the available tools to those relevant to the sample, avoiding unnecessary calls. Tree search then explores evidence-gathering routes, with coordinated subtasks for different forgery types. Rewards account for both reasoning trajectories and confidence to balance further exploration against pursuing promising evidence. Experiments and ablations support the contributions of tool use and search, with the system presented as a detector that does not require additional training.",
+      "zh": "T²Agent 利用可扩展工具集与蒙特卡洛树搜索，检测混合多种伪造来源的多模态错误信息。贪心选择器先筛选与当前样本相关的工具，避免不必要的调用；树搜索随后探索证据收集路径，并通过协同子任务分析不同伪造类型。奖励同时考虑推理轨迹和置信度，以平衡继续探索与利用已有有效证据。实验及消融研究支持工具使用和搜索机制的作用，整个方法无需额外训练。"
+    },
+    {
+      "id": "fakehunter",
+      "source_url": "https://arxiv.org/abs/2508.14581",
+      "source_title": "Memory-Anchored Multimodal Reasoning for Explainable Video Forensics",
+      "verified_on": "2026-11-08",
+      "status": "verified",
+      "en": "FakeHunter combines retrieval of authentic audiovisual examples with iterative reasoning and selectively invoked forensic tools. Image and audio embeddings identify relevant reference examples, helping the system contextualize suspicious content and explain possible manipulations. When confidence is low, it gathers more detailed evidence through operations such as image-region inspection and audio spectrogram analysis. The paper also introduces X-AVFake, a benchmark annotated for manipulation type, affected entities or regions, reasoning, and explanations. Reported evaluations and ablations attribute improvements in robustness and explanation quality to both contextual retrieval and targeted tool use.",
+      "zh": "FakeHunter 将真实音视频样例检索、迭代推理和按需调用取证工具结合起来。图像与音频表示用于寻找相关参考样例，帮助系统理解可疑内容的上下文并解释可能的篡改。当置信度不足时，系统进一步检查图像局部或音频频谱，获取更细致的证据。论文同时提出 X-AVFake 基准，标注篡改类型、受影响实体或区域、推理类别和解释。评测及消融结果将鲁棒性和解释质量的改善归因于上下文检索与针对性工具调用。"
+    }
+  ]
+}
