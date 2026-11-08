@@ -2,6 +2,10 @@
 
 [English](README.md) · **简体中文**
 
+**[浏览可搜索的网站 →](https://liu33333.github.io/Awesome-Agentic-AIGC-Detection/zh/)** · **[English website →](https://liu33333.github.io/Awesome-Agentic-AIGC-Detection/)**
+
+支持标题、模型与流程搜索，以及模态、任务和训练方式筛选；网站内容由 README 自动生成。
+
 [简介](#intro) · [动态](#news) · [音频](#audio) · [视觉（图像与视频）](#visual) · [文本](#text) · [跨模态](#cross-modal) · **[技术对比 →](docs/COMPARISON_CN.md)** · [相关综述](#surveys) · [资源](#resources) · [链接检查](#link-checks)
 
 <a name="intro"></a>

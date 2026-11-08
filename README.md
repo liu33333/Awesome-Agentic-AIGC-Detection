@@ -2,6 +2,10 @@
 
 **English** · [简体中文](README_CN.md)
 
+**[Explore the searchable website →](https://liu33333.github.io/Awesome-Agentic-AIGC-Detection/)** · **[中文版网站 →](https://liu33333.github.io/Awesome-Agentic-AIGC-Detection/zh/)**
+
+Search by title, model or workflow; filter by modality, task and training. The website is generated automatically from this README.
+
 [Intro](#intro) · [News](#news) · [Audio](#audio) · [Visual (images & videos)](#visual) · [Text](#text) · [Cross-modal](#cross-modal) · **[Technical comparison →](docs/COMPARISON.md)** · [Surveys](#surveys) · [Resources](#resources) · [Link checks](#link-checks)
 
 <a name="intro"></a>
