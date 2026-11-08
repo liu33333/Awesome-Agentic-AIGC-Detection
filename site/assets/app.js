@@ -73,7 +73,18 @@
   [task, training, sort].forEach(control => control.addEventListener('change', update));
   buttons.forEach(button => button.addEventListener('click', () => { modality = button.dataset.modality; update(); }));
   $('reset-filters').addEventListener('click', reset);
-  $('empty-reset').addEventListener('click', () => { reset(); search.focus(); });
+  $('empty-reset').addEventListener('click', () => {
+    reset();
+    search.focus();
+    search.scrollIntoView({ block: 'center', behavior: 'auto' });
+  });
+  document.querySelector('.language-link').addEventListener('click', event => {
+    const link = event.currentTarget;
+    const target = new URL(link.href, location.href);
+    target.search = location.search;
+    target.hash = location.hash;
+    link.href = target.href;
+  });
   document.addEventListener('keydown', event => {
     const editing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) || document.activeElement.isContentEditable;
     if (event.key === '/' && !editing && !event.metaKey && !event.ctrlKey && !event.altKey) { event.preventDefault(); search.focus(); }
